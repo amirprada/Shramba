@@ -1,0 +1,439 @@
+<title>Wurzel-Werkstatt 19</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: Heftseite auf Karopapier – schmale Lesespalte, Aufgabenkarten als Tabs, darunter Werkstatt und Übung */
+:root {
+  --paper: #fbfcfe;
+  --grid: #e3e9f3;
+  --ink: #1b2233;
+  --muted: #5d6778;
+  --blue: #1f4fd1;        /* Füllertinte */
+  --blue-soft: #e6edff;
+  --red: #c8352b;         /* Korrekturstift */
+  --green: #1d7a4a;
+  --green-soft: #e3f4ea;
+  --card: #ffffff;
+  --line: #cfd7e4;
+  --hl: #fff2b3;          /* Textmarker */
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #12161f; --grid: #1c2230; --ink: #e7ebf3; --muted: #9aa4b6;
+    --blue: #8fb0ff; --blue-soft: #1d2744; --red: #ff8a7f; --green: #6fd39d; --green-soft: #15301f;
+    --card: #181d28; --line: #2c3446; --hl: #4a4115; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #12161f; --grid: #1c2230; --ink: #e7ebf3; --muted: #9aa4b6;
+  --blue: #8fb0ff; --blue-soft: #1d2744; --red: #ff8a7f; --green: #6fd39d; --green-soft: #15301f;
+  --card: #181d28; --line: #2c3446; --hl: #4a4115; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 17px;
+  line-height: 1.6;
+  padding-inline: 16px;
+  padding-block: 32px 64px;
+}
+.wrap { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2rem, 5vw, 2.9rem); font-weight: 800; letter-spacing: -0.01em; }
+h2 { font-size: 1.6rem; font-weight: 700; }
+h3 { font-size: 1.15rem; font-weight: 700; }
+p { margin: 0; max-width: 65ch; }
+.eyebrow { font-family: var(--f-mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red); }
+.stack { display: flex; flex-direction: column; gap: 14px; }
+.muted { color: var(--muted); }
+mark { background: var(--hl); color: inherit; padding: 0 3px; border-radius: 2px; }
+
+/* Wurzelzeichen */
+.r { white-space: nowrap; font-family: var(--f-mono); }
+.r .rad { border-top: 1.5px solid currentColor; padding: 0 2px; margin-left: 1px; }
+.frac { display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; font-size: 0.9em; line-height: 1.15; }
+.frac > span:first-child { border-bottom: 1.5px solid currentColor; padding: 0 3px; }
+.m { font-family: var(--f-mono); white-space: nowrap; }
+
+/* Kopf */
+header { display: flex; flex-direction: column; gap: 12px; }
+.task-line { font-family: var(--f-mono); font-size: 1rem; background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; display: flex; flex-wrap: wrap; gap: 8px 28px; }
+.task-line b { color: var(--red); }
+
+/* Merkkasten */
+.merk { background: var(--blue-soft); border-left: 4px solid var(--blue); padding: 18px 20px; border-radius: 0 6px 6px 0; }
+.merk ol { margin: 0; padding-left: 1.3em; display: flex; flex-direction: column; gap: 8px; }
+.squares { display: grid; grid-template-columns: repeat(auto-fill, minmax(78px, 1fr)); gap: 6px; font-family: var(--f-mono); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+.squares span { background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 3px 6px; text-align: center; }
+.squares span.on { border-color: var(--red); color: var(--red); font-weight: 600; }
+
+/* Tabs */
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+.tab {
+  font: 700 1rem var(--f-display); cursor: pointer; border: 1.5px solid var(--line); background: var(--card); color: var(--ink);
+  border-radius: 999px; padding: 8px 18px; display: inline-flex; align-items: center; gap: 8px;
+}
+.tab[aria-selected="true"] { background: var(--blue); border-color: var(--blue); color: var(--paper); }
+.tab:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; gap: 18px; }
+.step { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; }
+.step .num { font: 800 1rem var(--f-display); width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; border: 2px solid var(--blue); color: var(--blue); }
+.step > div { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.step[data-hidden="true"] { display: none; }
+.calc { font-family: var(--f-mono); font-size: 0.95rem; font-variant-numeric: tabular-nums; background: var(--paper); border: 1px dashed var(--line); border-radius: 6px; padding: 10px 12px; overflow-x: auto; line-height: 1.9; }
+.result { font-family: var(--f-mono); font-size: 1.1rem; background: var(--green-soft); color: var(--ink); border: 1.5px solid var(--green); border-radius: 6px; padding: 10px 14px; overflow-x: auto; }
+.result b { color: var(--green); }
+.warn { color: var(--red); font-size: 0.95rem; }
+.nl { width: 100%; min-width: 480px; height: auto; display: block; }
+.nl-wrap { overflow-x: auto; }
+
+.btnrow { display: flex; flex-wrap: wrap; gap: 10px; }
+button.btn { font: 700 0.95rem var(--f-body); cursor: pointer; border-radius: 6px; padding: 9px 16px; border: 1.5px solid var(--blue); background: var(--blue); color: var(--paper); }
+button.btn.ghost { background: transparent; color: var(--blue); }
+button.btn:disabled { opacity: 0.45; cursor: default; }
+
+/* Werkstatt */
+.form { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; }
+.form label { display: flex; flex-direction: column; gap: 4px; font-size: 0.85rem; color: var(--muted); }
+input[type="text"] {
+  font: 600 1.05rem var(--f-mono); color: var(--ink); background: var(--paper); border: 1.5px solid var(--line); border-radius: 6px; padding: 8px 10px; width: 9em;
+}
+input.short { width: 5em; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: 600 0.85rem var(--f-mono); cursor: pointer; border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 4px; padding: 4px 9px; }
+.chip:hover { border-color: var(--blue); color: var(--blue); }
+
+/* Übung */
+.quiz-q { font-family: var(--f-mono); font-size: 1.3rem; }
+.fb { font-weight: 700; }
+.fb.ok { color: var(--green); }
+.fb.no { color: var(--red); }
+.score { font-family: var(--f-mono); font-size: 0.9rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.errors { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.err { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.err .bad { font-family: var(--f-mono); color: var(--red); text-decoration: line-through; text-decoration-thickness: 2px; }
+.err .good { font-family: var(--f-mono); color: var(--green); }
+
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .panel { padding: 16px; }
+  .step { grid-template-columns: 28px 1fr; gap: 8px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .step { animation: none; }
+  .step.reveal { animation: pop .25s ease-out; }
+  @keyframes pop { from { transform: translateY(4px); opacity: .6; } to { transform: none; opacity: 1; } }
+}
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="eyebrow">Mathe · Klasse 9 · Quadratwurzeln · Aufgabe 19</span>
+  <h1>Überschlagen, dann mit Wurzeln lösen</h1>
+  <p>Aufgabe: Überschlage zuerst ohne Taschenrechner. Gib anschließend die Lösungsmenge mithilfe von Wurzeln an.</p>
+  <div class="task-line"><span><b>a)</b> x² = 125</span><span><b>b)</b> x² = 200</span><span><b>c)</b> x² = 486</span><span><b>d)</b> x² = <span class="frac"><span>12</span><span>11</span></span></span></div>
+</header>
+
+<section class="merk stack" aria-labelledby="merk-h">
+  <h2 id="merk-h">So gehst du vor</h2>
+  <ol>
+    <li><b>Überschlagen:</b> Suche die zwei Quadratzahlen, zwischen denen die Zahl liegt. Dann liegt die Wurzel zwischen deren Wurzeln. Beispiel: 121 &lt; 125 &lt; 144, also 11 &lt; <span class="r">√<span class="rad">125</span></span> &lt; 12.</li>
+    <li><b>Teilweise radizieren:</b> Zerlege den Radikanden in <mark>größte Quadratzahl · Rest</mark> und ziehe aus der Quadratzahl die Wurzel: <span class="r">√<span class="rad">125</span></span> = <span class="r">√<span class="rad">25·5</span></span> = 5<span class="r">√<span class="rad">5</span></span>.</li>
+    <li><b>Lösungsmenge:</b> x² = c mit c &gt; 0 hat <mark>zwei</mark> Lösungen, weil auch (−x)² = x² gilt. Also L = {−<span class="r">√<span class="rad">c</span></span>; <span class="r">√<span class="rad">c</span></span>}. Für c = 0 gibt es nur x = 0, für c &lt; 0 keine Lösung: L = { }.</li>
+  </ol>
+  <div class="stack" style="gap:8px">
+    <span class="eyebrow" style="color:var(--blue)">Quadratzahlen zum Nachschlagen (auswendig lernen lohnt sich)</span>
+    <div class="squares" id="squares"></div>
+  </div>
+</section>
+
+<section class="stack" aria-labelledby="loes-h">
+  <h2 id="loes-h">Die Lösungen Schritt für Schritt</h2>
+  <p class="muted">Wähle eine Teilaufgabe. Mit „Nächster Schritt“ deckst du die Lösung nach und nach auf. Versuch es zuerst selbst.</p>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div class="panel" id="panel" role="tabpanel"></div>
+  <div class="btnrow">
+    <button class="btn" id="next" type="button">Nächster Schritt</button>
+    <button class="btn ghost" id="all" type="button">Alles zeigen</button>
+    <button class="btn ghost" id="reset" type="button">Von vorn</button>
+  </div>
+</section>
+
+<section class="stack" aria-labelledby="sum-h">
+  <h2 id="sum-h">Alle Ergebnisse auf einen Blick</h2>
+  <div class="calc" style="background:var(--card)">
+    a) 11 &lt; √125 &lt; 12 (≈ 11,2) &nbsp;→ L = {−5√5; 5√5}<br>
+    b) 14 &lt; √200 &lt; 15 (≈ 14,1) &nbsp;→ L = {−10√2; 10√2}<br>
+    c) 22 &lt; √486 &lt; 23 (≈ 22,0) &nbsp;→ L = {−9√6; 9√6}<br>
+    d) 1 &lt; √(12/11) &lt; 1,1 (≈ 1,04) → L = {−2√33/11; 2√33/11} &nbsp;bzw. {−√(12/11); √(12/11)}
+  </div>
+</section>
+
+<section class="stack" aria-labelledby="ws-h">
+  <h2 id="ws-h">Wurzel-Werkstatt: eigene Beispiele</h2>
+  <p class="muted">Gib eine rechte Seite für x² = … ein: eine ganze Zahl (z. B. 72), einen Bruch (z. B. 5/27) oder eine Dezimalzahl (z. B. 2,5). Die Werkstatt rechnet dieselben drei Schritte vor.</p>
+  <form class="form" id="wsform">
+    <label for="wsin">x² =<input type="text" id="wsin" value="72" inputmode="text" autocomplete="off"></label>
+    <button class="btn" type="submit">Lösen</button>
+  </form>
+  <div class="chips" id="wschips"></div>
+  <div class="panel" id="wsout"></div>
+</section>
+
+<section class="stack" aria-labelledby="ue-h">
+  <h2 id="ue-h">Übung: Du bist dran</h2>
+  <p class="muted">Neue Gleichung, gleiche Fragen. Trage die beiden ganzen Zahlen für den Überschlag ein und schreibe die positive Lösung als a√b.</p>
+  <div class="panel" id="quiz">
+    <div class="quiz-q" id="qq"></div>
+    <form class="form" id="qform">
+      <label for="qlo">zwischen<input type="text" class="short" id="qlo" inputmode="numeric" autocomplete="off"></label>
+      <label for="qhi">und<input type="text" class="short" id="qhi" inputmode="numeric" autocomplete="off"></label>
+      <label for="qa">a<input type="text" class="short" id="qa" inputmode="numeric" autocomplete="off"></label>
+      <label for="qb">√b<input type="text" class="short" id="qb" inputmode="numeric" autocomplete="off"></label>
+      <button class="btn" type="submit">Prüfen</button>
+      <button class="btn ghost" type="button" id="qnew">Neue Aufgabe</button>
+    </form>
+    <div id="qfb" aria-live="polite"></div>
+    <div class="score" id="qscore">Richtig: 0 von 0</div>
+  </div>
+</section>
+
+<section class="stack" aria-labelledby="err-h">
+  <h2 id="err-h">Typische Fehler</h2>
+  <div class="errors">
+    <div class="err"><h3>Die negative Lösung vergessen</h3><span class="bad">L = {5√5}</span><span class="good">L = {−5√5; 5√5}</span><span class="muted">(−5√5)² = 25 · 5 = 125. Die negative Zahl löst die Gleichung auch.</span></div>
+    <div class="err"><h3>Nicht die größte Quadratzahl</h3><span class="bad">√200 = √(4·50) = 2√50</span><span class="good">√200 = √(100·2) = 10√2</span><span class="muted">Unter der Wurzel darf am Ende kein Quadratfaktor mehr stecken. 50 = 25 · 2 geht noch weiter.</span></div>
+    <div class="err"><h3>Durch 2 statt Wurzel</h3><span class="bad">x² = 200 → x = 100</span><span class="good">x = ±√200 ≈ ±14,1</span><span class="muted">Probe: 100² = 10 000, nicht 200. Der Überschlag deckt solche Fehler sofort auf.</span></div>
+  </div>
+</section>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---------- Rechenkern ----------
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { const t = a % b; a = b; b = t; } return a; }
+  function sqFactor(n) { // n = k² · m mit größtmöglichem k
+    for (let k = Math.floor(Math.sqrt(n)); k >= 1; k--) if (n % (k * k) === 0) return { k: k, m: n / (k * k) };
+    return { k: 1, m: n };
+  }
+  function de(x, d) { return x.toLocaleString("de-DE", { minimumFractionDigits: d, maximumFractionDigits: d }); }
+  function R(x) { return '<span class="r">√<span class="rad">' + x + '</span></span>'; }
+  function F(a, b) { return '<span class="frac"><span>' + a + '</span><span>' + b + '</span></span>'; }
+  function kRoot(k, m) { // k√m als HTML
+    if (m === 1) return String(k);
+    return (k === 1 ? "" : k) + R(m);
+  }
+  function radText(p, q) { return q === 1 ? String(p) : F(p, q); }
+
+  // Eingabe: "125", "12/11", "2,5", "-4"
+  function parse(s) {
+    s = String(s).trim().replace(/\s+/g, "").replace("−", "-");
+    let m;
+    if ((m = s.match(/^(-?\d+)\/(\d+)$/))) { const p = +m[1], q = +m[2]; if (q === 0) return null; return norm(p, q); }
+    if ((m = s.match(/^(-?\d+)(?:[.,](\d+))?$/))) {
+      const dec = m[2] || ""; const q = Math.pow(10, dec.length);
+      const p = Math.round(parseFloat(m[1] + "." + (dec || "0")) * q);
+      return norm(p, q);
+    }
+    return null;
+  }
+  function norm(p, q) { const g = gcd(p, q) || 1; return { p: p / g, q: q / g }; }
+
+  function analyze(p, q) {
+    const v = p / q, steps = [];
+    const label = radText(p, q);
+    if (p > 1e7 || q > 1e5) return { steps: [{ t: "Zu groß", h: '<p class="warn">Bitte eine kleinere Zahl eingeben.</p>' }] };
+    if (v < 0) {
+      steps.push({ t: "Vorzeichen prüfen", h: "<p>Ein Quadrat ist nie negativ: x² ≥ 0 für jede Zahl x. Die Gleichung x² = " + label + " hat deshalb keine Lösung.</p>" });
+      steps.push({ t: "Lösungsmenge", h: '<div class="result">L = <b>{ }</b></div>' });
+      return { steps: steps };
+    }
+    if (v === 0) {
+      steps.push({ t: "Lösungsmenge", h: '<p>Nur 0 · 0 = 0.</p><div class="result">L = <b>{0}</b></div>' });
+      return { steps: steps };
+    }
+    const r = Math.sqrt(v);
+
+    // 1) Überschlag
+    let h = "", lo, hi;
+    if (q === 1 && r >= 1) {
+      const a = Math.floor(r + 1e-9);
+      if (a * a === p) {
+        h += '<p>' + p + ' ist selbst eine Quadratzahl: ' + a + '² = ' + p + '. Hier braucht man keinen Überschlag.</p>';
+        lo = a; hi = a;
+      } else {
+        lo = a; hi = a + 1;
+        h += '<div class="calc">' + a + '² = ' + a * a + ' &lt; <b>' + p + '</b> &lt; ' + (hi * hi) + ' = ' + hi + '²<br>⇒ ' + a + ' &lt; ' + R(p) + ' &lt; ' + hi + '</div>';
+        const nearer = (p - a * a) < (hi * hi - p) ? a : hi;
+        h += '<p>' + p + ' liegt näher an ' + nearer * nearer + ', also liegt ' + R(p) + ' näher an ' + nearer + '.</p>';
+      }
+    } else {
+      const a = Math.floor(r + 1e-9);
+      h += '<p>Als Dezimalzahl: ' + label + ' ≈ ' + de(v, 3) + '.</p>';
+      if (a >= 1 && Math.abs(a * a - v) > 1e-12) h += '<div class="calc">' + a + '² = ' + a * a + ' &lt; ' + de(v, 3) + ' &lt; ' + (a + 1) * (a + 1) + ' = ' + (a + 1) + '²  ⇒  ' + a + ' &lt; ' + R(label) + ' &lt; ' + (a + 1) + '</div>';
+      lo = a; hi = a + 1;
+    }
+    // Feiner: Zehntel
+    if (lo !== hi) {
+      const t = Math.floor(r * 10 + 1e-9) / 10, t2 = t + 0.1;
+      if (Math.abs(t * t - v) > 1e-9) {
+        h += '<p>Feiner mit Zehnteln:</p><div class="calc">' + de(t, 1) + '² = ' + de(t * t, 2) + ' &lt; ' + (q === 1 ? p : de(v, 3)) + ' &lt; ' + de(t2 * t2, 2) + ' = ' + de(t2, 1) + '²<br>⇒ ' + R(label) + ' liegt zwischen ' + de(t, 1) + ' und ' + de(t2, 1) + '</div>';
+      }
+      h += numberLine(r, lo, hi, label);
+    }
+    steps.push({ t: "Überschlagen", h: h });
+
+    // 2) Teilweise radizieren
+    let h2 = "", exact;
+    if (q === 1) {
+      const f = sqFactor(p);
+      if (f.m === 1) { exact = String(f.k); h2 = '<div class="calc">' + R(p) + ' = ' + f.k + '</div>'; }
+      else if (f.k === 1) { exact = R(p); h2 = '<p>' + p + ' enthält keinen Quadratfaktor größer als 1. ' + R(p) + ' lässt sich nicht weiter vereinfachen.</p>'; }
+      else {
+        exact = kRoot(f.k, f.m);
+        h2 = '<p>Größte Quadratzahl, die in ' + p + ' steckt: <mark>' + f.k * f.k + '</mark> (denn ' + p + ' = ' + f.k * f.k + ' · ' + f.m + ').</p>' +
+             '<div class="calc">' + R(p) + ' = ' + R(f.k * f.k + ' · ' + f.m) + ' = ' + R(f.k * f.k) + ' · ' + R(f.m) + ' = <b>' + exact + '</b></div>';
+      }
+    } else {
+      const fp = sqFactor(p), fq = sqFactor(q);
+      if (fq.m === 1) { // Nenner ist Quadratzahl
+        exact = F(kRoot(fp.k, fp.m), fq.k);
+        h2 = '<p>Der Nenner ' + q + ' ist eine Quadratzahl. Ziehe die Wurzel aus Zähler und Nenner getrennt:</p><div class="calc">' + R(F(p, q)) + ' = ' + F(R(p), R(q)) + ' = <b>' + exact + '</b></div>';
+      } else {
+        const g = sqFactor(p * q), d = gcd(g.k, q), num = g.k / d, den = q / d;
+        exact = den === 1 ? kRoot(num, g.m) : F(kRoot(num, g.m), den);
+        h2 = '<p>Ziehe die Wurzel aus Zähler und Nenner getrennt' + (fp.k > 1 ? ' und radiziere den Zähler teilweise' : '') + ':</p>' +
+             '<div class="calc">' + R(F(p, q)) + ' = ' + F(R(p), R(q)) + (fp.k > 1 ? ' = ' + F(kRoot(fp.k, fp.m), R(q)) : '') + '</div>' +
+             '<p class="muted">Zusatz (Nenner wurzelfrei machen): mit ' + R(q) + ' erweitern.</p>' +
+             '<div class="calc">' + F(R(p), R(q)) + ' = ' + F(R(p) + ' · ' + R(q), q) + ' = ' + F(R(p * q), q) + ' = <b>' + exact + '</b> ≈ ' + de(r, 2) + '</div>';
+      }
+    }
+    if (!(q === 1 && sqFactor(p).m === 1)) h2 += '<p class="muted">Kontrolle mit dem Überschlag: ' + exact + ' ≈ ' + de(r, 2) + '. ✓</p>';
+    steps.push({ t: "Teilweise radizieren", h: h2 });
+
+    // 3) Lösungsmenge
+    let h3 = '<p>Gesucht sind alle x mit x² = ' + label + '. Das sind ' + R(label) + ' und −' + R(label) + '.</p>' +
+      '<div class="result">L = <b>{−' + exact + '; ' + exact + '}</b> &nbsp;(≈ ±' + de(r, 2) + ')</div>';
+    steps.push({ t: "Lösungsmenge angeben", h: h3 });
+    return { steps: steps };
+  }
+
+  function numberLine(r, lo, hi, label) {
+    // Zahlenstrahl von lo bis hi mit Zehntelstrichen, Markierung bei r
+    const W = 640, H = 92, x0 = 30, x1 = W - 30;
+    const X = function (v) { return x0 + (v - lo) / (hi - lo) * (x1 - x0); };
+    let s = '<div class="nl-wrap"><svg class="nl" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Zahlenstrahl von ' + lo + ' bis ' + hi + ' mit Markierung bei ' + de(r, 2) + '">';
+    s += '<line x1="' + x0 + '" y1="56" x2="' + x1 + '" y2="56" stroke="var(--ink)" stroke-width="2"/>';
+    for (let i = 0; i <= 10; i++) {
+      const v = lo + i * (hi - lo) / 10, x = X(v), big = i === 0 || i === 10 || i === 5;
+      s += '<line x1="' + x + '" y1="' + (big ? 46 : 51) + '" x2="' + x + '" y2="' + (big ? 66 : 61) + '" stroke="var(--muted)" stroke-width="' + (big ? 2 : 1) + '"/>';
+      if (i === 0 || i === 10) s += '<text x="' + x + '" y="86" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" fill="var(--ink)" font-weight="600">' + de(v, hi - lo < 1 ? 1 : 0) + '</text>';
+      else if (hi - lo === 1) s += '<text x="' + x + '" y="84" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--muted)">,' + i + '</text>';
+    }
+    const xr = X(r);
+    s += '<circle cx="' + xr + '" cy="56" r="7" fill="var(--red)"/>';
+    s += '<text x="' + Math.min(Math.max(xr, 80), W - 80) + '" y="28" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" fill="var(--red)" font-weight="600">√ ≈ ' + de(r, 2) + '</text>';
+    s += '<line x1="' + xr + '" y1="34" x2="' + xr + '" y2="48" stroke="var(--red)" stroke-width="1.5"/>';
+    return s + '</svg></div>';
+  }
+
+  function renderSteps(container, res, shown) {
+    container.innerHTML = res.steps.map(function (st, i) {
+      return '<div class="step' + (i === shown - 1 ? ' reveal' : '') + '" data-hidden="' + (i >= shown) + '"><span class="num">' + (i + 1) + '</span><div><h3>' + st.t + '</h3>' + st.h + '</div></div>';
+    }).join("") + (shown < res.steps.length ? '<p class="muted">Noch ' + (res.steps.length - shown) + ' Schritt' + (res.steps.length - shown > 1 ? 'e' : '') + ' verdeckt.</p>' : "");
+  }
+
+  // ---------- Quadratzahlen ----------
+  const marks = [1, 121, 144, 196, 225, 484, 529];
+  document.getElementById("squares").innerHTML = Array.from({ length: 25 }, function (_, i) {
+    const n = i + 1; return '<span class="' + (marks.indexOf(n * n) >= 0 ? "on" : "") + '">' + n + '² = ' + n * n + '</span>';
+  }).join("");
+
+  // ---------- Aufgabe 19 ----------
+  const tasks = [
+    { id: "a", p: 125, q: 1 }, { id: "b", p: 200, q: 1 }, { id: "c", p: 486, q: 1 }, { id: "d", p: 12, q: 11 }
+  ];
+  let cur = 0, shown = 1;
+  const tabs = document.getElementById("tabs"), panel = document.getElementById("panel");
+  tabs.innerHTML = tasks.map(function (t, i) {
+    return '<button class="tab" role="tab" type="button" id="tab-' + t.id + '" aria-selected="' + (i === 0) + '" data-i="' + i + '">' + t.id + ')&nbsp;<span class="m">x² = ' + (t.q === 1 ? t.p : t.p + '/' + t.q) + '</span></button>';
+  }).join("");
+  function draw() {
+    const t = tasks[cur], res = analyze(t.p, t.q);
+    if (t.id === "d") res.steps[2].h += '<p class="muted">Auch richtig ist die kürzere Schreibweise L = {−' + R(F(12, 11)) + '; ' + R(F(12, 11)) + '}.</p>';
+    renderSteps(panel, res, shown);
+    panel.setAttribute("aria-labelledby", "tab-" + t.id);
+    document.getElementById("next").disabled = shown >= res.steps.length;
+  }
+  tabs.addEventListener("click", function (e) {
+    const b = e.target.closest(".tab"); if (!b) return;
+    cur = +b.dataset.i; shown = 1;
+    tabs.querySelectorAll(".tab").forEach(function (x) { x.setAttribute("aria-selected", String(x === b)); });
+    draw();
+  });
+  document.getElementById("next").addEventListener("click", function () { shown++; draw(); });
+  document.getElementById("all").addEventListener("click", function () { shown = 99; draw(); });
+  document.getElementById("reset").addEventListener("click", function () { shown = 1; draw(); });
+  draw();
+
+  // ---------- Werkstatt ----------
+  const wsin = document.getElementById("wsin"), wsout = document.getElementById("wsout");
+  const examples = ["72", "160", "40", "2,5", "300", "5/27", "75/8", "49", "-9"];
+  document.getElementById("wschips").innerHTML = examples.map(function (e) { return '<button type="button" class="chip" data-v="' + e + '">x² = ' + e + '</button>'; }).join("");
+  document.getElementById("wschips").addEventListener("click", function (e) {
+    const b = e.target.closest(".chip"); if (!b) return; wsin.value = b.dataset.v; solveWs();
+  });
+  function solveWs() {
+    const v = parse(wsin.value);
+    if (!v) { wsout.innerHTML = '<p class="warn">Das habe ich nicht verstanden. Schreibe eine Zahl wie 72, einen Bruch wie 5/27 oder eine Dezimalzahl wie 2,5.</p>'; return; }
+    renderSteps(wsout, analyze(v.p, v.q), 99);
+  }
+  document.getElementById("wsform").addEventListener("submit", function (e) { e.preventDefault(); solveWs(); });
+  solveWs();
+
+  // ---------- Übung ----------
+  const free = [2, 3, 5, 6, 7, 10, 11, 13];
+  let qn, qk, qm, right = 0, total = 0, answered = false;
+  function newQ() {
+    do { qk = 2 + Math.floor(Math.random() * 9); qm = free[Math.floor(Math.random() * free.length)]; qn = qk * qk * qm; } while (qn > 900 || qn === 125 || qn === 200 || qn === 486);
+    document.getElementById("qq").innerHTML = "x² = " + qn;
+    ["qlo", "qhi", "qa", "qb"].forEach(function (id) { document.getElementById(id).value = ""; });
+    document.getElementById("qfb").innerHTML = ""; answered = false;
+  }
+  document.getElementById("qform").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const lo = Math.floor(Math.sqrt(qn)), hi = lo + 1;
+    const ulo = parseInt(document.getElementById("qlo").value, 10), uhi = parseInt(document.getElementById("qhi").value, 10);
+    const ua = parseInt(document.getElementById("qa").value, 10), ub = parseInt(document.getElementById("qb").value, 10);
+    const okEst = ulo === lo && uhi === hi, okRoot = ua === qk && ub === qm;
+    let msg = "";
+    msg += okEst ? '<p class="fb ok">Überschlag richtig: ' + lo + '² = ' + lo * lo + ' &lt; ' + qn + ' &lt; ' + hi * hi + ' = ' + hi + '².</p>'
+                 : '<p class="fb no">Überschlag: ' + lo + '² = ' + lo * lo + ' &lt; ' + qn + ' &lt; ' + hi * hi + ' = ' + hi + '², also zwischen ' + lo + ' und ' + hi + '.</p>';
+    if (okRoot) msg += '<p class="fb ok">Wurzel richtig: ' + R(qn) + ' = ' + R(qk * qk + ' · ' + qm) + ' = ' + kRoot(qk, qm) + '.</p>';
+    else if (ua > 0 && ub > 0 && ua * ua * ub === qn) msg += '<p class="fb no">Rechnerisch stimmt ' + kRoot(ua, ub) + ', aber ' + ub + ' enthält noch einen Quadratfaktor. Ganz vereinfacht: ' + kRoot(qk, qm) + '.</p>';
+    else msg += '<p class="fb no">Wurzel: ' + qn + ' = ' + qk * qk + ' · ' + qm + ', also ' + R(qn) + ' = ' + kRoot(qk, qm) + '.</p>';
+    msg += '<div class="result">L = <b>{−' + kRoot(qk, qm) + '; ' + kRoot(qk, qm) + '}</b></div>';
+    document.getElementById("qfb").innerHTML = msg;
+    if (!answered) { total++; if (okEst && okRoot) right++; answered = true; }
+    document.getElementById("qscore").textContent = "Richtig: " + right + " von " + total;
+  });
+  document.getElementById("qnew").addEventListener("click", newQ);
+  newQ();
+})();
+</script>
