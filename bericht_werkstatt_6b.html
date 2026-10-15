@@ -1,0 +1,654 @@
+<title>Bericht-Werkstatt 6b</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: Deutschheft auf Linienpapier mit rotem Rand – eine Lesespalte, nummerierte Übungen wie im Heft, Spickzettel oben */
+:root {
+  --paper: #fbfcfe;
+  --line-paper: #e4eaf4;
+  --margin: #e8b4b0;
+  --ink: #1b2233;
+  --muted: #5d6778;
+  --blue: #1f4fd1;        /* Füllertinte */
+  --blue-soft: #e6edff;
+  --red: #c8352b;         /* Korrekturstift */
+  --red-soft: #fde9e7;
+  --green: #1d7a4a;
+  --green-soft: #e3f4ea;
+  --amber: #9a6400;
+  --amber-soft: #fff3cf;
+  --card: #ffffff;
+  --line: #cfd7e4;
+  --hl: #fff2b3;          /* Textmarker */
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #12161f; --line-paper: #1c2230; --margin: #5a2a28; --ink: #e7ebf3; --muted: #9aa4b6;
+    --blue: #8fb0ff; --blue-soft: #1d2744; --red: #ff8a7f; --red-soft: #3a1f1c; --green: #6fd39d; --green-soft: #15301f;
+    --amber: #f0c45a; --amber-soft: #3a2f10; --card: #181d28; --line: #2c3446; --hl: #4a4115; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #12161f; --line-paper: #1c2230; --margin: #5a2a28; --ink: #e7ebf3; --muted: #9aa4b6;
+  --blue: #8fb0ff; --blue-soft: #1d2744; --red: #ff8a7f; --red-soft: #3a1f1c; --green: #6fd39d; --green-soft: #15301f;
+  --amber: #f0c45a; --amber-soft: #3a2f10; --card: #181d28; --line: #2c3446; --hl: #4a4115; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background-color: var(--paper);
+  background-image: linear-gradient(var(--line-paper) 1px, transparent 1px);
+  background-size: 100% 28px;
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 17px;
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 32px 72px;
+}
+.wrap { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px; position: relative; }
+@media (min-width: 980px) {
+  .wrap::before { content: ""; position: absolute; left: -36px; top: -32px; bottom: -72px; width: 2px; background: var(--margin); }
+}
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2rem, 5vw, 2.9rem); font-weight: 800; letter-spacing: -0.01em; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.1rem; font-weight: 700; }
+p { margin: 0; max-width: 65ch; }
+ul, ol { margin: 0; padding-left: 1.3em; max-width: 65ch; }
+li { margin-block: 3px; }
+.eyebrow { font-family: var(--f-mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red); }
+.stack { display: flex; flex-direction: column; gap: 14px; }
+.muted { color: var(--muted); }
+.small { font-size: 0.92rem; }
+mark { background: var(--hl); color: inherit; padding: 0 3px; border-radius: 2px; }
+strong { font-weight: 700; }
+
+/* Karten und Kästen */
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; }
+.merk { background: var(--blue-soft); border-left: 4px solid var(--blue); border-radius: 0 10px 10px 0; padding: 16px 20px; }
+.aufgabe { border-left: 4px solid var(--red); padding-left: 16px; }
+.aufgabe .eyebrow { margin-bottom: 4px; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+/* Aussagen (Zeugen) */
+.zeuge { background: var(--card); border: 1px solid var(--line); border-radius: 14px 14px 14px 4px; padding: 12px 16px; font-size: 0.95rem; }
+.zeuge b { color: var(--blue); }
+
+/* Buttons und Eingaben */
+button { font: inherit; cursor: pointer; }
+.btn { background: var(--blue); color: #fff; border: 0; border-radius: 8px; padding: 9px 16px; font-weight: 700; font-family: var(--f-display); }
+.btn.sec { background: transparent; color: var(--blue); border: 1.5px solid var(--blue); }
+.btn:focus-visible, .chip:focus-visible, .tok:focus-visible, .sort-item:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
+input[type="text"], textarea, select {
+  font: inherit; color: var(--ink); background: var(--card); border: 1.5px solid var(--line); border-radius: 8px; padding: 8px 10px; width: 100%;
+}
+textarea { min-height: 260px; line-height: 1.55; resize: vertical; }
+input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 3px solid var(--amber); outline-offset: 1px; }
+label { font-weight: 700; font-size: 0.92rem; }
+.feld { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.loes { background: var(--green-soft); border-left: 3px solid var(--green); padding: 8px 12px; border-radius: 0 8px 8px 0; font-size: 0.95rem; }
+.fb { font-weight: 700; min-height: 1.6em; }
+.fb.ok { color: var(--green); }
+.fb.no { color: var(--red); }
+.fb.mid { color: var(--amber); }
+
+/* Sortieren: sachlich oder nicht */
+.sort-list { display: flex; flex-direction: column; gap: 8px; }
+.sort-item { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; background: var(--card); border: 1.5px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+.sort-item .choice { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip { border: 1.5px solid var(--line); background: var(--card); color: var(--ink); border-radius: 999px; padding: 4px 12px; font-size: 0.88rem; font-weight: 700; }
+.chip[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: #fff; }
+.sort-item.right { border-color: var(--green); }
+.sort-item.wrong { border-color: var(--red); }
+.sort-item .why { grid-column: 1 / -1; font-size: 0.9rem; color: var(--muted); }
+@media (max-width: 520px) { .sort-item { grid-template-columns: 1fr; } }
+
+/* Reihenfolge */
+.order-list { display: flex; flex-direction: column; gap: 8px; }
+.order-item { display: grid; grid-template-columns: 38px 1fr; gap: 10px; align-items: center; text-align: left; background: var(--card); border: 1.5px solid var(--line); border-radius: 8px; padding: 10px 12px; color: var(--ink); }
+.order-item .num { font-family: var(--f-mono); font-weight: 600; width: 32px; height: 32px; border-radius: 50%; border: 1.5px dashed var(--line); display: grid; place-items: center; color: var(--muted); }
+.order-item.done { border-color: var(--green); }
+.order-item.done .num { background: var(--green); border-color: var(--green); color: #fff; }
+.order-item.shake { animation: shake 0.3s; border-color: var(--red); }
+@keyframes shake { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+@media (prefers-reduced-motion: reduce) { .order-item.shake { animation: none; } }
+
+/* Lückentext */
+.luecke { line-height: 2.1; max-width: 70ch; }
+.luecke select { width: auto; display: inline-block; padding: 2px 6px; margin: 0 2px; font-weight: 700; }
+.luecke select.ok { border-color: var(--green); background: var(--green-soft); }
+.luecke select.no { border-color: var(--red); background: var(--red-soft); }
+
+/* Tempus-Text */
+.text { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; line-height: 2; max-width: 72ch; }
+.tok { background: none; border: 0; padding: 0 1px; color: inherit; font: inherit; border-radius: 3px; border-bottom: 2px solid transparent; }
+.tok:hover { background: var(--hl); }
+.tok[aria-pressed="true"] { border-bottom-color: var(--blue); background: var(--blue-soft); }
+.tok.hit { border-bottom-color: var(--green); background: var(--green-soft); }
+.tok.miss { border-bottom-color: var(--red); background: var(--red-soft); }
+.tok.extra { text-decoration: line-through; color: var(--red); background: var(--red-soft); }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 0.9rem; }
+.legend span::before { content: ""; display: inline-block; width: 14px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+.legend .l-hit::before { background: var(--green-soft); border-bottom: 2px solid var(--green); }
+.legend .l-miss::before { background: var(--red-soft); border-bottom: 2px solid var(--red); }
+.legend .l-extra::before { background: var(--red-soft); }
+
+/* Tabellen */
+.tbl { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.tbl th, .tbl td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.tbl th { font-family: var(--f-display); font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+.tbl td.ok { background: var(--green-soft); }
+.tbl td.no { background: var(--red-soft); }
+.tbl td.ok::after { content: " ✓"; color: var(--green); font-weight: 700; }
+.tbl .verb { font-family: var(--f-mono); font-weight: 600; }
+.tblwrap { overflow-x: auto; }
+.tbl input[type="text"] { min-width: 150px; }
+.tbl select { min-width: 150px; }
+.why { font-size: 0.9rem; color: var(--muted); }
+
+/* Bericht-Check */
+.check-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 0.95rem; }
+.check-list li { display: grid; grid-template-columns: 24px 1fr; gap: 8px; align-items: start; }
+.check-list .ico { font-weight: 700; }
+.check-list li.ok .ico { color: var(--green); }
+.check-list li.no .ico { color: var(--red); }
+.check-list li.warn .ico { color: var(--amber); }
+.counter { font-family: var(--f-mono); font-size: 0.85rem; color: var(--muted); }
+.muster { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; max-width: 70ch; }
+.muster .pq { background: var(--hl); border-radius: 2px; padding: 0 2px; }
+.muster .teil { font-family: var(--f-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red); }
+details summary { cursor: pointer; font-weight: 700; color: var(--blue); }
+.fehler li { margin-block: 6px; }
+.fehler s { color: var(--red); }
+.fehler em { font-style: normal; color: var(--green); font-weight: 700; }
+</style>
+
+<div class="wrap">
+
+<header class="stack">
+  <div class="eyebrow">Übung zur 1. Klassenarbeit Deutsch · Klasse 6b</div>
+  <h1>Von Ereignissen berichten</h1>
+  <p class="muted">Sieben Übungen zum Unfallbericht und zu den Zeitformen. Jede Übung prüft deine Antwort sofort. Du kannst alles so oft wiederholen, wie du willst.</p>
+</header>
+
+<section class="merk stack" aria-labelledby="merk-h">
+  <h2 id="merk-h">Spickzettel: So schreibst du einen Bericht</h2>
+  <div class="grid2">
+    <div class="stack">
+      <h3>Aufbau</h3>
+      <ul>
+        <li><strong>Einleitung:</strong> Was? Wann? Wo? Wer war beteiligt? (knapp, in 1 bis 2 Sätzen)</li>
+        <li><strong>Hauptteil:</strong> Was geschah in welcher Reihenfolge? Wie und warum kam es dazu?</li>
+        <li><strong>Schluss:</strong> Welche Folgen hatte das Ereignis?</li>
+      </ul>
+    </div>
+    <div class="stack">
+      <h3>Sprache</h3>
+      <ul>
+        <li><strong>Sachlich:</strong> keine Umgangssprache, keine Gefühle, keine Ausschmückungen, keine wörtliche Rede.</li>
+        <li><strong>Zeitform:</strong> <mark>Präteritum</mark>, für die Vorvergangenheit <mark>Plusquamperfekt</mark>.</li>
+        <li><strong>Reihenfolge:</strong> Satzanfänge wie <em>zuerst, als, danach, anschließend, schließlich, zum Schluss</em>.</li>
+        <li><strong>Verbinden:</strong> <em>weil, da, deshalb, sodass, obwohl, während, aber</em>.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="stack" aria-labelledby="fall-h">
+  <h2 id="fall-h">Der Fall: Unfall in Bornheim</h2>
+  <p>Zu dem Unfall in Bornheim am 3. September 2026 an der Ampelkreuzung Wiesenstraße / Poppelsdorfer Allee wurden folgende Zeugenaussagen gemacht:</p>
+  <div class="grid2">
+    <div class="zeuge"><b>Paula Schmitz:</b> Wir sind losgegangen, als die Ampel grün wurde. Mario ging ein kleines Stück hinter mir. Und plötzlich hörte ich nur noch quietschende Bremsen, ein lautes Scheppern und einen Schrei.</div>
+    <div class="zeuge"><b>Frau Müller:</b> Es war etwa 14:15 Uhr, ich war gerade auf dem Weg zur Arbeit. Da sah ich, wie der Radfahrer einfach bei Rot losfuhr. Das Mädchen war schon vorbei, aber den Jungen hat er erwischt.</div>
+    <div class="zeuge"><b>Radfahrer Max Schmitt:</b> Ich bin im Büro aufgehalten worden und hatte es eilig, rechtzeitig zu meinem Zahnarzttermin zu kommen.</div>
+    <div class="zeuge"><b>Ärztin:</b> Zum Glück hat der Radfahrer den Jungen nur leicht gestreift. Er ist mit einer Platzwunde am Knie davongekommen. Wenn er sein Bein ein paar Tage schont, wird es ihm bald wieder besser gehen. Dem rücksichtslosen Radfahrer ist nichts passiert.</div>
+    <div class="zeuge"><b>Mario Richter:</b> Mein Bein tut so weh. Und meine Jeans sind auch kaputt. Dabei waren sie ganz neu.</div>
+    <div class="zeuge"><b>Aus den Bildern:</b> Ampelkreuzung mit Zebrastreifen, Straßenschilder Poppelsdorfer Allee und Wiesenstraße. Der Radfahrer trägt einen Helm. Ein Notarztwagen (112) kommt. Mario sitzt auf dem Bordstein, Paula und ein Passant helfen.</div>
+  </div>
+</section>
+
+<!-- Übung 1 -->
+<section class="stack aufgabe" aria-labelledby="u1-h">
+  <div class="eyebrow">Übung 1 · Vorbereitung</div>
+  <h2 id="u1-h">Stichworte mit den W-Fragen sammeln</h2>
+  <p>Notiere zu jeder W-Frage Stichworte aus den Bildern und Zeugenaussagen. Vergleiche danach mit dem Lösungsvorschlag.</p>
+  <div class="grid2" id="wfragen"></div>
+  <div class="row">
+    <button class="btn" type="button" id="w-show">Lösungsvorschlag anzeigen</button>
+    <button class="btn sec" type="button" id="w-hide">Lösung ausblenden</button>
+  </div>
+</section>
+
+<!-- Übung 2 -->
+<section class="stack aufgabe" aria-labelledby="u2-h">
+  <div class="eyebrow">Übung 2 · Sachlich bleiben</div>
+  <h2 id="u2-h">Gehört der Satz in den Bericht?</h2>
+  <p>Ein Bericht ist sachlich: keine Gefühle, keine Wertungen, keine Umgangssprache, keine Ausschmückungen. Entscheide bei jedem Satz.</p>
+  <div class="sort-list" id="sachlich"></div>
+  <div class="row">
+    <button class="btn" type="button" id="s-check">Prüfen</button>
+    <button class="btn sec" type="button" id="s-reset">Zurücksetzen</button>
+    <span class="fb" id="s-fb" aria-live="polite"></span>
+  </div>
+</section>
+
+<!-- Übung 3 -->
+<section class="stack aufgabe" aria-labelledby="u3-h">
+  <div class="eyebrow">Übung 3 · Reihenfolge</div>
+  <h2 id="u3-h">Was geschah zuerst?</h2>
+  <p>Die Ereignisse sind durcheinander. Tippe sie in der richtigen zeitlichen Reihenfolge an. Falsche Tipps werden abgewiesen.</p>
+  <div class="order-list" id="order"></div>
+  <div class="row">
+    <button class="btn sec" type="button" id="o-reset">Neu mischen</button>
+    <span class="fb" id="o-fb" aria-live="polite"></span>
+  </div>
+</section>
+
+<!-- Übung 4 -->
+<section class="stack aufgabe" aria-labelledby="u4-h">
+  <div class="eyebrow">Übung 4 · Satzanfänge und Konjunktionen</div>
+  <h2 id="u4-h">Den Hauptteil verbinden</h2>
+  <p>Wähle in jeder Lücke das passende Wort. Achte darauf, ob das Wort eine Reihenfolge, einen Grund, eine Folge oder einen Gegensatz ausdrückt.</p>
+  <div class="text luecke" id="luecke"></div>
+  <div class="row">
+    <button class="btn" type="button" id="l-check">Prüfen</button>
+    <button class="btn sec" type="button" id="l-reset">Zurücksetzen</button>
+    <span class="fb" id="l-fb" aria-live="polite"></span>
+  </div>
+</section>
+
+<!-- Übung 5 -->
+<section class="stack aufgabe" aria-labelledby="u5-h">
+  <div class="eyebrow">Übung 5 · Verbformen bestimmen (Nr. 3 der Klassenarbeit)</div>
+  <h2 id="u5-h">Alle Verbformen finden</h2>
+  <p><strong>Schritt 1:</strong> Tippe im Text jedes Wort an, das zu einer Verbform gehört. Zusammengesetzte Formen bestehen aus zwei Wörtern (z.&nbsp;B. <em>hatten … vorbereitet</em>), tippe beide an. Dann klicke auf „Prüfen“.</p>
+  <div class="text" id="tempus-text"></div>
+  <div class="legend"><span class="l-hit">richtig gefunden</span><span class="l-miss">übersehen</span><span class="l-extra">kein Verb</span></div>
+  <div class="row">
+    <button class="btn" type="button" id="t-check">Prüfen</button>
+    <button class="btn sec" type="button" id="t-reset">Zurücksetzen</button>
+    <span class="fb" id="t-fb" aria-live="polite"></span>
+  </div>
+
+  <h3>Schritt 2: Die Zeitform bestimmen</h3>
+  <p>Ordne jeder Verbform ihre Zeitform zu. Nach dem Prüfen siehst du bei jeder Form die Begründung.</p>
+  <div class="tblwrap">
+    <table class="tbl" id="tempus-tbl">
+      <thead><tr><th>Verbform</th><th>Zeitform</th><th>Begründung</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <div class="row">
+    <button class="btn" type="button" id="z-check">Prüfen</button>
+    <button class="btn sec" type="button" id="z-reset">Zurücksetzen</button>
+    <span class="fb" id="z-fb" aria-live="polite"></span>
+  </div>
+  <div class="merk small">
+    <strong>Merke:</strong> Im Bericht steht die Erzählzeit im <strong>Präteritum</strong>. Was <em>davor</em> geschah, steht im <strong>Plusquamperfekt</strong> (hatte/war + Partizip II). <strong>Präsens</strong> steht in wörtlicher Rede und für Dinge, die immer gelten. <strong>Futur I</strong> (werden + Infinitiv) steht für Zukünftiges.
+  </div>
+</section>
+
+<!-- Übung 6 -->
+<section class="stack aufgabe" aria-labelledby="u6-h">
+  <div class="eyebrow">Übung 6 · Tempus-Training</div>
+  <h2 id="u6-h">Präteritum und Plusquamperfekt bilden</h2>
+  <p>Bilde zu jedem Verb die 3. Person Singular (<em>er / sie</em>). Beispiel: <em>warten</em> → <em>wartete</em> → <em>hatte gewartet</em>. Groß- und Kleinschreibung ist egal.</p>
+  <div class="tblwrap">
+    <table class="tbl" id="form-tbl">
+      <thead><tr><th>Grundform</th><th>Präteritum</th><th>Plusquamperfekt</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <div class="row">
+    <button class="btn" type="button" id="f-check">Prüfen</button>
+    <button class="btn sec" type="button" id="f-show">Lösungen zeigen</button>
+    <button class="btn sec" type="button" id="f-reset">Zurücksetzen</button>
+    <span class="fb" id="f-fb" aria-live="polite"></span>
+  </div>
+</section>
+
+<!-- Übung 7 -->
+<section class="stack aufgabe" aria-labelledby="u7-h">
+  <div class="eyebrow">Übung 7 · Unfallbericht (Nr. 2 der Klassenarbeit)</div>
+  <h2 id="u7-h">Schreibe den Bericht für die Polizei</h2>
+  <p>Schreibe mit deinen Stichworten aus Übung 1 einen sachlichen Bericht. Die Checkliste rechts aktualisiert sich beim Tippen. Dein Text bleibt in diesem Browser gespeichert.</p>
+  <div class="grid2" style="grid-template-columns: minmax(0, 3fr) minmax(240px, 2fr);">
+    <div class="feld">
+      <label for="bericht">Dein Unfallbericht</label>
+      <textarea id="bericht" placeholder="Am 3. September 2026 ereignete sich gegen 14:15 Uhr …"></textarea>
+      <div class="counter" id="b-count">0 Wörter</div>
+    </div>
+    <div class="feld">
+      <label>Checkliste</label>
+      <ul class="check-list" id="b-check"></ul>
+    </div>
+  </div>
+  <div class="row">
+    <button class="btn" type="button" id="b-muster">Musterbericht anzeigen</button>
+    <button class="btn sec" type="button" id="b-clear">Text löschen</button>
+  </div>
+  <div class="muster" id="muster" hidden>
+    <div class="teil">Einleitung</div>
+    <p>Am 3. September 2026 ereignete sich gegen 14:15 Uhr in Bornheim an der Ampelkreuzung Wiesenstraße / Poppelsdorfer Allee ein Verkehrsunfall. Der Radfahrer Max Schmitt streifte den Schüler Mario Richter, der die Straße bei Grün überquerte. Mario wurde dabei leicht am Knie verletzt.</p>
+    <div class="teil">Hauptteil</div>
+    <p>Mario Richter und seine Mitschülerin Paula Schmitz befanden sich auf dem Heimweg von der Schule. Als die Fußgängerampel grün wurde, gingen beide los. Paula ging voraus, Mario folgte ein kleines Stück hinter ihr. Zur gleichen Zeit wartete der Radfahrer Max Schmitt an der roten Ampel. Er <span class="pq">war im Büro aufgehalten worden</span> und hatte es eilig, weil er rechtzeitig zu seinem Zahnarzttermin kommen wollte. Deshalb fuhr er los, obwohl seine Ampel noch Rot zeigte. Paula <span class="pq">hatte den Radweg bereits überquert</span>, Mario jedoch nicht. Der Radfahrer bremste, streifte Mario aber am Bein, sodass dieser stürzte. Die Zeugin Frau Müller, die auf dem Weg zur Arbeit war, beobachtete den Vorfall. Anschließend verständigten die Anwesenden über die 112 den Notarzt.</p>
+    <div class="teil">Schluss</div>
+    <p>Die Ärztin stellte bei Mario eine Platzwunde am Knie fest. Er muss sein Bein einige Tage schonen. Außerdem wurde seine Jeans beschädigt. Der Radfahrer blieb unverletzt.</p>
+    <p class="why">Gelb markiert: Plusquamperfekt für die Vorvergangenheit. Alles andere steht im Präteritum. Der letzte Absatz nennt nur Folgen, keine Meinung.</p>
+  </div>
+</section>
+
+<section class="stack" aria-labelledby="err-h">
+  <h2 id="err-h">Typische Fehler in der Klassenarbeit</h2>
+  <div class="card">
+    <ul class="fehler">
+      <li><s>Der Radfahrer hat bei Rot losgefahren.</s> → <em>Der Radfahrer fuhr bei Rot los.</em> (Perfekt ist Sprechsprache, im Bericht steht Präteritum.)</li>
+      <li><s>Plötzlich hörte man ein lautes Scheppern!</s> → <em>Es kam zu einem Zusammenstoß.</em> (Keine Spannung, keine Ausrufezeichen.)</li>
+      <li><s>Mario sagte: „Mein Bein tut so weh.“</s> → <em>Mario klagte über Schmerzen im Bein.</em> (Keine wörtliche Rede, Aussagen zusammenfassen.)</li>
+      <li><s>Der blöde Radfahrer hat voll nicht aufgepasst.</s> → <em>Der Radfahrer missachtete die rote Ampel.</em> (Keine Wertung, keine Umgangssprache.)</li>
+      <li><s>Paula war schon vorbei.</s> → <em>Paula hatte den Radweg bereits überquert.</em> (Vorvergangenheit: Plusquamperfekt.)</li>
+      <li>Kein Schluss. → Immer die Folgen nennen: Verletzung, Behandlung, Schaden.</li>
+    </ul>
+  </div>
+</section>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function shuffle(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); const t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function fb(el, cls, txt) { el.className = "fb " + cls; el.textContent = txt; }
+  function store(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* kein Speicher verfügbar */ } }
+  function load(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+
+  /* ---------- Übung 1: W-Fragen ---------- */
+  const W = [
+    ["Was?", "Verkehrsunfall: Radfahrer streift Fußgänger an einer Ampelkreuzung"],
+    ["Wann?", "3. September 2026, gegen 14:15 Uhr, auf dem Heimweg von der Schule"],
+    ["Wo?", "Bornheim, Ampelkreuzung Wiesenstraße / Poppelsdorfer Allee, Zebrastreifen"],
+    ["Wer?", "Mario Richter (verletzt), Paula Schmitz (Mitschülerin), Radfahrer Max Schmitt, Zeugin Frau Müller, Ärztin"],
+    ["Wie?", "Ampel grün, Paula und Mario gehen los; Radfahrer fährt bei Rot los; Paula schon vorbei; Mario wird gestreift, stürzt; Bremsen quietschen, Schrei; Notarzt 112"],
+    ["Warum?", "Radfahrer war im Büro aufgehalten worden, hatte es eilig (Zahnarzttermin), missachtete die rote Ampel"],
+    ["Folgen?", "Platzwunde am Knie, Bein einige Tage schonen; Jeans beschädigt; Radfahrer unverletzt"]
+  ];
+  $("wfragen").innerHTML = W.map(function (w, i) {
+    return '<div class="feld"><label for="w' + i + '">' + w[0] + '</label><input type="text" id="w' + i + '" autocomplete="off"><div class="loes" hidden id="wl' + i + '">' + esc(w[1]) + '</div></div>';
+  }).join("");
+  W.forEach(function (w, i) {
+    const inp = $("w" + i); const saved = load("w" + i); if (saved) inp.value = saved;
+    inp.addEventListener("input", function () { store("w" + i, inp.value); });
+  });
+  $("w-show").addEventListener("click", function () { W.forEach(function (_, i) { $("wl" + i).hidden = false; }); });
+  $("w-hide").addEventListener("click", function () { W.forEach(function (_, i) { $("wl" + i).hidden = true; }); });
+
+  /* ---------- Übung 2: sachlich oder nicht ---------- */
+  const S = [
+    { t: "Mario Richter stürzte und verletzte sich am Knie.", ok: true, why: "Sachliche Angabe zu Ablauf und Folge." },
+    { t: "Der blöde Radfahrer hat voll nicht aufgepasst.", ok: false, why: "Wertung und Umgangssprache. Sachlich: Der Radfahrer missachtete die rote Ampel." },
+    { t: "Der Unfall ereignete sich gegen 14:15 Uhr.", ok: true, why: "Zeitangabe, gehört in die Einleitung." },
+    { t: "Ich hatte furchtbare Angst um Mario.", ok: false, why: "Gefühle gehören nicht in den Bericht." },
+    { t: "Der Radfahrer fuhr bei Rot los.", ok: true, why: "Wichtig für die Frage: Wie kam es zum Unfall?" },
+    { t: "Plötzlich hörte man ein lautes Scheppern und einen Schrei!", ok: false, why: "Spannung und Ausrufezeichen sind Erzählstil. Sachlich: Es kam zu einem Zusammenstoß." },
+    { t: "Der Radfahrer hatte es eilig, weil er einen Zahnarzttermin hatte.", ok: true, why: "Grund für das Verhalten, gehört in den Hauptteil." },
+    { t: "Die Jeans waren ganz neu und richtig teuer.", ok: false, why: "Ausschmückung. Sachlich reicht: Die Jeans wurde beschädigt." },
+    { t: "Die Ärztin stellte eine Platzwunde am Knie fest.", ok: true, why: "Folge, gehört in den Schluss." },
+    { t: "Hoffentlich geht es Mario bald wieder besser.", ok: false, why: "Wunsch und Gefühl, keine Information." }
+  ];
+  const sOrder = shuffle(S.map(function (_, i) { return i; }));
+  $("sachlich").innerHTML = sOrder.map(function (i) {
+    return '<div class="sort-item" data-i="' + i + '"><span>' + esc(S[i].t) + '</span><span class="choice">' +
+      '<button type="button" class="chip" data-v="1" aria-pressed="false">gehört hinein</button>' +
+      '<button type="button" class="chip" data-v="0" aria-pressed="false">gehört nicht hinein</button></span><span class="why" hidden></span></div>';
+  }).join("");
+  $("sachlich").addEventListener("click", function (e) {
+    const b = e.target.closest(".chip"); if (!b) return;
+    b.parentNode.querySelectorAll(".chip").forEach(function (c) { c.setAttribute("aria-pressed", String(c === b)); });
+  });
+  $("s-check").addEventListener("click", function () {
+    let right = 0, answered = 0;
+    $("sachlich").querySelectorAll(".sort-item").forEach(function (it) {
+      const i = +it.dataset.i; const sel = it.querySelector('.chip[aria-pressed="true"]');
+      it.classList.remove("right", "wrong"); const why = it.querySelector(".why");
+      if (!sel) { why.hidden = true; return; }
+      answered++;
+      const good = (sel.dataset.v === "1") === S[i].ok;
+      it.classList.add(good ? "right" : "wrong"); if (good) right++;
+      why.hidden = false; why.textContent = S[i].why;
+    });
+    if (answered < S.length) fb($("s-fb"), "mid", "Entscheide bei allen " + S.length + " Sätzen.");
+    else fb($("s-fb"), right === S.length ? "ok" : "no", right + " von " + S.length + " richtig.");
+  });
+  $("s-reset").addEventListener("click", function () {
+    $("sachlich").querySelectorAll(".sort-item").forEach(function (it) {
+      it.classList.remove("right", "wrong"); it.querySelector(".why").hidden = true;
+      it.querySelectorAll(".chip").forEach(function (c) { c.setAttribute("aria-pressed", "false"); });
+    });
+    fb($("s-fb"), "", "");
+  });
+
+  /* ---------- Übung 3: Reihenfolge ---------- */
+  const O = [
+    "Max Schmitt wurde im Büro aufgehalten und hatte es eilig.",
+    "Die Fußgängerampel wurde grün, Paula und Mario gingen los.",
+    "Der Radfahrer fuhr bei Rot los.",
+    "Die Bremsen quietschten, der Radfahrer streifte Mario und Mario stürzte.",
+    "Die Zeugen kümmerten sich um Mario und riefen über die 112 den Notarzt.",
+    "Die Ärztin untersuchte Mario und stellte eine Platzwunde am Knie fest.",
+    "Mario muss sein Bein einige Tage schonen."
+  ];
+  let oNext = 0;
+  function buildOrder() {
+    oNext = 0; fb($("o-fb"), "", "");
+    $("order").innerHTML = shuffle(O.map(function (_, i) { return i; })).map(function (i) {
+      return '<button type="button" class="order-item" data-i="' + i + '"><span class="num">?</span><span>' + esc(O[i]) + '</span></button>';
+    }).join("");
+  }
+  buildOrder();
+  $("order").addEventListener("click", function (e) {
+    const b = e.target.closest(".order-item"); if (!b || b.classList.contains("done")) return;
+    if (+b.dataset.i === oNext) {
+      oNext++; b.classList.add("done"); b.querySelector(".num").textContent = oNext;
+      if (oNext === O.length) fb($("o-fb"), "ok", "Alle " + O.length + " Ereignisse in der richtigen Reihenfolge.");
+      else fb($("o-fb"), "", "");
+    } else {
+      b.classList.remove("shake"); void b.offsetWidth; b.classList.add("shake");
+      fb($("o-fb"), "no", oNext === 0 ? "Das geschah nicht als Erstes. Was lag vor dem Unfall?" : "Das kommt später. Was folgte direkt auf Schritt " + oNext + "?");
+    }
+  });
+  $("o-reset").addEventListener("click", buildOrder);
+
+  /* ---------- Übung 4: Lückentext ---------- */
+  const L = [
+    "", { a: "Als", o: ["Als", "Weil", "Obwohl"] }, " die Fußgängerampel grün wurde, gingen Paula und Mario los. Mario ging ein kleines Stück hinter Paula. ",
+    { a: "Zur gleichen Zeit", o: ["Zur gleichen Zeit", "Deshalb", "Schließlich"] }, " wartete Max Schmitt mit seinem Fahrrad an der Kreuzung. Er hatte es eilig, ",
+    { a: "weil", o: ["weil", "obwohl", "sodass"] }, " er rechtzeitig zu seinem Zahnarzttermin kommen wollte. ",
+    { a: "Deshalb", o: ["Deshalb", "Obwohl", "Während"] }, " fuhr er los, ",
+    { a: "obwohl", o: ["obwohl", "weil", "nachdem"] }, " seine Ampel noch Rot zeigte. Paula hatte den Radweg bereits überquert, ",
+    { a: "aber", o: ["aber", "denn", "sodass"] }, " Mario wurde vom Rad gestreift, ",
+    { a: "sodass", o: ["sodass", "obwohl", "bevor"] }, " er stürzte. ",
+    { a: "Anschließend", o: ["Anschließend", "Zuerst", "Während"] }, " verständigten die Zeugen den Notarzt."
+  ];
+  let lCount = 0;
+  $("luecke").innerHTML = L.map(function (p) {
+    if (typeof p === "string") return esc(p);
+    const id = "l" + (lCount++);
+    return '<select id="' + id + '" data-a="' + esc(p.a) + '" aria-label="Lücke ' + lCount + '"><option value="">…</option>' +
+      shuffle(p.o).map(function (o) { return '<option>' + esc(o) + '</option>'; }).join("") + '</select>';
+  }).join("");
+  $("l-check").addEventListener("click", function () {
+    let right = 0, filled = 0;
+    $("luecke").querySelectorAll("select").forEach(function (s) {
+      s.classList.remove("ok", "no"); if (!s.value) return; filled++;
+      const good = s.value === s.dataset.a; s.classList.add(good ? "ok" : "no"); if (good) right++;
+    });
+    if (filled < lCount) fb($("l-fb"), "mid", "Fülle alle " + lCount + " Lücken.");
+    else fb($("l-fb"), right === lCount ? "ok" : "no", right + " von " + lCount + " richtig." + (right < lCount ? " Rote Lücken noch einmal prüfen." : ""));
+  });
+  $("l-reset").addEventListener("click", function () {
+    $("luecke").querySelectorAll("select").forEach(function (s) { s.value = ""; s.classList.remove("ok", "no"); });
+    fb($("l-fb"), "", "");
+  });
+
+  /* ---------- Übung 5: Verbformen ---------- */
+  const TEXT = "Am 23.09.2026 [veranstaltete|1] die Fachschaft Sport des Tannenbusch-Gymnasiums den „SWB-Tabu Kicker Cup“ für alle Bonner Schulen. Der Termin [war|2] ein Nachholtermin, weil die Temperaturen im Sommer zu hoch [gewesen|3] [waren|3]. Die Eltern der Klasse 6b [hatten|4] ein tolles Buffet für die Fußballerinnen und Fußballer [vorbereitet|4].\n" +
+    "Die Klasse 6b [spielte|5] richtig stark. Diejenigen, die nicht auf dem Platz [waren|6], [feuerten|7] das Team der Mädchen und das der Jungen auf dem Rasen [an|7]: „6b vor, noch ein Tor! Ihr [schafft|8] das!“ Beide Teams [holten|9] sich am Ende den Sieg. Und die ganze Klasse [war|10] sich einig: Im nächsten Sommer [werden|11] wir wieder [siegen|11]!";
+  const TENSES = { plus: "Plusquamperfekt", prat: "Präteritum", perf: "Perfekt", pras: "Präsens", fut: "Futur I" };
+  const G = {
+    1: { f: "veranstaltete", t: "prat", why: "Erzählzeit des Berichts: einfache Vergangenheit, eine Verbform." },
+    2: { f: "war", t: "prat", why: "Präteritum von „sein“ (starkes Verb), Erzählzeit." },
+    3: { f: "gewesen waren", t: "plus", why: "Vorvergangenheit: Die Hitze im Sommer lag vor dem Nachholtermin. Form: waren + Partizip II." },
+    4: { f: "hatten … vorbereitet", t: "plus", why: "Vorvergangenheit: Das Buffet wurde vor dem Turnier vorbereitet. Form: hatten + Partizip II." },
+    5: { f: "spielte", t: "prat", why: "Erzählzeit, schwaches Verb mit -te." },
+    6: { f: "waren", t: "prat", why: "Präteritum von „sein“, Erzählzeit." },
+    7: { f: "feuerten … an", t: "prat", why: "Präteritum des trennbaren Verbs „anfeuern“: Die Vorsilbe steht am Satzende." },
+    8: { f: "schafft", t: "pras", why: "Wörtliche Rede: Die Fans sprechen in der Gegenwart." },
+    9: { f: "holten", t: "prat", why: "Erzählzeit, schwaches Verb mit -te." },
+    10: { f: "war", t: "prat", why: "Präteritum von „sein“, Erzählzeit." },
+    11: { f: "werden … siegen", t: "fut", why: "Zukunft (nächster Sommer). Form: werden + Infinitiv." }
+  };
+  const tt = $("tempus-text");
+  tt.innerHTML = TEXT.split("\n").map(function (para) {
+    return "<p>" + para.split(" ").map(function (tok) {
+      const m = tok.match(/^(.*?)\[([^|\]]+)\|(\d+)\](.*)$/);
+      if (m) return esc(m[1]) + '<button type="button" class="tok" data-g="' + m[3] + '" aria-pressed="false">' + esc(m[2]) + '</button>' + esc(m[4]);
+      const m2 = tok.match(/^([„(]*)([\wäöüÄÖÜß0-9.-]+)(.*)$/);
+      if (m2 && /[A-Za-zäöüÄÖÜß]/.test(m2[2])) return esc(m2[1]) + '<button type="button" class="tok" aria-pressed="false">' + esc(m2[2]) + '</button>' + esc(m2[3]);
+      return esc(tok);
+    }).join(" ") + "</p>";
+  }).join("");
+  tt.addEventListener("click", function (e) {
+    const b = e.target.closest(".tok"); if (!b) return;
+    b.setAttribute("aria-pressed", String(b.getAttribute("aria-pressed") !== "true"));
+    b.classList.remove("hit", "miss", "extra");
+  });
+  $("t-check").addEventListener("click", function () {
+    let hit = 0, miss = 0, extra = 0; const total = tt.querySelectorAll(".tok[data-g]").length;
+    tt.querySelectorAll(".tok").forEach(function (b) {
+      const on = b.getAttribute("aria-pressed") === "true", isV = !!b.dataset.g;
+      b.classList.remove("hit", "miss", "extra");
+      if (isV && on) { b.classList.add("hit"); hit++; }
+      else if (isV && !on) { b.classList.add("miss"); miss++; }
+      else if (!isV && on) { b.classList.add("extra"); extra++; }
+    });
+    const msg = hit + " von " + total + " Verbwörtern gefunden" + (extra ? ", " + extra + " davon kein Verb" : "") + ".";
+    fb($("t-fb"), miss === 0 && extra === 0 ? "ok" : (hit > 0 ? "mid" : "no"), msg + (miss ? " Rot unterstrichene Wörter wurden übersehen." : ""));
+  });
+  $("t-reset").addEventListener("click", function () {
+    tt.querySelectorAll(".tok").forEach(function (b) { b.setAttribute("aria-pressed", "false"); b.classList.remove("hit", "miss", "extra"); });
+    fb($("t-fb"), "", "");
+  });
+
+  const ztb = $("tempus-tbl").querySelector("tbody");
+  function buildZ() {
+    ztb.innerHTML = Object.keys(G).map(function (k) {
+      return '<tr><td class="verb">' + esc(G[k].f) + '</td><td><select id="z' + k + '" data-k="' + k + '" aria-label="Zeitform von ' + esc(G[k].f) + '"><option value="">…</option>' +
+        Object.keys(TENSES).map(function (t) { return '<option value="' + t + '">' + TENSES[t] + '</option>'; }).join("") + '</select></td><td class="why"></td></tr>';
+    }).join("");
+    fb($("z-fb"), "", "");
+  }
+  buildZ();
+  $("z-check").addEventListener("click", function () {
+    let right = 0, filled = 0; const n = Object.keys(G).length;
+    ztb.querySelectorAll("select").forEach(function (s) {
+      const td = s.parentNode, why = td.nextElementSibling; td.classList.remove("ok", "no"); why.textContent = "";
+      if (!s.value) return; filled++;
+      const good = s.value === G[s.dataset.k].t; td.classList.add(good ? "ok" : "no"); if (good) right++;
+      why.textContent = (good ? "" : "Richtig: " + TENSES[G[s.dataset.k].t] + ". ") + G[s.dataset.k].why;
+    });
+    if (filled < n) fb($("z-fb"), "mid", "Bestimme alle " + n + " Formen.");
+    else fb($("z-fb"), right === n ? "ok" : "no", right + " von " + n + " richtig.");
+  });
+  $("z-reset").addEventListener("click", buildZ);
+
+  /* ---------- Übung 6: Formen bilden ---------- */
+  const FORMS = [
+    ["losfahren", ["fuhr los"], ["war losgefahren"]],
+    ["stürzen", ["stürzte"], ["war gestürzt"]],
+    ["hören", ["hörte"], ["hatte gehört"]],
+    ["rufen", ["rief"], ["hatte gerufen"]],
+    ["kommen", ["kam"], ["war gekommen"]],
+    ["streifen", ["streifte"], ["hatte gestreift"]],
+    ["gehen", ["ging"], ["war gegangen"]],
+    ["bremsen", ["bremste"], ["hatte gebremst"]],
+    ["sehen", ["sah"], ["hatte gesehen"]],
+    ["überqueren", ["überquerte"], ["hatte überquert"]]
+  ];
+  function normForm(s) { return s.toLowerCase().replace(/^(er|sie|es)\s+/, "").replace(/\s+/g, " ").replace(/[.!]/g, "").trim(); }
+  const ftb = $("form-tbl").querySelector("tbody");
+  ftb.innerHTML = FORMS.map(function (f, i) {
+    return '<tr><td class="verb">' + f[0] + '</td><td><input type="text" id="fp' + i + '" autocomplete="off" autocapitalize="off" aria-label="Präteritum von ' + f[0] + '"></td><td><input type="text" id="fq' + i + '" autocomplete="off" autocapitalize="off" aria-label="Plusquamperfekt von ' + f[0] + '"></td></tr>';
+  }).join("");
+  function checkForms(show) {
+    let right = 0, filled = 0;
+    FORMS.forEach(function (f, i) {
+      [["fp", 1], ["fq", 2]].forEach(function (c) {
+        const inp = $(c[0] + i), td = inp.parentNode; td.classList.remove("ok", "no");
+        if (show) { inp.value = f[c[1]][0]; td.classList.add("ok"); return; }
+        if (!inp.value.trim()) return; filled++;
+        const good = f[c[1]].indexOf(normForm(inp.value)) >= 0; td.classList.add(good ? "ok" : "no"); if (good) right++;
+      });
+    });
+    const n = FORMS.length * 2;
+    if (show) fb($("f-fb"), "", "Lösungen eingetragen.");
+    else if (filled < n) fb($("f-fb"), "mid", right + " richtig, " + (n - filled) + " Felder noch leer.");
+    else fb($("f-fb"), right === n ? "ok" : "no", right + " von " + n + " richtig.");
+  }
+  $("f-check").addEventListener("click", function () { checkForms(false); });
+  $("f-show").addEventListener("click", function () { checkForms(true); });
+  $("f-reset").addEventListener("click", function () {
+    ftb.querySelectorAll("input").forEach(function (i) { i.value = ""; i.parentNode.classList.remove("ok", "no"); });
+    fb($("f-fb"), "", "");
+  });
+  ftb.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); checkForms(false); } });
+
+  /* ---------- Übung 7: Bericht-Check ---------- */
+  const ta = $("bericht");
+  const savedB = load("bericht"); if (savedB) ta.value = savedB;
+  const UMG = /\b(voll|krass|total|echt|mega|blöd|blöde|cool|halt|irgendwie|ding|geil|dumm)\b/i;
+  const GEF = /\b(angst|schrecklich|furchtbar|zum glück|hoffentlich|leider|gott sei dank|schlimm|arme[rn]?)\b/i;
+  const PERF = /\b(hat|haben|ist|sind|bin|bist|seid)\b[^.!?]{0,40}\b(ge\w+(t|en)|\w+(iert|ieren))\b/i;
+  const PLUS = /\b(hatte|hatten|war|waren)\b[^.!?]{0,60}\b(ge\w+(t|en)|\w+iert|worden)\b/i;
+  const PRAT = /\b(ereignete|fuhr|ging|gingen|stürzte|streifte|wurde|bremste|rief|riefen|kam|stellte|beobachtete|wartete|missachtete|überquerte|verletzte|hörte|folgte|zeigte)\b/i;
+  const CHECKS = [
+    { k: "zeit", t: "Zeit genannt (3. September 2026, etwa 14:15 Uhr)", f: function (s) { return /3\.\s*september|03\.09\.|14[:.]15/i.test(s); } },
+    { k: "ort", t: "Ort genannt (Bornheim, Wiesenstraße / Poppelsdorfer Allee)", f: function (s) { return /bornheim|wiesenstra|poppelsdorf/i.test(s); } },
+    { k: "wer", t: "Beteiligte mit Namen (Mario Richter, Max Schmitt, Paula Schmitz)", f: function (s) { return /mario/i.test(s) && /schmitt|radfahrer/i.test(s); } },
+    { k: "warum", t: "Grund genannt (eilig, Zahnarzttermin, bei Rot)", f: function (s) { return /eilig|zahnarzt/i.test(s) && /\brot\b/i.test(s); } },
+    { k: "folge", t: "Folgen genannt (Platzwunde, Knie, schonen, Jeans)", f: function (s) { return /platzwunde|knie/i.test(s) && /schon|jeans/i.test(s); } },
+    { k: "anf", t: "Satzanfänge für die Reihenfolge (als, danach, anschließend, schließlich …)", f: function (s) { return (s.match(/\b(als|danach|dann|anschließend|schließlich|später|zuerst|zu beginn|zum schluss|während|nachdem)\b/gi) || []).length >= 2; } },
+    { k: "konj", t: "Konjunktionen (weil, deshalb, sodass, obwohl …)", f: function (s) { return (s.match(/\b(weil|da|deshalb|sodass|obwohl|denn|aber|während)\b/gi) || []).length >= 2; } },
+    { k: "prat", t: "Präteritum als Erzählzeit", f: function (s) { return PRAT.test(s); } },
+    { k: "plus", t: "Plusquamperfekt für die Vorvergangenheit (hatte / war + Partizip II)", f: function (s) { return PLUS.test(s); } },
+    { k: "perf", t: "Kein Perfekt (hat gestreift, ist gestürzt)", warn: true, f: function (s) { return !PERF.test(s); } },
+    { k: "rede", t: "Keine wörtliche Rede (Anführungszeichen)", warn: true, f: function (s) { return !/[„“"]/.test(s); } },
+    { k: "ausr", t: "Keine Ausrufe- und Fragezeichen", warn: true, f: function (s) { return !/[!?]/.test(s); } },
+    { k: "umg", t: "Keine Umgangssprache (voll, krass, blöd …)", warn: true, f: function (s) { return !UMG.test(s); } },
+    { k: "gef", t: "Keine Gefühle und Wertungen (Angst, zum Glück, hoffentlich …)", warn: true, f: function (s) { return !GEF.test(s); } },
+    { k: "len", t: "Mindestens 120 Wörter, drei Absätze (Einleitung, Hauptteil, Schluss)", f: function (s) { return words(s) >= 120 && s.trim().split(/\n\s*\n/).length >= 3; } }
+  ];
+  function words(s) { return (s.trim().match(/\S+/g) || []).length; }
+  function runCheck() {
+    const s = ta.value; const n = words(s);
+    $("b-count").textContent = n + (n === 1 ? " Wort" : " Wörter");
+    $("b-check").innerHTML = CHECKS.map(function (c) {
+      const ok = n > 0 && c.f(s);
+      const cls = ok ? "ok" : (n === 0 ? "" : (c.warn ? "no" : "no"));
+      return '<li class="' + cls + '"><span class="ico">' + (ok ? "✓" : (n === 0 ? "○" : "✗")) + '</span><span>' + esc(c.t) + '</span></li>';
+    }).join("");
+  }
+  ta.addEventListener("input", function () { store("bericht", ta.value); runCheck(); });
+  runCheck();
+  $("b-muster").addEventListener("click", function () { const m = $("muster"); m.hidden = !m.hidden; this.textContent = m.hidden ? "Musterbericht anzeigen" : "Musterbericht ausblenden"; });
+  $("b-clear").addEventListener("click", function () { ta.value = ""; store("bericht", ""); runCheck(); ta.focus(); });
+})();
+</script>
