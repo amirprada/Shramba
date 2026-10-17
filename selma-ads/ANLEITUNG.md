@@ -79,40 +79,39 @@ eine Zahlungsmethode hinterlegt ist, Seite und Instagram im Portfolio hängen.
 
 ---
 
-## Phase 2: Angebot und Funnel festlegen (du + Selma, ein Gespräch)
+## Phase 2: Angebot und Funnel festlegen (fast fertig)
 
-Hier scheitern die meisten Werbeanzeigen, nicht an der Technik. Bevor ein
-Euro fließt, müssen diese Fragen beantwortet in `kunde/selma.md` stehen:
+Das meiste steht schon, weil Content-Pläne, Onboarding-Mails und Website-Texte
+existieren. Siehe `kunde/selma.md`. Was ich daraus übernommen habe:
 
-1. **Was genau wird verkauft?** Das 6-Wochen-Programm? Ein 1:1-Coaching?
-   Eine Mitgliedschaft? Zu welchem Preis? Wann startet die nächste Runde?
-2. **Was passiert, wenn eine Frau Interesse hat?** Drei Wege, einen wählen:
-   - **A – Instant Form:** Sie trägt Name + E-Mail/Telefon in der Anzeige
-     ein, Selma ruft an oder schreibt per WhatsApp. Schnellster Start, kein
-     Pixel. Nachteil: Leads sind teils unverbindlich.
-   - **B – WhatsApp/Instagram-DM:** Klick auf die Anzeige öffnet einen Chat
-     mit Selma. Passt perfekt zu Coaching, kostet Selma Zeit pro Chat.
-   - **C – Webseite:** Klick führt auf selmanuhija.com, dort Anmeldung oder
-     Terminbuchung. Braucht Pixel + funktionierende Seite. Erst wenn du mir
-     die Seite gezeigt hast.
-   Empfehlung für den Start: **B**, weil Selma den Kontakt persönlich macht
-   und das ihr Stil ist. A als zweite Variante parallel testen.
-3. **Gibt es ein kostenloses Erstangebot?** Z. B. "Protein-Guide für Frauen
-   40+", "5-Tage-Challenge". Senkt die Hürde deutlich. Wenn nicht: erstmal
-   ohne, später bauen.
-4. **Wer ist die Frau, die kaufen soll?** Selma weiß das aus ihren Chats.
-   Alter, Situation, was sie schon probiert hat, was sie nervt. Drei Sätze
-   reichen, ich mache daraus die Zielgruppe.
-5. **Was darf eine Kundin kosten?** Faustregel: Kostet das Programm 300 €,
-   ist ein Lead für 10–25 € und eine Kundin für 100–150 € akzeptabel. Ohne
-   Erfahrungswert: zwei Wochen messen, dann festlegen.
-6. **Budget für den Test:** 10–20 € pro Tag für 2–4 Wochen, also 300–600 €
-   Lehrgeld, das man einplanen muss. Darunter lernt man nichts.
-7. **Impressum und Datenschutz:** Hat selmanuhija.com beides? Meta verlangt
-   für Instant Forms eine Datenschutz-URL. Ohne geht Variante A nicht.
+- **Angebot:** Mitgliedschaft 70 €/Monat, monatlich kündbar, Einstieg jederzeit.
+- **Funnel:** Der organische Weg (Reel → Keyword-Kommentar → ManyChat-DM mit
+  Freebie → Flodesk-Mails → Mitgliedschaft) läuft bereits. Die Ads verstärken
+  genau diesen Weg: Anzeige öffnet eine Instagram-DM, ManyChat antwortet.
+  Kein Pixel, keine neue Landingpage nötig.
+- **Erste Freebies für Ads:** RETTUNG und PROTEIN, beide fertig.
+- **Zielgruppe und Ton:** aus den Reels-Plänen und dem Karussell-Brief.
 
-**Phase 2 ist fertig, wenn:** in `kunde/selma.md` keine `[…]` mehr bei
-Angebot, Preis, Funnel, Link, Werbekonto-ID, Budget stehen.
+Was du noch beantworten musst, bevor Geld fließt:
+
+1. **ManyChat:** Ist ManyChat mit Selmas Instagram verbunden und hast du Zugang?
+   Für Ads braucht ManyChat einen "Ad-Trigger" (Klick auf Anzeige startet den
+   Flow), der ist im Pro-Tarif enthalten.
+2. **Webseite:** Wo liegt selmanuhija.com (Wix, Squarespace, Framer, WordPress,
+   Netlify, eigener Server)? Gibt es Impressum und Datenschutzerklärung als
+   eigene Seiten mit URL? Ist ein Meta Pixel eingebaut? Das brauche ich für
+   Instant Forms (Datenschutz-URL) und später für Variante C.
+3. **Budget:** Testbudget pro Tag und harte Obergrenze. Vorschlag 15 €/Tag,
+   Obergrenze 20 €, vier Wochen. Das sind rund 450 € Lehrgeld, die man einplanen
+   muss.
+4. **Was darf eine Kundin kosten?** Bei 70 €/Monat hängt das davon ab, wie lange
+   Kundinnen im Schnitt bleiben. Selma weiß das grob. Drei Monate wären 210 €
+   Umsatz, dann sind 50 bis 70 € Werbekosten pro Kundin vertretbar.
+5. **Hijab in Anzeigen** bewusst als Merkmal nutzen oder nicht? Selma entscheidet.
+6. **Länder:** nur Deutschland, oder DACH?
+
+**Phase 2 ist fertig, wenn:** diese sechs Punkte in `kunde/selma.md` stehen und
+die Werbekonto-ID aus Phase 1 eingetragen ist.
 
 ---
 
@@ -156,8 +155,8 @@ Claude macht beim ersten Lauf:
 1. Bericht "noch keine Daten".
 2. Zielgruppen-Vorschlag: eine kalte Anzeigengruppe (Frauen 35–55, DACH,
    breit) und eine warme (alle, die Selmas Reels gesehen oder ihr Profil
-   besucht haben). Die warme ist bei 7.000 Followern und vielen Reels
-   wertvoll und günstig.
+   besucht haben, plus die Flodesk-Liste als Kundenliste). Die warme ist bei
+   7.000 Followern und vielen Reels wertvoll und günstig.
 3. 3–5 Anzeigen als Text + Briefing. **Beim Start nutzen wir Selmas
    bestehende Reels als Videos**, die sind schon da und zeigen ihr Gesicht.
    Claude sagt, welche Reels zu welchem Text passen.
@@ -193,10 +192,10 @@ Erst jetzt läuft Geld.
 
 ## Was du mir als nächstes schickst
 
-1. Screenshots von selmanuhija.com (Startseite, Angebot/Preise, Impressum,
-   Datenschutz), weil ich die Seite nicht aufrufen kann.
-2. Antworten auf die 7 Fragen aus Phase 2, gern als Sprachnachricht
-   abgetippt oder Stichpunkte.
+1. Die sechs Antworten aus Phase 2, Stichpunkte reichen.
+2. Wo die Webseite liegt und ob du mir den Quellcode oder Zugang geben kannst.
+   Dann prüfe ich Impressum, Datenschutz und Pixel selbst und baue bei Bedarf
+   eine Seite `/start` für die Mitgliedschaft.
 3. Die Werbekonto-ID `act_…`, sobald Phase 1 steht.
-4. Links zu 5 Reels, die Selma am besten findet. Die werden das erste
+4. Links zu den 5 Reels mit den meisten Aufrufen. Die werden das erste
    Anzeigenmaterial.

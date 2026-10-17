@@ -1,91 +1,143 @@
 # Kundenprofil: Selma Nuhija-Kerić
 
-Alles mit `[…]` muss Amir oder Selma ausfüllen. Claude verwendet in Anzeigen
-nur, was hier steht.
+Quellen: Instagram-Profil @selmanuhija (17.10.2026), Content-Plan Kursstart 12.10.,
+Reels-Plan 6.–19. Oktober, Onboarding-Mails Woche 1–4, "Über Selma"-Website-Copy,
+Karussell-Strategie-Brief. Alles mit `[…]` fehlt noch. Claude verwendet in
+Anzeigen nur, was hier steht.
 
-## Person und Angebot
-- **Name:** Selma Nuhija-Kerić
-- **Rolle:** Certified FASTer Way to Fat Loss Coach
-- **Instagram:** @selmanuhija (verifiziert, 7.154 Follower, 312 Beiträge, Stand 17.10.2026). Profilname: "Selma / Ernährung-Kraft-Fettabbau"
+## Person
+- **Name:** Selma Nuhija-Kerić, Instagram @selmanuhija (verifiziert, 7.154 Follower,
+  312 Beiträge). Profilname "Selma / Ernährung-Kraft-Fettabbau".
+- **Rolle:** Certified FASTer Way to Fat Loss® Coach.
+- **Webseite:** https://www.selmanuhija.com (DE, mit /en/about und /bs/o-selmi,
+  also dreisprachig DE/EN/BS). Amir betreut die Seite.
+  Offen: Plattform/Hosting […], Meta Pixel vorhanden […], Impressum […], Datenschutz […]
 - **Facebook-Seite:** […]
-- **Webseite:** https://www.selmanuhija.com  (Inhalt noch nicht geprüft: Angebot, Anmeldung, Impressum, Datenschutz, Pixel → Amir liefert Screenshots oder Text)
-- **Landingpage / Anmeldelink:** […]  (falls keine: WhatsApp-Nummer oder DM-Funnel)
-- **WhatsApp-Business-Nummer:** […]
 - **Werbekonto-ID:** act_[…]
-- **Sprache der Anzeigen:** Deutsch (Instagram-Profil und Reels sind durchgehend deutsch; eine englische Slide existiert, Englisch nur auf Wunsch)
-- **Zielmarkt / Land:** […]  (vermutlich Deutschland/DACH, deutschsprachig; Selma bestätigt)
+- **Business Portfolio:** […] (vorhanden? Admin?)
+- **Sprache der Anzeigen:** Deutsch. Englisch/Bosnisch nur auf ausdrücklichen Wunsch.
+- **Zielmarkt:** deutschsprachig (Deutschland, Österreich, Schweiz). Selma wohnt in
+  Bremen. Genaue Länderauswahl: […]
+- **Ihre Geschichte (freigegeben für Content):** Mitte 40 (im Content mal 46, mal 47,
+  für Anzeigen kein konkretes Alter nennen), hat 13 Kilo verloren, "nicht mit mehr
+  Disziplin, sondern mit weniger Kampf": mehr essen, schwerer heben, früher schlafen.
+  Vorher: jahrelang Diäten, Cardio, Verzicht, Rückenschmerzen, Erschöpfung, Gewicht in
+  der Körpermitte. Wendepunkt: FASTer Way, dann Coach-Ausbildung.
+- **Trägt Hijab.** Sichtbar in jedem Reel. Als bewusstes Unterscheidungsmerkmal in
+  Anzeigen nur nach Selmas Zustimmung: […]
 
-## Das Programm (öffentlich bekannte Fakten, von Selma zu prüfen)
-FASTer Way to Fat Loss ist ein 6-Wochen-Online-Programm mit vier Bausteinen:
-Intervallfasten, Carb Cycling, Ernährung mit unverarbeiteten Lebensmitteln
-und Workouts (Kraft und HIIT), begleitet durch eine zertifizierte Coachin in
-einer Gruppe mit App. Nach den 6 Wochen gibt es eine monatliche Mitgliedschaft.
+## Das Angebot (Stand Oktober 2026)
+- **Produkt:** Mitgliedschaft in Selmas Begleitung, **70 € im Monat, monatlich
+  kündbar, Einstieg jederzeit** ("keine festen Runden, jede kann jeden Tag starten").
+  Früher lief das als 6-Wochen-Kurs mit festem Start (letzter: 12.10.). Falls Selma
+  wieder feste Runden macht: Datum hier eintragen […]
+- **Was drin ist:** FASTer Way App mit täglichem 30-Minuten-Workout (Kraft mit
+  Kurzhanteln, HIIT, Trainerin zeigt leichtere Varianten), Makro-Setup und Tracking
+  in der App, 28-Tage-Onboarding per täglicher E-Mail (Flodesk), Selmas persönliche
+  Begleitung und Community. Noch offen: Gruppenformat (WhatsApp? App-Community?) […]
+- **Die Methode in vier Bausteinen:** Essfenster 16:8 (Einstieg 12:12 oder 14:10),
+  vollwertige Lebensmittel, proteinfokussiert, Carb Cycling abgestimmt aufs Training.
+  Prinzip: "Länger fasten ist nicht besser fasten." Keine 1200-kcal-Diät, kein
+  Kalorienzählen als Dauerzustand.
+- **Anmeldung:** über selmanuhija.com (Link: […]) oder per DM/START-Keyword. Welcome-
+  Mail wird von Selma manuell geschickt, danach Flodesk-Workflow.
+- **Was Selma von anderen unterscheidet:** eigene Geschichte, Du-Ansprache auf
+  Augenhöhe, deutschsprachig, Alltag mit Familie (Kinder essen mit), kein Fitness-Drill,
+  Tellervergleiche mit echtem Essen (Kartoffeln, Nudeln, Brot bleiben).
 
-- **Preis der 6-Wochen-Runde:** […] €
-- **Preis der Mitgliedschaft danach:** […] €/Monat
-- **Start der nächsten Runde:** […]  (Datum = Dringlichkeit in Anzeigen)
-- **Was Selma konkret liefert:** [z. B. wöchentlicher Plan, tägliche Begleitung in der Gruppe, Check-ins, …]
-- **Was Selma von anderen Coachinnen unterscheidet:** […]  (eigene Geschichte? Alter? Sprache? Mutter? Beruf nebenher?)
+## Freebies (existieren, per Keyword-Kommentar über ManyChat, dann Flodesk)
+| Keyword | Freebie | Stand |
+|---|---|---|
+| RETTUNG | 7 familienfreundliche Gerichte, ein Topf, zwei Teller (PDF) | fertig |
+| TAUSCH | Tausch-Liste, 15 Alltagstausche (PDF) | fertig |
+| PROTEIN | Eiweiß-Spickzettel, 20 Alltagslebensmittel (PDF) | fertig |
+| MORGEN | 4 Frühstücksrezepte (PDF) | fertig |
+| 30 MINUTEN | 30-Minuten-Trainingsguide, 10 Seiten | fertig |
+| PLAN | "So sieht der Plan meiner Klientinnen aus", 16 Seiten | fertig |
+| 15 MINUTEN | 7 Abendessen in 15 Minuten | […] |
+| ABEND | 7 süße Abend-Snacks mit 15 g+ Protein + Abendritual | […] |
+| TELLER | Teller-Guide ab 40 | […] |
+| UNTERWEGS | Bestell-Guide Kantine/Bäcker/Restaurant | […] |
+| START | persönliche Nachricht mit Infos zur Mitgliedschaft | fertig |
+| – | Cortisolbauch-Guide (PDF), Meal Guide Fat Loss (5 Gerichte) | fertig, ältere Freebies |
 
 ## Zielgruppe
-- **Kern:** Frauen ab 35, die merken, dass das, was früher beim Abnehmen
-  funktioniert hat, nicht mehr greift. Themen laut Selmas Slide:
-  "Why do diets no longer deliver results after 35? Hormones – metabolism –
-  energy – sustainable fat loss."
-- **Lebenssituation (zu bestätigen):** berufstätig, oft Mütter, wenig Zeit,
-  haben mehrere Diäten hinter sich, wollen keine Verbote und keine
-  Kalorienzählerei, wollen Energie zurück.
-- **Typische Einwände:** keine Zeit, "ich habe schon alles probiert",
-  Intervallfasten klingt nach Hungern, Online-Programm wirkt unpersönlich,
-  Preis.
-- **Wo sie sind:** Instagram (Reels, Stories), Facebook (Gruppen, Feed),
-  Alter 35–55.
+- **Kern:** Frauen 40+ (Ansprache "ab 35" / "ab 40"), Lebensmitte/Perimenopause.
+  Sie kochen frisch, essen gesund, bewegen sich, nehmen trotzdem zu. Erschöpft,
+  geben sich selbst die Schuld, glauben, sie bräuchten mehr Disziplin.
+- **Der Glaubenssatz, den wir kippen:** "Wenn ich mich nur mehr anstrenge, weniger
+  esse und mich mehr quäle, klappt es endlich."
+- **Alltagsprobleme (ihre Sätze, aus Selmas Chats):** "Ich kann nicht getrennt für
+  die Familie kochen." · "Ich komme um 19 Uhr heim und hab keine Kraft zu kochen." ·
+  "Tagsüber läuft alles, abends auf der Couch verliere ich." · "Morgens kein Hunger,
+  um 16 Uhr esse ich alles." · "Ich esse gesund und nehme trotzdem nicht ab." ·
+  "Kein Studio, keine Stunde Zeit." · "Unterwegs geht alles schief." · "Ich weiß,
+  was ich essen soll, hab nur keinen Plan für meine Woche."
+- **Einwände:** keine Zeit, schon alles probiert, Intervallfasten klingt nach
+  Hungern, Online wirkt unpersönlich, 70 €/Monat.
+- **Plattform:** Instagram Reels (Hauptkanal), Facebook. Alter 35–55.
+- **Warme Zielgruppe vorhanden:** 7.000 Follower, viele Reels mit hohen
+  Aufrufen, Kommentar-Leads in ManyChat, Flodesk-Liste. Für Custom Audiences und
+  Lookalikes nutzbar (Flodesk-Liste als Kundenliste hochladen, Einverständnis prüfen).
 
-## Ton (aus dem Instagram-Profil abgeleitet, von Selma zu bestätigen)
-- **Du-Ansprache**, direkt, locker, ohne Fitness-Drill. Spricht offen über ihr
-  eigenes Alter (47) und zeigt sich selbst: Küche, Gym, Auto, Straße.
-- **Bio:** "Dein Coach für smarten Fettabbau. 1. Hungern ist out. 2. Muskeln
-  sind in. 3. Lifestyle ist alles." → diese drei Sätze sind ihre Kernbotschaft.
-- **Themen ihrer Reels:** Protein und Kalorien konkret zeigen ("1600 Kalorien,
-  129 g Protein", "200 Kalorien vs. 200 Kalorien" als Tellervergleich),
-  Krafttraining mit Hanteln, Frauen über 40 die "clean essen, Sport machen
-  und trotzdem Fett ansammeln", "Im Leben kommt alles mit einem Preis",
-  "wenn man mit 47 Jahren…", "Ich bin in dem Alter, in dem an manchen
-  Tagen…".
-- **Trägt Hijab**, ist damit für muslimische Frauen im DACH-Raum eine
-  sichtbare, glaubwürdige Ansprechpartnerin. Das ist ein echter
-  Unterscheidungsfaktor, aber nur verwenden, wenn Selma das will.
-- Beispiel-Overlays aus ihren Reels (für Hook-Stil, nicht 1:1 übernehmen):
+## Ton
+- **Du-Ansprache**, warm, direkt, auf Augenhöhe. Keine Marketingfloskeln, keine
+  Dramatik, kein Fitness-Drill, keine Scham.
+- **Markenessenz:** nicht "streng dich mehr an", sondern "hör auf, dich
+  kaputtzukämpfen". Strategie statt Strafe. "Du bist nicht das Problem."
+- **Ihre drei Sätze:** Hungern ist out. Muskeln sind in. Lifestyle ist alles.
+- **Wiederkehrende Formeln:** "Das liegt nicht an dir, das ist Biologie." ·
+  "Du hast kein Disziplin-Problem, du hast ein 16-Uhr-Problem." · "Ich verzichte
+  nicht. Ich tausche." · "Nicht die Kartoffel ist das Problem, sondern das Fett
+  drumherum." · "Mehr essen, aber das Richtige."
+- **Reel-Muster, das funktioniert:** Hook = ihr Satz wörtlich → Freispruch →
+  das Was, nicht das Wie → Keyword-CTA. 25–35 Sekunden, Hook in Sekunde 1 als Text
+  und gesprochen, Kalorien immer mit "ca.".
+- **Visuell:** Selma vor der Kamera (Küche, Esstisch, Wohnzimmer-Training,
+  Walking-Selfie), Tellervergleiche von oben, Untertitel. Kein Vorher-Nachher.
+- **Markenfarben Webseite:** #DED5DA · #4C4C4D · #254441 · #FFD365 · #E8AA22.
+  **Karussell/Editorial:** Creme #F4EDE2, Terrakotta #B16D46, Dunkelbraun #362A1E,
+  Lora (Headlines) + Lato (Text), ein Schlüsselwort pro Headline in Terrakotta.
+- **Hashtags, die sie nutzt:** #abnehmenab40 #frauenab40 #wechseljahre
+  #abnehmenohnediaet #starkab40 #krafttrainingfrauen
 
-> "Wenn du als Frau über 40 clean isst, Sport machst und trotzdem weiter Fett ansammelst"
+## Funnel (Empfehlung, von Amir zu bestätigen)
+Der organische Funnel steht schon und soll in den Ads einfach bezahlt verstärkt werden:
 
-> "Mir ist egal, ob du 5 kg oder 20 kg abnehmen möchtest. Dein Alter ist mir auch egal."
-> (organisch gut, als Anzeige heikel: "du … abnehmen möchtest" ist Ansprache
-> nach persönlichem Merkmal → in Anzeigen umformulieren, siehe compliance.md)
+**Anzeige (Reel) → Klick öffnet Instagram-DM → ManyChat schickt Freebie → Flodesk-
+Mailserie → Einladung zur Mitgliedschaft.**
 
-- Selma produziert bereits regelmäßig Reels mit ihrem Gesicht. **Bestehende
-  Reels sind das erste Anzeigenmaterial.** Kein neuer Dreh nötig für den Start.
+Kampagnenziel bei Meta: "Interaktion / Nachrichten" mit Ziel Instagram Direct,
+Keyword-Antwort über ManyChat (Ad-Trigger). Braucht keinen Pixel, keine
+Landingpage, und Selma antwortet persönlich dort, wo sie es ohnehin tut.
 
-- **Nicht:** Fitness-Drill, Scham, "Bikini-Figur", Zahlenversprechen.
-- **Ja:** auf Augenhöhe, Verständnis für den Alltag, Hormone und Stoffwechsel
-  erklären statt Disziplin predigen, Energie und Alltag statt Waage.
+Zweite Variante parallel testen: **Lead-Anzeige mit Instant Form** → Flodesk
+(Datenschutz-URL nötig). Dritte Variante später: Webseite mit Pixel, sobald geklärt.
 
-## Funnel (eine Variante wählen und eintragen)
-- [ ] **A – Lead-Anzeige mit Instant Form:** Interessentin lässt Name + E-Mail/Telefon da,
-      Selma meldet sich. Braucht kein Pixel. Guter Start.
-- [ ] **B – WhatsApp/DM-Anzeige:** Klick öffnet Chat mit Selma. Persönlich, passt zu Coaching,
-      kostet Selma Zeit pro Lead.
-- [ ] **C – Landingpage mit Anmeldung/Call-Buchung:** braucht Pixel + Conversions API.
-- [ ] **D – Kostenloses Erstangebot** (Guide, Webinar, 5-Tage-Challenge) als Einstieg: […]
+- [x] A – Instagram-DM mit ManyChat (Start)
+- [ ] B – Instant Form → Flodesk (zweiter Test)
+- [ ] C – Webseite mit Pixel (später)
 
-Gewählt: […]
+**Welches Freebie zuerst in Ads:** RETTUNG (breitestes Problem: Familie) und
+PROTEIN (passt zur Bio "Muskeln sind in"). Beide fertig.
 
-## Budget
-- Testphase: […] € pro Tag  (Vorschlag: 10–20 €)
+## Budget und Zielwerte
+- Testphase: […] € pro Tag (Vorschlag 10–20 €, 4 Wochen).
 - Harte Obergrenze gesamt pro Tag (steht auch in CLAUDE.md): […] €
-- Was ist ein guter Lead-Preis? […] €  (ohne Erfahrungswert: erste zwei Wochen messen, dann festlegen)
+- Rechnung: 70 €/Monat, Kundin bleibt im Schnitt […] Monate → eine Kundin darf
+  höchstens […] € Werbekosten verursachen. Lead-Zielpreis daraus: […] €
+  (ohne Erfahrungswert: zwei Wochen messen, dann festlegen).
+
+## Werkzeuge, die schon laufen
+- **ManyChat:** Keyword-Kommentare → DM mit Freebie-Link. Zugang Amir: […]
+- **Flodesk:** Mailliste, Freebie-Mails, 28-Tage-Onboarding. Zugang Amir: […]
+- **FASTer Way App:** Workouts, Makros, Wasser-Tracker (Programminhalt, nicht Werbung).
+- **Google Drive:** Freebie-PDFs, Website-Copy, Karussell-Brief.
 
 ## Material, das Claude nutzen darf
-- Fotos von Selma: […Ordnerpfad oder Link…]
-- Bestehende Reels/Videos: […]
-- Kundinnen-Stimmen (nur mit Einverständnis, ohne Kilo-Angaben): […]
+- Alle Reels auf @selmanuhija (bestehende Posts können direkt als Anzeige
+  verwendet werden: "Beitrag bewerben" bzw. Post-ID im Werbekonto).
+- Fotos: Straßen-Porträt mit Brille, Kaffee-Foto, Workout-Foto, Sonnenbrillen-/
+  Blumen-Foto (laut Karussell-Brief vorhanden). Ablage: […]
+- Freebie-PDFs aus Google Drive (Seiten als Bild in Anzeigen zeigen ist ok).
+- Kundinnen-Stimmen: nur mit Freigabe, ohne Kilo-Angaben: […]
