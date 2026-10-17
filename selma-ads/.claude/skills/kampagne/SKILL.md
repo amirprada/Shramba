@@ -20,10 +20,10 @@ Freigabe-Schranke aus `CLAUDE.md` gilt hier wörtlich.
 ## Struktur, die angelegt wird
 ```
 Kampagne   SELMA | <Ziel> | <YYYY-WW>          Status: PAUSED
-  Ad Set   Kalt – breit | Advantage+           Status: PAUSED, Budget: noch nicht gesetzt
+  Ad Set   Kalt – breit | Instagram             Status: PAUSED, Budget: noch nicht gesetzt
     Ad     ERK-1 | Reel 9:16                   Status: PAUSED
     Ad     ALL-2 | Feed 4:5                    Status: PAUSED
-  Ad Set   Warm | Advantage+                   Status: PAUSED
+  Ad Set   Warm | Instagram                    Status: PAUSED
     Ad     …
 ```
 - **Kampagnenziel** nach Funnel: Leads (Instant Form oder Conversions), oder
@@ -32,6 +32,10 @@ Kampagne   SELMA | <Ziel> | <YYYY-WW>          Status: PAUSED
   Wert erst mit Freigabe. Beim Anlegen das kleinste technisch nötige Budget
   wählen und den Wert im Chat als "Platzhalter, nicht freigegeben" markieren.
 - **Zielgruppen** aus dem Output von `/zielgruppe`.
+- **Platzierungen:** manuell, nur Instagram (Reels, Feed, Stories, Explore).
+  Vor dem Anlegen prüfen, dass keine Facebook-, Messenger- oder
+  Audience-Network-Platzierung aktiv ist. Identität der Anzeige: Instagram-
+  Konto @selmanuhija, Facebook-Seite nur als technischer Träger.
 - **Instant Form:** vorhandenes Formular von Selma verwenden. Keines da:
   Formular-Entwurf (Felder: Vorname, E-Mail, Telefon optional, eine Frage
   "Was ist gerade deine größte Herausforderung?" als Auswahl) im Chat

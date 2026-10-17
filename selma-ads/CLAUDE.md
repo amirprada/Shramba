@@ -1,6 +1,6 @@
 # Projektregeln: Meta Ads für Selma
 
-Du betreust als Claude Code die Meta-Ads (Facebook + Instagram) für Selma
+Du betreust als Claude Code die Instagram-Ads (über das Meta-Werbekonto) und den YouTube-Kanal für Selma
 Nuhija-Kerić, FASTer Way to Fat Loss Coach. Auftraggeber ist Amir Keric.
 Sprache im Chat und in allen Dateien: Deutsch. Anzeigentexte in der Sprache,
 die `kunde/selma.md` unter "Sprache der Anzeigen" vorgibt.
@@ -35,6 +35,13 @@ Hartes Limit, unabhängig von jeder Freigabe:
   keine Vorher-Nachher-Bilder. Details in `kunde/compliance.md`. Jede Anzeige
   durchläuft den Compliance-Check aus dem Skill `creatives`, bevor sie ins
   Werbekonto geht.
+
+## Nur Instagram, kein Facebook
+Selma wirbt nicht auf Facebook. Jedes Ad Set bekommt **manuelle Platzierungen,
+nur Instagram** (Reels, Feed, Stories, Explore). Keine Facebook-Platzierung,
+kein Messenger, kein Audience Network, kein Advantage+ Placements. Die
+Facebook-Seite existiert nur, weil Meta sie technisch verlangt. Anzeigen laufen
+unter Selmas Instagram-Identität (@selmanuhija).
 
 ## Arbeitsweise
 - Vor jeder Aktion im Werbekonto: Werbekonto-ID und Kampagnenname nennen,

@@ -1,6 +1,7 @@
-# Selma Ads – Meta Ads mit Claude Code
+# Selma Ads – Instagram-Ads und YouTube mit Claude Code
 
-Ein System, mit dem Claude Code die Meta-Ads (Facebook + Instagram) für
+Ein System, mit dem Claude Code die Instagram-Ads (über das Meta-Werbekonto,
+**keine Facebook-Platzierungen**) und den YouTube-Kanal für
 **Selma Nuhija-Kerić, Certified FASTer Way to Fat Loss Coach** als wöchentlichen
 Prozess fährt: Zielgruppe analysieren → Creatives erstellen → Kampagne anlegen
 (pausiert) → **Freigabe durch Amir/Selma** → auswerten.
@@ -21,6 +22,8 @@ Gebot, Zielgruppe einer laufenden Kampagne), passiert nur nach dem Wort
 | `.claude/skills/kampagne/` | Kampagnenstruktur anlegen (pausiert) über den Meta-Ads-MCP |
 | `.claude/skills/auswertung/` | Wochenbericht aus den Insights, Kill-/Skalier-Regeln |
 | `.claude/skills/wochenlauf/` | Der Montags-Lauf, der alle vier Skills in Reihe ausführt |
+| `.claude/skills/youtube/` | YouTube: Shorts aus Reels, lange Videos (Skript, Titel, Beschreibung, Kapitel) |
+| `youtube/` | Ein Plan pro Woche (`YYYY-WW.md`) plus Skripte |
 | `vorlagen/` | Vorlagen für Wochenbericht und Creative-Batch |
 | `berichte/` | Ein Wochenbericht pro Woche (`YYYY-WW.md`) |
 | `creatives/` | Ein Batch pro Woche (`YYYY-WW-batch.md`) plus Bild-/Videodateien |
@@ -95,7 +98,15 @@ Erst jetzt schaltet Claude die genannten Anzeigen aktiv und setzt das Budget.
 
 Für einen manuellen Zwischenstand reicht `/auswertung` allein.
 
+## YouTube
+Selma will neben Instagram YouTube aufbauen. Der Skill `/youtube` macht zwei
+Dinge: jede Woche die Instagram-Reels als Shorts aufbereiten (Titel,
+Beschreibung, Freebie-Link statt Keyword) und zweimal im Monat ein langes
+Video zu einer Suchfrage planen. YouTube-Ads kommen erst, wenn Instagram-Ads
+vier Wochen gelaufen sind.
+
 ## Was Claude nie tut
+- Eine Anzeige auf Facebook ausspielen. Platzierungen sind immer nur Instagram.
 - Eine Anzeige aktivieren oder ein Budget setzen ohne das Wort `FREIGABE`.
 - Mehr als das in `CLAUDE.md` eingetragene Tageslimit vorschlagen.
 - Etwas über Selmas Programm behaupten, das nicht in `kunde/selma.md` steht.

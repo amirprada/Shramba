@@ -15,7 +15,7 @@ passt, such nach dem ähnlichsten. Die Reihenfolge und die Logik bleiben gleich.
 
 | Begriff | Was es ist | Bei Selma |
 |---|---|---|
-| **Facebook-Seite** | Die "Firmenseite" auf Facebook. Ohne Seite keine Anzeige, auch nicht auf Instagram. | Hat sie eine? Prüfen. |
+| **Facebook-Seite** | Technischer Träger des Werbekontos. Ohne Seite keine Instagram-Anzeige. Es wird nichts auf Facebook ausgespielt. | Hat sie eine? Prüfen. |
 | **Instagram-Konto** | Ihr Profil @selmanuhija. Muss ein **Professional-Konto** (Business oder Creator) sein und mit der Facebook-Seite verknüpft. | Verifiziert, 7.154 Follower, Reels vorhanden. |
 | **Business Portfolio** (früher Business Manager) | Die Verwaltungsebene darüber, auf business.facebook.com. Hier hängen Seite, Instagram, Werbekonto, Pixel und die Personen mit Zugriff. | Muss auf Selmas Namen laufen. |
 | **Werbekonto** | Das "Konto", von dem Anzeigen bezahlt werden. Hat eine ID `act_…` und eine Zahlungsmethode. | Neu anlegen oder vorhandenes prüfen. |
@@ -37,11 +37,14 @@ und Tools*. Steht dort "Zu einem Business-Konto wechseln", ist sie noch
 privat → wechseln (Creator oder Business, beides geht). Das verifizierte
 Häkchen bleibt.
 
-### 1.2 Selma: Facebook-Seite haben oder anlegen
-Auf facebook.com → Menü → *Seiten* → *Neue Seite erstellen*. Name
-"Selma Nuhija – Ernährung, Kraft, Fettabbau", Kategorie "Coach" oder
-"Gesundheit/Wellness". Profilbild wie auf Instagram. Mehr muss auf der Seite
-nicht passieren, sie ist technisch nötig.
+### 1.2 Selma: Facebook-Seite haben oder anlegen (nur technisch)
+Selma wirbt nicht auf Facebook, und das bleibt so. Meta verlangt trotzdem
+eine Facebook-Seite als Träger des Werbekontos, auch wenn jede Anzeige nur
+auf Instagram läuft. Auf facebook.com → Menü → *Seiten* → *Neue Seite
+erstellen*. Name "Selma Nuhija – Ernährung, Kraft, Fettabbau", Kategorie
+"Coach". Profilbild wie auf Instagram. Keine Posts nötig, niemand muss sie
+finden. Im Werbekonto stellt Claude jede Anzeigengruppe auf "manuelle
+Platzierungen, nur Instagram".
 
 ### 1.3 Selma: Business Portfolio anlegen
 business.facebook.com → *Business Portfolio erstellen* → Name "Selma Nuhija",
@@ -184,9 +187,54 @@ Erst jetzt läuft Geld.
 |---|---|---|
 | Montag | du | `/wochenlauf` in Claude Code starten, 10 Minuten lesen, FREIGABE geben |
 | Montag | Selma | neue Texte lesen, ggf. ein Reel für die Woche aufnehmen (Briefing kommt von Claude) |
+| Mi/Fr/So/Mo | du oder Selma | Reel des Tages auch als Short hochladen, Titel und Beschreibung aus `/youtube` |
 | täglich | Selma | Leads/Chats beantworten, mir einmal pro Woche sagen, welche Leads gut waren |
 | Donnerstag | du | kurz "Zahlen?" an Claude, nur eingreifen wenn etwas pausiert werden muss |
 | Monatsende | du | Berichte in `berichte/` durchsehen, mit Selma Budget und Angebot besprechen |
+
+---
+
+## Phase 6: YouTube (parallel zu Phase 1, kein Geld nötig)
+
+Selma will YouTube aufbauen. Das läuft unabhängig von den Ads und kostet nur
+Zeit. Zwei Stufen, die zweite erst nach acht Wochen der ersten.
+
+### 6.1 Kanal einrichten (Selma, 30 Minuten)
+1. Google-Konto von Selma → youtube.com → Profilbild → *Kanal erstellen*.
+   Name "Selma Nuhija", Handle `@selmanuhija` (wenn frei).
+2. Kanalbild = Instagram-Profilbild, Banner mit ihren drei Sätzen
+   (Hungern ist out. Muskeln sind in. Lifestyle ist alles.). Kanalbeschreibung
+   schreibe ich.
+3. Link zu selmanuhija.com und Instagram im Kanal hinterlegen.
+4. Unter *Einstellungen → Kanal → Erweiterte Einstellungen*: Zielgruppe
+   "nicht für Kinder".
+5. Amir als Kanalverwalter: YouTube Studio → *Einstellungen → Berechtigungen*
+   → deine Google-Adresse als "Bearbeiter". So lädst du hoch, ohne Selmas
+   Passwort.
+
+### 6.2 Stufe 1: Shorts aus den Reels (ab sofort, 4 pro Woche)
+- Jedes neue Reel wird am selben Tag auch als Short hochgeladen. Die Datei
+  ist dieselbe, aber **ohne Instagram-Wasserzeichen**: Original aus CapCut
+  oder vom Handy nehmen, nicht von Instagram herunterladen.
+- Das Keyword-Spiel ("Schreib RETTUNG") gibt es auf YouTube nicht. Im Video
+  bleibt der Satz, in der Beschreibung und im angepinnten Kommentar steht
+  stattdessen der Link zum Freebie. Dafür braucht jedes Freebie eine kleine
+  Seite auf selmanuhija.com mit Flodesk-Formular (z. B. `/rettung`,
+  `/protein`). Das baue ich, sobald ich an die Seite komme.
+- `/youtube` liefert jede Woche Titel, Beschreibung, Hashtags und den
+  angepinnten Kommentar für die vier Shorts.
+
+### 6.3 Stufe 2: lange Videos (ab Woche 9, zwei pro Monat)
+- 8–12 Minuten, eine Suchfrage pro Video, Selma spricht in die Kamera,
+  dazwischen Teller- oder Küchenaufnahmen. Handy, Tageslicht, Küche.
+- Themen sind die acht Alltagsprobleme aus dem Content-Plan. `/youtube`
+  schreibt Skript, Titel, Beschreibung, Kapitel, Thumbnail-Text.
+- Ein Drehtag pro Monat reicht für beide Videos.
+
+### 6.4 YouTube-Ads
+Erst, wenn Instagram-Ads vier Wochen gelaufen sind und aus Stufe 2 Videos
+existieren, die organisch funktionieren. Läuft dann über Google Ads, mit
+denselben Freigabe-Regeln.
 
 ---
 

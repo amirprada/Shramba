@@ -75,7 +75,9 @@ Anzeigen nur, was hier steht.
   was ich essen soll, hab nur keinen Plan für meine Woche."
 - **Einwände:** keine Zeit, schon alles probiert, Intervallfasten klingt nach
   Hungern, Online wirkt unpersönlich, 70 €/Monat.
-- **Plattform:** Instagram Reels (Hauptkanal), Facebook. Alter 35–55.
+- **Plattform:** Instagram Reels (Hauptkanal). **Facebook ausdrücklich nicht**,
+  Selma will dort nicht werben. YouTube im Aufbau (Shorts, dann lange Videos).
+  Alter 35–55.
 - **Warme Zielgruppe vorhanden:** 7.000 Follower, viele Reels mit hohen
   Aufrufen, Kommentar-Leads in ManyChat, Flodesk-Liste. Für Custom Audiences und
   Lookalikes nutzbar (Flodesk-Liste als Kundenliste hochladen, Einverständnis prüfen).
@@ -127,6 +129,12 @@ PROTEIN (passt zur Bio "Muskeln sind in"). Beide fertig.
 - Rechnung: 70 €/Monat, Kundin bleibt im Schnitt […] Monate → eine Kundin darf
   höchstens […] € Werbekosten verursachen. Lead-Zielpreis daraus: […] €
   (ohne Erfahrungswert: zwei Wochen messen, dann festlegen).
+
+## YouTube
+- **Kanal:** […] (noch anzulegen, Wunsch-Handle @selmanuhija)
+- **Stufe 1:** Reels als Shorts, 4/Woche, Freebie-Link statt Keyword.
+- **Stufe 2:** lange Videos ab Woche 9, 2/Monat, Themen = die acht Alltagsprobleme.
+- **Freebie-Seiten auf der Webseite** (für YouTube-Links nötig): […]
 
 ## Werkzeuge, die schon laufen
 - **ManyChat:** Keyword-Kommentare → DM mit Freebie-Link. Zugang Amir: […]

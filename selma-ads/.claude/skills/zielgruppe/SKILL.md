@@ -21,13 +21,17 @@ umsetzen kann, plus die Begründung in fünf Zeilen.
    - **Kalt:** Frauen, Alter 35–55, Standort aus `kunde/selma.md`. Bei Meta
      gilt heute: breites Targeting mit Advantage+ Audience schlägt meist enge
      Interessen. Interessen nur als Vorschlag (Signal, keine Einschränkung).
-   - **Warm:** Interaktionen mit Selmas Instagram/Facebook (365 Tage),
-     Videoaufrufe ≥ 25 %, Lead-Form-Öffner ohne Absenden.
+   - **Warm:** Interaktionen mit Selmas Instagram-Konto (365 Tage),
+     Reel-Aufrufe ≥ 25 %, Profilbesuche, DM-Starter, Lead-Form-Öffner ohne
+     Absenden, Flodesk-Liste als Kundenliste.
    - **Lookalike:** 1–3 % von Leads oder Kundinnen, sobald mindestens
      100 Personen in der Quelle sind. Vorher nicht anlegen.
-2. **Platzierungen:** Advantage+ Placements als Standard. Ausnahme: wenn die
-   Vorwoche zeigt, dass eine Platzierung über 60 % des Budgets frisst und
-   doppelt so teure Leads bringt, dann vorschlagen, sie auszuschließen.
+2. **Platzierungen:** manuell, **nur Instagram**: Reels, Feed, Stories,
+   Explore. Keine Facebook-Platzierung, kein Messenger, kein Audience
+   Network (siehe CLAUDE.md). Innerhalb von Instagram: Reels zuerst, weil
+   Selmas Material Reels sind. Wenn die Vorwoche zeigt, dass eine
+   Instagram-Platzierung über 60 % des Budgets frisst und doppelt so teure
+   Leads bringt, vorschlagen, sie auszuschließen.
 3. **Ausschlüsse:** bestehende Kundinnen und Leads der letzten 30 Tage aus
    den kalten Ad Sets ausschließen, sobald die Listen existieren.
 4. **Datenabgleich mit der Vorwoche:** Welche Altersgruppe, welche
@@ -41,8 +45,8 @@ umsetzen kann, plus die Begründung in fünf Zeilen.
 ## Zielgruppe KW XX
 | Ad Set | Zielgruppe | Alter | Standort | Platzierung | Ausschlüsse |
 |---|---|---|---|---|---|
-| Kalt – breit | Frauen, Advantage+ | 35–55 | … | Advantage+ | Leads 30 T |
-| Warm | IG+FB-Interaktion 365 T | 35–65 | … | Advantage+ | Kundinnen |
+| Kalt – breit | Frauen, Advantage+ Audience | 35–55 | … | nur Instagram | Leads 30 T |
+| Warm | IG-Interaktion 365 T + Flodesk-Liste | 35–65 | … | nur Instagram | Kundinnen |
 Begründung: (max. 5 Zeilen, mit Zahlen aus der Vorwoche oder "noch keine Daten")
 Änderung zur Vorwoche: (keine / was und warum)
 ```
