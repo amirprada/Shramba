@@ -157,7 +157,20 @@ ein Verstärker für Content, der organisch schon funktioniert.
   denen 100 % bei ihr bleiben? Das würde die Rechnung ändern: […]
 
 ## YouTube
-- **Kanal:** vorhanden, Handle **@Selma-Health**, Kanalname "Selma Nuhija", Link: youtube.com/@Selma-Health. Videos bisher: […]
+- **Kanal:** vorhanden, Handle **@Selma-Health**, Kanalname "Selma Nuhija",
+  Link: youtube.com/@Selma-Health. Stand 17.10.2026: **11 Abonnenten, 4 Videos,
+  alle Shorts**, keine langen Videos, keine Playlists, Kanalbeschreibung leer.
+
+  | Short | Aufrufe |
+  |---|---|
+  | 15 Min Reise Workout ohne Equipment | 1.300 |
+  | 40g Protein Porridge #proteinreich | 1.300 |
+  | 40g Protein Dein 5 Minuten Mittagessen | 1.100 |
+  | 30g Protein Dein 3 Minuten Frühstück | 62 |
+
+  Lesart: Drei von vier Shorts haben ohne jedes Zutun über 1.000 Aufrufe bei
+  11 Abonnenten. Das Format (Selma in der Küche, Protein-Zahl im Bild) trägt.
+  Protein-Themen laufen, das deckt sich mit dem PROTEIN-Freebie.
 - **Handle-Frage:** @Selma-Health passt nicht zu @selmanuhija auf Instagram und zur Webseite. Umbenennen auf @selmanuhija (falls frei) ist einmal alle 14 Tage möglich. Entscheidung: […]
 - **Zugang:** Amir arbeitet direkt mit Selmas Google-Login (Stand 17.10.2026). Empfehlung: zusätzlich Amirs eigenes Google-Konto als Bearbeiter eintragen.
 - **Stufe 1:** Reels als Shorts, 4/Woche, Freebie-Link statt Keyword.
