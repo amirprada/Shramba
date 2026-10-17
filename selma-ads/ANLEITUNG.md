@@ -92,10 +92,9 @@ Was du noch beantworten musst, bevor Geld fließt:
    sie zahlt Werbung selbst. Deshalb klein: 10 €/Tag, vier Wochen, rund
    300 €, harte Obergrenze 10 €/Tag. Zuerst nur warme Zielgruppe. Die
    Rechnung steht in `kunde/selma.md` unter "Budget und Zielwerte".
-4. **Wie lange bleiben Kundinnen im Schnitt?** Davon hängt ab, ob Ads
-   überhaupt aufgehen: Bei 3 Monaten darf ein Lead ca. 3,50 € kosten, bei
-   6 Monaten ca. 7 €. Unter 3 Monaten lohnen kalte Ads nicht, dann nur
-   Organik plus warme Anzeigen.
+4. **Verweildauer: 6 Monate im Schnitt (geklärt).** Damit darf eine Kundin
+   70 € Werbung kosten und ein Lead etwa 7 €. Das ist machbar, aber ohne
+   Luft: warme Zielgruppe zuerst, kalte nur, wenn sie unter 7 € bleibt.
 5. **Hijab in Anzeigen** bewusst als Merkmal nutzen oder nicht? Selma entscheidet.
 6. **Länder:** nur Deutschland, oder DACH?
 

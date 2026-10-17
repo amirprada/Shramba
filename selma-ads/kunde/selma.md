@@ -135,13 +135,15 @@ ein Verstärker für Content, der organisch schon funktioniert.
 | 6 Monate | 210 € | 70 € | 7 € |
 | 12 Monate | 420 € | 140 € | 14 € |
 
-- **Tatsächliche Verweildauer:** […] Monate (Selma schätzt; entscheidet alles).
+- **Tatsächliche Verweildauer: 6 Monate im Schnitt** (Selma, 17.10.2026).
+  Daraus: 210 € netto pro Kundin, **max. 70 € Werbekosten pro Kundin,
+  Lead-Zielpreis 7 €**, bei 1 von 10 Leads als Kundin. Wird die Quote aus
+  Flodesk gemessen (Leads → Kundinnen), ersetzt der echte Wert die Annahme.
 - **Testbudget:** 10 €/Tag, 4 Wochen = ca. 300 €. **Harte Obergrenze: 10 €/Tag.**
 - **Reihenfolge:** zuerst nur **warme Zielgruppe** (Reel-Zuschauerinnen, Profilbesuche,
   Flodesk-Liste). Die ist billig und kennt Selma schon. Kalte Zielgruppe erst,
   wenn warm unter dem Lead-Zielpreis liegt.
-- **Abbruchregel:** Liegt der Lead-Preis nach 14 Tagen über dem Wert aus der
-  Tabelle (bei 3 Monaten Verweildauer also über 3,50 €, bei 6 Monaten über 7 €),
+- **Abbruchregel:** Liegt der Lead-Preis nach 14 Tagen über **7 €**,
   werden kalte Anzeigen pausiert, warm läuft mit 5 €/Tag weiter, und der Hebel
   wechselt auf Organik (Reels, YouTube) und Flodesk-Konversion.
 - **Größter Hebel ohne Werbegeld:** Wie viele Freebie-Leads werden Kundin?
