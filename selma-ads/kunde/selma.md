@@ -164,8 +164,9 @@ ein Verstärker für Content, der organisch schon funktioniert.
   denen 100 % bei ihr bleiben? Das würde die Rechnung ändern: […]
 
 ## YouTube
-- **Kanal:** vorhanden, Handle **@Selma-Health**, Kanalname "Selma Nuhija",
-  Link: youtube.com/@Selma-Health. Stand 17.10.2026: **11 Abonnenten, 4 Videos,
+- **Kanal:** vorhanden, Handle **@selma.nuhija** (seit 17.10.2026, vorher @Selma-Health,
+  @selmanuhija war vergeben), Kanalname "Selma Nuhija", Link: youtube.com/@selma.nuhija.
+  Kanalbeschreibung eingetragen ("Dein Coach für smarten Fettabbau ab 40 …"). Stand 17.10.2026: **11 Abonnenten, 4 Videos,
   alle Shorts**, keine langen Videos, keine Playlists, Kanalbeschreibung leer.
 
   | Short | Aufrufe |
@@ -186,7 +187,7 @@ ein Verstärker für Content, der organisch schon funktioniert.
   in der Küche, Protein-Zahl im Bild) trägt. Konsequenz: Stufe 1 (4 Shorts
   pro Woche aus den Reels) ist der einzige Hebel, der jetzt zählt. Handle-
   Umbenennung auf @selmanuhija jetzt, solange nichts zu verlieren ist.
-- **Handle-Umbenennung auf @selmanuhija:** von Amir freigegeben (17.10.2026). Ausführung über YouTube Studio → Anpassung → Allgemeine Informationen → Handle. Falls @selmanuhija vergeben: @selma.nuhija oder @selmanuhija.coach. Neuer Link danach: youtube.com/@selmanuhija
+- **Handle-Umbenennung:** erledigt 17.10.2026, @selma.nuhija (Ersatz, weil @selmanuhija vergeben). Nächste Änderung erst nach 14 Tagen möglich.
 - **Zugang:** Amir arbeitet direkt mit Selmas Google-Login (Stand 17.10.2026). Empfehlung: zusätzlich Amirs eigenes Google-Konto als Bearbeiter eintragen.
 - **Stufe 1:** Reels als Shorts, 4/Woche, Freebie-Link statt Keyword.
 - **Stufe 2:** lange Videos ab Woche 9, 2/Monat, Themen = die acht Alltagsprobleme.
