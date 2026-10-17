@@ -18,7 +18,8 @@ Anzeigen nur, was hier steht.
   overview": Konto-Setup unvollständig (vermutlich Zahlungsmethode, Land,
   Währung, Geschäftsinfos). Vor der ersten Kampagne über "Go to Account
   overview" vervollständigen.
-- **Business Portfolio:** **noch keines.** Das Werbekonto hängt an Selmas persönlichem
+- **E-Mail (Business):** selma.wellness@selmanuhija.com (Domain hat also Mail-Hosting)
+- **Business Portfolio:** "Selma Nuhija" wird am 17.10.2026 über den Chrome-Claude angelegt. Business Suite zeigt danach "No Facebook Pages or Instagram profiles" → Seite und Instagram müssen noch unter Einstellungen hinzugefügt werden. Ursprünglicher Stand: Das Werbekonto hängt an Selmas persönlichem
   Facebook-Konto (Ads Manager zeigt "Your account: Selma Nuhija-Keric, 1 ad account"
   und den Button "Create a business portfolio"). Muss angelegt werden, weil der
   Meta-Ads-MCP beim Login ein Portfolio verlangt und Amir sonst keinen eigenen
