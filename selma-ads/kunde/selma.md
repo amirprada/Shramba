@@ -153,15 +153,17 @@ ein Verstärker für Content, der organisch schon funktioniert.
   denen 100 % bei ihr bleiben? Das würde die Rechnung ändern: […]
 
 ## YouTube
-- **Kanal:** vorhanden, Link: […], Handle: […], Videos bisher: […]
-- **Amir als Bearbeiter in YouTube Studio:** […] (offen)
+- **Kanal:** vorhanden, Handle **@Selma-Health**, Kanalname "Selma Nuhija", Link: youtube.com/@Selma-Health. Videos bisher: […]
+- **Handle-Frage:** @Selma-Health passt nicht zu @selmanuhija auf Instagram und zur Webseite. Umbenennen auf @selmanuhija (falls frei) ist einmal alle 14 Tage möglich. Entscheidung: […]
+- **Zugang:** Amir arbeitet direkt mit Selmas Google-Login (Stand 17.10.2026). Empfehlung: zusätzlich Amirs eigenes Google-Konto als Bearbeiter eintragen.
 - **Stufe 1:** Reels als Shorts, 4/Woche, Freebie-Link statt Keyword.
 - **Stufe 2:** lange Videos ab Woche 9, 2/Monat, Themen = die acht Alltagsprobleme.
 - **Freebie-Seiten auf der Webseite** (für YouTube-Links nötig): […]
 
 ## Werkzeuge, die schon laufen
-- **ManyChat:** Keyword-Kommentare → DM mit Freebie-Link. Zugang Amir: […]
-- **Flodesk:** Mailliste, Freebie-Mails, 28-Tage-Onboarding. Zugang Amir: […]
+- **ManyChat:** Keyword-Kommentare → DM mit Freebie-Link. Zugang Amir: ja (Selmas Login). Tarif: […]
+- **Flodesk:** Mailliste, Freebie-Mails, 28-Tage-Onboarding. Zugang Amir: ja (Selmas Login).
+- **Meta for Business:** Amir ist mit Selmas Konto angemeldet. Risiko: Meta sperrt Konten bei Logins von mehreren Geräten/Orten gern vorübergehend. Deshalb Amirs eigenes Facebook-Konto als Person im Business Portfolio eintragen (Phase 1.2) und 2FA bei Selma aktiv lassen.
 - **FASTer Way App:** Workouts, Makros, Wasser-Tracker (Programminhalt, nicht Werbung).
 - **Google Drive:** Freebie-PDFs, Website-Copy, Karussell-Brief.
 
