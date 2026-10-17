@@ -175,9 +175,17 @@ ein Verstärker für Content, der organisch schon funktioniert.
   | 40g Protein Dein 5 Minuten Mittagessen | 1.100 |
   | 30g Protein Dein 3 Minuten Frühstück | 62 |
 
-  Lesart: Drei von vier Shorts haben ohne jedes Zutun über 1.000 Aufrufe bei
-  11 Abonnenten. Das Format (Selma in der Küche, Protein-Zahl im Bild) trägt.
-  Protein-Themen laufen, das deckt sich mit dem PROTEIN-Freebie.
+  **Analytics (19.07.–16.10.2026):** 68 Aufrufe, 0,4 h Wiedergabezeit,
+  98 % weniger als im Vorzeitraum, 0 neue Abonnenten. Alle vier Shorts stammen
+  vom **17. Mai 2026**, seitdem kein Upload. Kanal-ID UC2qmtuwxEghP6Fp58nk2Nxw.
+
+  Lesart: Die 1.100–1.400 Aufrufe pro Short kamen in den ersten Wochen nach
+  dem Upload, danach nichts mehr. Der Kanal ist seit fünf Monaten tot, nicht
+  weil das Format schlecht ist, sondern weil nichts nachkam. Drei von vier
+  Shorts haben ohne Abonnentenbasis vierstellig abgerufen: Das Format (Selma
+  in der Küche, Protein-Zahl im Bild) trägt. Konsequenz: Stufe 1 (4 Shorts
+  pro Woche aus den Reels) ist der einzige Hebel, der jetzt zählt. Handle-
+  Umbenennung auf @selmanuhija jetzt, solange nichts zu verlieren ist.
 - **Handle-Frage:** @Selma-Health passt nicht zu @selmanuhija auf Instagram und zur Webseite. Umbenennen auf @selmanuhija (falls frei) ist einmal alle 14 Tage möglich. Entscheidung: […]
 - **Zugang:** Amir arbeitet direkt mit Selmas Google-Login (Stand 17.10.2026). Empfehlung: zusätzlich Amirs eigenes Google-Konto als Bearbeiter eintragen.
 - **Stufe 1:** Reels als Shorts, 4/Woche, Freebie-Link statt Keyword.
