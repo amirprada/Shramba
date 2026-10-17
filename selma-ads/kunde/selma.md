@@ -14,7 +14,7 @@ Anzeigen nur, was hier steht.
   Offen: Plattform/Hosting […], Meta Pixel vorhanden […], Impressum […], Datenschutz […]
 - **Facebook:** privates Konto und Business-Konto vorhanden. Seite nur technischer Träger, keine Werbung dort. Seitenname: […]
 - **Business Portfolio ID:** 1466488695386557 ("Selma Nuhija", angelegt 17.10.2026). Amir (amir.keric@me.com) mit Full access eingeladen, Status "Invited" bis Amir die Einladung annimmt.
-- **Werbekonto (neu, im Portfolio):** **act_2982640922095203**, Name "Selma Ads", Europe/Berlin, EUR, angelegt 17.10.2026, Owner Business Portfolio "Selma Nuhija". **Das ist das Konto, mit dem Claude arbeitet.** Offen: Zahlungsmethode, Amir als zugewiesene Person (erst nach Annahme der Einladung möglich).
+- **Werbekonto (neu, im Portfolio):** **act_2982640922095203**, Name "Selma Ads", Europe/Berlin, EUR, angelegt 17.10.2026, Owner Business Portfolio "Selma Nuhija". **Das ist das Konto, mit dem Claude arbeitet.** Zahlungsmethode: Mastercard ····2443 (17.10.2026). Abrechnung: bei 2 € Schwelle oder monatlich am 31., von Meta gesetztes Tageslimit 44,63 € (liegt über unserer 10-€-Grenze, kein Problem). Offen: USt-ID bei Meta hinterlegen (sonst 19 % MwSt auf jede Rechnung), Amir als zugewiesene Person (erst nach Annahme der Einladung möglich).
 - **Altes persönliches Werbekonto act_956540482250069:** leer, nie bezahlt, lässt sich deshalb nicht ins Portfolio übernehmen (Meta: "Cannot move account – payment has not been made"). Bleibt ungenutzt liegen, nicht löschen, nicht verwenden.
   Ads Manager meldet "Get set up to run ads – Confirm a few details in Account
   overview": Konto-Setup unvollständig (vermutlich Zahlungsmethode, Land,
