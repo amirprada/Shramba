@@ -12,9 +12,9 @@ Anzeigen nur, was hier steht.
 - **Webseite:** https://www.selmanuhija.com (DE, mit /en/about und /bs/o-selmi,
   also dreisprachig DE/EN/BS). Amir betreut die Seite.
   Offen: Plattform/Hosting […], Meta Pixel vorhanden […], Impressum […], Datenschutz […]
-- **Facebook-Seite:** […]
-- **Werbekonto-ID:** act_[…]
-- **Business Portfolio:** […] (vorhanden? Admin?)
+- **Facebook:** privates Konto und Business-Konto vorhanden. Seite nur technischer Träger, keine Werbung dort. Seitenname: […]
+- **Business Portfolio:** vorhanden. Amir als Person mit voller Kontrolle: […] (offen)
+- **Werbekonto-ID:** act_[…] (vorhanden? prüfen, sonst anlegen)
 - **Sprache der Anzeigen:** Deutsch. Englisch/Bosnisch nur auf ausdrücklichen Wunsch.
 - **Zielmarkt:** deutschsprachig (Deutschland, Österreich, Schweiz). Selma wohnt in
   Bremen. Genaue Länderauswahl: […]
@@ -131,7 +131,8 @@ PROTEIN (passt zur Bio "Muskeln sind in"). Beide fertig.
   (ohne Erfahrungswert: zwei Wochen messen, dann festlegen).
 
 ## YouTube
-- **Kanal:** […] (noch anzulegen, Wunsch-Handle @selmanuhija)
+- **Kanal:** vorhanden, Link: […], Handle: […], Videos bisher: […]
+- **Amir als Bearbeiter in YouTube Studio:** […] (offen)
 - **Stufe 1:** Reels als Shorts, 4/Woche, Freebie-Link statt Keyword.
 - **Stufe 2:** lange Videos ab Woche 9, 2/Monat, Themen = die acht Alltagsprobleme.
 - **Freebie-Seiten auf der Webseite** (für YouTube-Links nötig): […]

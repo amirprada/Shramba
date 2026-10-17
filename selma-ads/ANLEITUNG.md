@@ -27,58 +27,42 @@ passt, such nach dem ähnlichsten. Die Reihenfolge und die Logik bleiben gleich.
 
 ---
 
-## Phase 1: Zugänge und Konten (Selma + du, ca. 1–2 Stunden)
+## Phase 1: Zugänge prüfen und dich hinzufügen (Selma + du, ca. 30 Minuten)
 
-Ziel: Du kannst in Selmas Werbekonto arbeiten, ohne ihr Passwort zu haben.
+Selma hat schon ein Facebook-Konto, ein Business-Konto bei Meta und ihr
+Instagram. Es muss also nichts neu angelegt werden, nur geprüft und
+freigegeben. Ziel: Du arbeitest in ihrem Werbekonto, ohne ihr Passwort.
 
-### 1.1 Selma: Instagram auf Professional-Konto prüfen
-Instagram-App → Profil → ☰ → *Einstellungen und Privatsphäre* → *Kontotyp
-und Tools*. Steht dort "Zu einem Business-Konto wechseln", ist sie noch
-privat → wechseln (Creator oder Business, beides geht). Das verifizierte
-Häkchen bleibt.
+### 1.1 Selma: Business Portfolio öffnen und drei Dinge prüfen
+business.facebook.com → oben links das Portfolio auswählen → Zahnrad
+*Einstellungen*. Dort nacheinander:
+1. *Konten → Instagram-Konten*: Steht @selmanuhija drin? Wenn nicht:
+   *Hinzufügen* → Instagram-Login. (Das Instagram-Konto muss ein
+   Professional-Konto sein: Instagram-App → Profil → ☰ → *Kontotyp und Tools*.
+   Steht dort "Zu einem Business-Konto wechseln", einmal wechseln.)
+2. *Konten → Seiten*: Hängt ihre Facebook-Seite drin? Sie bleibt reiner
+   technischer Träger, es wird nichts darauf beworben.
+3. *Konten → Werbekonten*: Gibt es eines? Dann die ID `act_…` notieren und
+   in `kunde/selma.md` eintragen. Gibt es keines: *Hinzufügen → Neues
+   Werbekonto erstellen*, Name "Selma Ads", Zeitzone Europe/Berlin, Währung
+   EUR.
+4. Beim Werbekonto: *Zahlungsmethode* vorhanden? Sonst Karte oder PayPal
+   hinterlegen. *Geschäftsinformationen* (Adresse, ggf. USt-ID) ausgefüllt?
+   Meta braucht das für Rechnungen in der EU.
 
-### 1.2 Selma: Facebook-Seite haben oder anlegen (nur technisch)
-Selma wirbt nicht auf Facebook, und das bleibt so. Meta verlangt trotzdem
-eine Facebook-Seite als Träger des Werbekontos, auch wenn jede Anzeige nur
-auf Instagram läuft. Auf facebook.com → Menü → *Seiten* → *Neue Seite
-erstellen*. Name "Selma Nuhija – Ernährung, Kraft, Fettabbau", Kategorie
-"Coach". Profilbild wie auf Instagram. Keine Posts nötig, niemand muss sie
-finden. Im Werbekonto stellt Claude jede Anzeigengruppe auf "manuelle
-Platzierungen, nur Instagram".
+### 1.2 Selma: dich hinzufügen
+*Einstellungen → Personen* → *Personen hinzufügen* → deine Facebook-E-Mail →
+Zugriff **"Vollständige Kontrolle"** (einfachster Weg). Du bekommst eine
+Mail, nimmst an, fertig.
 
-### 1.3 Selma: Business Portfolio anlegen
-business.facebook.com → *Business Portfolio erstellen* → Name "Selma Nuhija",
-ihre E-Mail. Dann unter *Einstellungen* (Zahnrad, unten links):
-1. *Konten → Seiten* → *Hinzufügen* → ihre Facebook-Seite.
-2. *Konten → Instagram-Konten* → *Hinzufügen* → @selmanuhija (sie loggt
-   sich einmal ein).
-3. *Konten → Werbekonten* → *Hinzufügen* → *Neues Werbekonto erstellen*.
-   Name "Selma Ads", Zeitzone Europe/Berlin, Währung EUR. Die ID `act_…`
-   notieren und in `kunde/selma.md` eintragen.
-4. *Zahlungsmethode* beim Werbekonto hinterlegen (Kreditkarte oder PayPal).
-   Ohne das läuft nichts.
-5. *Geschäftsinformationen* ausfüllen: Adresse, Steuer-/USt-ID falls
-   vorhanden. Meta verlangt das für Rechnungen in der EU.
-
-### 1.4 Selma: dich hinzufügen
-Im Business Portfolio → *Einstellungen → Personen* → *Personen hinzufügen* →
-deine E-Mail (die, mit der du bei Facebook bist). Zugriffsstufe
-**"Vollständige Kontrolle"** (einfacher) oder "Teilweiser Zugriff" mit
-Häkchen bei Seite "Inhalte verwalten", Instagram "Inhalte verwalten",
-Werbekonto "Kampagnen verwalten" + "Performance anzeigen".
-Du bekommst eine E-Mail, nimmst an, fertig.
-
-Alternative für später, wenn du mehrere Kundinnen betreust: eigenes
-Business Portfolio auf deinen Namen und dich als **Partner** eintragen
-lassen. Für den Start nicht nötig.
-
-### 1.5 Du: Werbekonto öffnen
-adsmanager.facebook.com → oben links das Konto "Selma Ads" auswählen.
-Siehst du eine leere Kampagnenliste und kannst "Erstellen" klicken, ist
-Phase 1 fertig.
+### 1.3 Du: Werbekonto öffnen
+adsmanager.facebook.com → oben links "Selma Ads" wählen. Siehst du die
+Kampagnenliste und den Button "Erstellen", ist Phase 1 fertig. Eventuell
+liegen dort alte Kampagnen oder "Beitrag bewerben"-Reste: nichts löschen,
+nur anschauen und mir sagen, was da ist.
 
 **Phase 1 ist fertig, wenn:** du im Werbeanzeigenmanager Selmas Konto siehst,
-eine Zahlungsmethode hinterlegt ist, Seite und Instagram im Portfolio hängen.
+eine Zahlungsmethode hinterlegt ist, Instagram und Seite im Portfolio hängen.
 
 ---
 
@@ -199,18 +183,18 @@ Erst jetzt läuft Geld.
 Selma will YouTube aufbauen. Das läuft unabhängig von den Ads und kostet nur
 Zeit. Zwei Stufen, die zweite erst nach acht Wochen der ersten.
 
-### 6.1 Kanal einrichten (Selma, 30 Minuten)
-1. Google-Konto von Selma → youtube.com → Profilbild → *Kanal erstellen*.
-   Name "Selma Nuhija", Handle `@selmanuhija` (wenn frei).
-2. Kanalbild = Instagram-Profilbild, Banner mit ihren drei Sätzen
-   (Hungern ist out. Muskeln sind in. Lifestyle ist alles.). Kanalbeschreibung
-   schreibe ich.
-3. Link zu selmanuhija.com und Instagram im Kanal hinterlegen.
-4. Unter *Einstellungen → Kanal → Erweiterte Einstellungen*: Zielgruppe
-   "nicht für Kinder".
-5. Amir als Kanalverwalter: YouTube Studio → *Einstellungen → Berechtigungen*
-   → deine Google-Adresse als "Bearbeiter". So lädst du hoch, ohne Selmas
-   Passwort.
+### 6.1 Kanal prüfen und dich eintragen (Selma, 15 Minuten)
+Der Kanal existiert. Selma öffnet studio.youtube.com und prüft:
+1. *Anpassung → Branding*: Profilbild wie Instagram, Banner mit ihren drei
+   Sätzen (Hungern ist out. Muskeln sind in. Lifestyle ist alles.).
+2. *Anpassung → Allgemeine Informationen*: Handle möglichst `@selmanuhija`,
+   Kanalbeschreibung (schreibe ich), Links zu selmanuhija.com und Instagram.
+3. *Einstellungen → Kanal → Erweiterte Einstellungen*: "Nein, nicht für
+   Kinder".
+4. *Einstellungen → Berechtigungen → Einladen*: deine Google-Adresse als
+   **Bearbeiter**. So lädst du hoch und siehst die Zahlen, ohne ihr Passwort.
+5. Mir den Kanal-Link schicken, dann schaue ich, was schon drauf ist und ob
+   die alten Videos zur jetzigen Positionierung passen.
 
 ### 6.2 Stufe 1: Shorts aus den Reels (ab sofort, 4 pro Woche)
 - Jedes neue Reel wird am selben Tag auch als Short hochgeladen. Die Datei
