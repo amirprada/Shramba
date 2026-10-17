@@ -6,13 +6,14 @@ nur, was hier steht.
 ## Person und Angebot
 - **Name:** Selma Nuhija-Kerić
 - **Rolle:** Certified FASTer Way to Fat Loss Coach
-- **Instagram:** [@…]
+- **Instagram:** @selmanuhija (verifiziert, 7.154 Follower, 312 Beiträge, Stand 17.10.2026). Profilname: "Selma / Ernährung-Kraft-Fettabbau"
 - **Facebook-Seite:** […]
+- **Webseite:** https://www.selmanuhija.com  (Inhalt noch nicht geprüft: Angebot, Anmeldung, Impressum, Datenschutz, Pixel → Amir liefert Screenshots oder Text)
 - **Landingpage / Anmeldelink:** […]  (falls keine: WhatsApp-Nummer oder DM-Funnel)
 - **WhatsApp-Business-Nummer:** […]
 - **Werbekonto-ID:** act_[…]
-- **Sprache der Anzeigen:** [Deutsch / Englisch / beide]  (Selmas bisherige Slides existieren in Englisch)
-- **Zielmarkt / Land:** […]  (z. B. Deutschland, DACH, international deutschsprachig)
+- **Sprache der Anzeigen:** Deutsch (Instagram-Profil und Reels sind durchgehend deutsch; eine englische Slide existiert, Englisch nur auf Wunsch)
+- **Zielmarkt / Land:** […]  (vermutlich Deutschland/DACH, deutschsprachig; Selma bestätigt)
 
 ## Das Programm (öffentlich bekannte Fakten, von Selma zu prüfen)
 FASTer Way to Fat Loss ist ein 6-Wochen-Online-Programm mit vier Bausteinen:
@@ -40,12 +41,30 @@ einer Gruppe mit App. Nach den 6 Wochen gibt es eine monatliche Mitgliedschaft.
 - **Wo sie sind:** Instagram (Reels, Stories), Facebook (Gruppen, Feed),
   Alter 35–55.
 
-## Ton
-- Selma spricht […]  (Du oder Sie? herzlich, direkt, sachlich? Beispiel-Captions hier einfügen:)
+## Ton (aus dem Instagram-Profil abgeleitet, von Selma zu bestätigen)
+- **Du-Ansprache**, direkt, locker, ohne Fitness-Drill. Spricht offen über ihr
+  eigenes Alter (47) und zeigt sich selbst: Küche, Gym, Auto, Straße.
+- **Bio:** "Dein Coach für smarten Fettabbau. 1. Hungern ist out. 2. Muskeln
+  sind in. 3. Lifestyle ist alles." → diese drei Sätze sind ihre Kernbotschaft.
+- **Themen ihrer Reels:** Protein und Kalorien konkret zeigen ("1600 Kalorien,
+  129 g Protein", "200 Kalorien vs. 200 Kalorien" als Tellervergleich),
+  Krafttraining mit Hanteln, Frauen über 40 die "clean essen, Sport machen
+  und trotzdem Fett ansammeln", "Im Leben kommt alles mit einem Preis",
+  "wenn man mit 47 Jahren…", "Ich bin in dem Alter, in dem an manchen
+  Tagen…".
+- **Trägt Hijab**, ist damit für muslimische Frauen im DACH-Raum eine
+  sichtbare, glaubwürdige Ansprechpartnerin. Das ist ein echter
+  Unterscheidungsfaktor, aber nur verwenden, wenn Selma das will.
+- Beispiel-Overlays aus ihren Reels (für Hook-Stil, nicht 1:1 übernehmen):
 
-> […Caption 1…]
+> "Wenn du als Frau über 40 clean isst, Sport machst und trotzdem weiter Fett ansammelst"
 
-> […Caption 2…]
+> "Mir ist egal, ob du 5 kg oder 20 kg abnehmen möchtest. Dein Alter ist mir auch egal."
+> (organisch gut, als Anzeige heikel: "du … abnehmen möchtest" ist Ansprache
+> nach persönlichem Merkmal → in Anzeigen umformulieren, siehe compliance.md)
+
+- Selma produziert bereits regelmäßig Reels mit ihrem Gesicht. **Bestehende
+  Reels sind das erste Anzeigenmaterial.** Kein neuer Dreh nötig für den Start.
 
 - **Nicht:** Fitness-Drill, Scham, "Bikini-Figur", Zahlenversprechen.
 - **Ja:** auf Augenhöhe, Verständnis für den Alltag, Hormone und Stoffwechsel
