@@ -54,8 +54,8 @@ business.facebook.com → oben links das Portfolio auswählen → Zahnrad
    Name "Selma Ads", Zeitzone Europe/Berlin, Währung EUR, Zweck "für mein
    Unternehmen". Das alte persönliche Konto 956540482250069 lässt sich nicht
    übernehmen, weil darüber nie bezahlt wurde (Meta-Fehler "Cannot move
-   account"). Es bleibt ungenutzt liegen. Die neue ID in `kunde/selma.md`
-   eintragen.
+   account"). Es bleibt ungenutzt liegen. **Erledigt 17.10.: neue ID
+   act_2982640922095203.**
 4. Beim Werbekonto: *Zahlungsmethode* vorhanden? Sonst Karte oder PayPal
    hinterlegen. *Geschäftsinformationen* (Adresse, ggf. USt-ID) ausgefüllt?
    Meta braucht das für Rechnungen in der EU.
