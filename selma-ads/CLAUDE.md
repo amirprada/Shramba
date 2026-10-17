@@ -47,7 +47,9 @@ unter Selmas Instagram-Identität (@selmanuhija).
 
 ## Arbeitsweise
 - Vor jeder Aktion im Werbekonto: Werbekonto-ID und Kampagnenname nennen,
-  mit denen du arbeitest. Nur das in `kunde/selma.md` eingetragene Konto.
+  mit denen du arbeitest. Nur das in `kunde/selma.md` als "neu, im Portfolio"
+  eingetragene Konto. Das alte persönliche Konto act_956540482250069 nie
+  verwenden.
 - Benennung im Werbekonto: `SELMA | <Ziel> | <YYYY-WW>` für Kampagnen,
   `<Zielgruppe> | <Platzierung>` für Ad Sets, `<Hook-Kürzel> | <Format>` für Ads.
 - Jede Woche genau eine Datei in `berichte/` und eine in `creatives/`.

@@ -50,9 +50,12 @@ business.facebook.com → oben links das Portfolio auswählen → Zahnrad
    Steht dort "Zu einem Business-Konto wechseln", einmal wechseln.)
 2. *Konten → Seiten*: Hängt ihre Facebook-Seite drin? Sie bleibt reiner
    technischer Träger, es wird nichts darauf beworben.
-3. *Konten → Werbekonten* → *Hinzufügen* → **"Werbekonto hinzufügen"** (nicht
-   "erstellen") → ID `956540482250069` eingeben. Damit gehört das bestehende
-   Konto dem Portfolio. Es ist leer, es gibt nichts zu verlieren.
+3. *Konten → Werbekonten* → *Hinzufügen* → **"Neues Werbekonto erstellen"**.
+   Name "Selma Ads", Zeitzone Europe/Berlin, Währung EUR, Zweck "für mein
+   Unternehmen". Das alte persönliche Konto 956540482250069 lässt sich nicht
+   übernehmen, weil darüber nie bezahlt wurde (Meta-Fehler "Cannot move
+   account"). Es bleibt ungenutzt liegen. Die neue ID in `kunde/selma.md`
+   eintragen.
 4. Beim Werbekonto: *Zahlungsmethode* vorhanden? Sonst Karte oder PayPal
    hinterlegen. *Geschäftsinformationen* (Adresse, ggf. USt-ID) ausgefüllt?
    Meta braucht das für Rechnungen in der EU.

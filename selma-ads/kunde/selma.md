@@ -13,7 +13,9 @@ Anzeigen nur, was hier steht.
   also dreisprachig DE/EN/BS). Amir betreut die Seite.
   Offen: Plattform/Hosting […], Meta Pixel vorhanden […], Impressum […], Datenschutz […]
 - **Facebook:** privates Konto und Business-Konto vorhanden. Seite nur technischer Träger, keine Werbung dort. Seitenname: […]
-- **Werbekonto-ID:** **act_956540482250069** (Stand 17.10.2026: keine Kampagnen, keine Anzeigen, leer).
+- **Business Portfolio ID:** 1466488695386557 ("Selma Nuhija", angelegt 17.10.2026). Amir (amir.keric@me.com) mit Full access eingeladen, Status "Invited" bis Amir die Einladung annimmt.
+- **Werbekonto (neu, im Portfolio):** act_[…] (wird angelegt: Name "Selma Ads", Europe/Berlin, EUR). **Das ist das Konto, mit dem Claude arbeitet.**
+- **Altes persönliches Werbekonto act_956540482250069:** leer, nie bezahlt, lässt sich deshalb nicht ins Portfolio übernehmen (Meta: "Cannot move account – payment has not been made"). Bleibt ungenutzt liegen, nicht löschen, nicht verwenden.
   Ads Manager meldet "Get set up to run ads – Confirm a few details in Account
   overview": Konto-Setup unvollständig (vermutlich Zahlungsmethode, Land,
   Währung, Geschäftsinfos). Vor der ersten Kampagne über "Go to Account
