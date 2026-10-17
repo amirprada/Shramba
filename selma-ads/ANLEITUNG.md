@@ -88,12 +88,14 @@ Was du noch beantworten musst, bevor Geld fließt:
    Netlify, eigener Server)? Gibt es Impressum und Datenschutzerklärung als
    eigene Seiten mit URL? Ist ein Meta Pixel eingebaut? Das brauche ich für
    Instant Forms (Datenschutz-URL) und später für Variante C.
-3. **Budget:** Testbudget pro Tag und harte Obergrenze. Vorschlag 15 €/Tag,
-   Obergrenze 20 €, vier Wochen. Das sind rund 450 € Lehrgeld, die man einplanen
-   muss.
-4. **Was darf eine Kundin kosten?** Bei 70 €/Monat hängt das davon ab, wie lange
-   Kundinnen im Schnitt bleiben. Selma weiß das grob. Drei Monate wären 210 €
-   Umsatz, dann sind 50 bis 70 € Werbekosten pro Kundin vertretbar.
+3. **Budget:** Selma bleiben 35 € pro Kundin und Monat (50 % Provision) und
+   sie zahlt Werbung selbst. Deshalb klein: 10 €/Tag, vier Wochen, rund
+   300 €, harte Obergrenze 10 €/Tag. Zuerst nur warme Zielgruppe. Die
+   Rechnung steht in `kunde/selma.md` unter "Budget und Zielwerte".
+4. **Wie lange bleiben Kundinnen im Schnitt?** Davon hängt ab, ob Ads
+   überhaupt aufgehen: Bei 3 Monaten darf ein Lead ca. 3,50 € kosten, bei
+   6 Monaten ca. 7 €. Unter 3 Monaten lohnen kalte Ads nicht, dann nur
+   Organik plus warme Anzeigen.
 5. **Hijab in Anzeigen** bewusst als Merkmal nutzen oder nicht? Selma entscheidet.
 6. **Länder:** nur Deutschland, oder DACH?
 

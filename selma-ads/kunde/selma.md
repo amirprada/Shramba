@@ -123,12 +123,32 @@ Zweite Variante parallel testen: **Lead-Anzeige mit Instant Form** → Flodesk
 **Welches Freebie zuerst in Ads:** RETTUNG (breitestes Problem: Familie) und
 PROTEIN (passt zur Bio "Muskeln sind in"). Beide fertig.
 
-## Budget und Zielwerte
-- Testphase: […] € pro Tag (Vorschlag 10–20 €, 4 Wochen).
-- Harte Obergrenze gesamt pro Tag (steht auch in CLAUDE.md): […] €
-- Rechnung: 70 €/Monat, Kundin bleibt im Schnitt […] Monate → eine Kundin darf
-  höchstens […] € Werbekosten verursachen. Lead-Zielpreis daraus: […] €
-  (ohne Erfahrungswert: zwei Wochen messen, dann festlegen).
+## Budget und Zielwerte (Stand 17.10.2026)
+**Wirtschaftliche Lage:** Die Mitgliedschaft kostet 70 €/Monat, Selma bleiben
+als FASTer-Way-Coach **50 %, also 35 € pro Kundin und Monat**. Werbung zahlt
+sie aus eigener Tasche. Das heißt: Paid Ads sind kein Wachstumsmotor, sondern
+ein Verstärker für Content, der organisch schon funktioniert.
+
+| Bleibt eine Kundin … | Netto für Selma | Werbekosten pro Kundin max. (⅓) | Lead darf kosten, wenn 1 von 10 Leads kauft |
+|---|---|---|---|
+| 3 Monate | 105 € | 35 € | 3,50 € |
+| 6 Monate | 210 € | 70 € | 7 € |
+| 12 Monate | 420 € | 140 € | 14 € |
+
+- **Tatsächliche Verweildauer:** […] Monate (Selma schätzt; entscheidet alles).
+- **Testbudget:** 10 €/Tag, 4 Wochen = ca. 300 €. **Harte Obergrenze: 10 €/Tag.**
+- **Reihenfolge:** zuerst nur **warme Zielgruppe** (Reel-Zuschauerinnen, Profilbesuche,
+  Flodesk-Liste). Die ist billig und kennt Selma schon. Kalte Zielgruppe erst,
+  wenn warm unter dem Lead-Zielpreis liegt.
+- **Abbruchregel:** Liegt der Lead-Preis nach 14 Tagen über dem Wert aus der
+  Tabelle (bei 3 Monaten Verweildauer also über 3,50 €, bei 6 Monaten über 7 €),
+  werden kalte Anzeigen pausiert, warm läuft mit 5 €/Tag weiter, und der Hebel
+  wechselt auf Organik (Reels, YouTube) und Flodesk-Konversion.
+- **Größter Hebel ohne Werbegeld:** Wie viele Freebie-Leads werden Kundin?
+  Jede Verbesserung in den Flodesk-Mails ist mehr wert als mehr Budget.
+- **Frage an Selma:** Darf sie neben der FASTer-Way-Mitgliedschaft eigene
+  Angebote verkaufen (1:1-Begleitung, Rezept-Pakete, Gruppenprogramm), bei
+  denen 100 % bei ihr bleiben? Das würde die Rechnung ändern: […]
 
 ## YouTube
 - **Kanal:** vorhanden, Link: […], Handle: […], Videos bisher: […]

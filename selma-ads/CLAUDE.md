@@ -22,8 +22,10 @@ zur Freigabe steht. Eine Freigabe gilt nur für das, was sie nennt, nicht für
 die nächste Woche und nicht für andere Anzeigen.
 
 Hartes Limit, unabhängig von jeder Freigabe:
-- Tagesbudget gesamt über alle aktiven Kampagnen: **max. [… €] pro Tag**
-  (Amir trägt den Wert ein; bis dahin gilt 20 € als Obergrenze).
+- Tagesbudget gesamt über alle aktiven Kampagnen: **max. 10 € pro Tag**.
+  Grund: Selma bleiben 35 € pro Kundin und Monat, sie zahlt Werbung selbst
+  (siehe `kunde/selma.md`, Budget und Zielwerte). Erhöhung nur, wenn Amir den
+  Wert hier ändert.
 - Nennt eine Freigabe mehr, stoppst du und fragst nach.
 
 ## Nichts erfinden

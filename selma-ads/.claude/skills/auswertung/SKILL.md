@@ -40,6 +40,11 @@ ausschließlich aus dem Werbekonto.
   keine Entscheidung.
 - Kein Ziel-CPL eingetragen: ersten zwei Wochen nur beobachten und einen
   Zielwert aus dem Median vorschlagen.
+- **Abbruchregel aus `kunde/selma.md`:** Nach 14 Tagen Lead-Preis gegen die
+  Tabelle (Verweildauer → erlaubter Lead-Preis) prüfen. Darüber: kalte Ad Sets
+  pausieren vorschlagen, warm auf 5 €/Tag, Empfehlung "Organik + Flodesk"
+  statt mehr Budget. Nie Budgeterhöhung vorschlagen, solange der Lead-Preis
+  über dem Tabellenwert liegt.
 
 ## Output
 1. Datei `berichte/YYYY-WW.md` nach Vorlage. Vorhandene Datei ergänzen,
