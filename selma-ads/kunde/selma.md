@@ -14,6 +14,10 @@ Anzeigen nur, was hier steht.
   Offen: Plattform/Hosting […], Meta Pixel vorhanden […], Impressum […], Datenschutz […]
 - **Facebook:** privates Konto und Business-Konto vorhanden. Seite nur technischer Träger, keine Werbung dort. Seitenname: […]
 - **Werbekonto-ID:** **act_956540482250069** (Stand 17.10.2026: keine Kampagnen, keine Anzeigen, leer).
+  Ads Manager meldet "Get set up to run ads – Confirm a few details in Account
+  overview": Konto-Setup unvollständig (vermutlich Zahlungsmethode, Land,
+  Währung, Geschäftsinfos). Vor der ersten Kampagne über "Go to Account
+  overview" vervollständigen.
 - **Business Portfolio:** **noch keines.** Das Werbekonto hängt an Selmas persönlichem
   Facebook-Konto (Ads Manager zeigt "Your account: Selma Nuhija-Keric, 1 ad account"
   und den Button "Create a business portfolio"). Muss angelegt werden, weil der
