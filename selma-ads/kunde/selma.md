@@ -13,8 +13,12 @@ Anzeigen nur, was hier steht.
   also dreisprachig DE/EN/BS). Amir betreut die Seite.
   Offen: Plattform/Hosting […], Meta Pixel vorhanden […], Impressum […], Datenschutz […]
 - **Facebook:** privates Konto und Business-Konto vorhanden. Seite nur technischer Träger, keine Werbung dort. Seitenname: […]
-- **Business Portfolio:** vorhanden. Amir als Person mit voller Kontrolle: […] (offen)
-- **Werbekonto-ID:** act_[…] (vorhanden? prüfen, sonst anlegen)
+- **Werbekonto-ID:** **act_956540482250069** (Stand 17.10.2026: keine Kampagnen, keine Anzeigen, leer).
+- **Business Portfolio:** **noch keines.** Das Werbekonto hängt an Selmas persönlichem
+  Facebook-Konto (Ads Manager zeigt "Your account: Selma Nuhija-Keric, 1 ad account"
+  und den Button "Create a business portfolio"). Muss angelegt werden, weil der
+  Meta-Ads-MCP beim Login ein Portfolio verlangt und Amir sonst keinen eigenen
+  Zugang bekommt. Amir als Person mit voller Kontrolle: […] (offen)
 - **Sprache der Anzeigen:** Deutsch. Englisch/Bosnisch nur auf ausdrücklichen Wunsch.
 - **Zielmarkt:** deutschsprachig (Deutschland, Österreich, Schweiz). Selma wohnt in
   Bremen. Genaue Länderauswahl: […]

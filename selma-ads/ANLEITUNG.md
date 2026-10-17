@@ -33,6 +33,14 @@ Selma hat schon ein Facebook-Konto, ein Business-Konto bei Meta und ihr
 Instagram. Es muss also nichts neu angelegt werden, nur geprüft und
 freigegeben. Ziel: Du arbeitest in ihrem Werbekonto, ohne ihr Passwort.
 
+### 1.0 Business Portfolio anlegen (einmalig, 10 Minuten)
+Stand 17.10.: Das Werbekonto act_956540482250069 ist ein persönliches Konto
+ohne Portfolio. Im Ads Manager im Konto-Dropdown auf **"Create a business
+portfolio"** klicken (oder business.facebook.com → *Business Portfolio
+erstellen*). Name "Selma Nuhija", Selmas E-Mail. Danach erscheint das
+Portfolio oben links in business.facebook.com. Das bestehende Werbekonto
+wird im nächsten Schritt hineingeholt, es geht nichts verloren.
+
 ### 1.1 Selma: Business Portfolio öffnen und drei Dinge prüfen
 business.facebook.com → oben links das Portfolio auswählen → Zahnrad
 *Einstellungen*. Dort nacheinander:
@@ -42,10 +50,9 @@ business.facebook.com → oben links das Portfolio auswählen → Zahnrad
    Steht dort "Zu einem Business-Konto wechseln", einmal wechseln.)
 2. *Konten → Seiten*: Hängt ihre Facebook-Seite drin? Sie bleibt reiner
    technischer Träger, es wird nichts darauf beworben.
-3. *Konten → Werbekonten*: Gibt es eines? Dann die ID `act_…` notieren und
-   in `kunde/selma.md` eintragen. Gibt es keines: *Hinzufügen → Neues
-   Werbekonto erstellen*, Name "Selma Ads", Zeitzone Europe/Berlin, Währung
-   EUR.
+3. *Konten → Werbekonten* → *Hinzufügen* → **"Werbekonto hinzufügen"** (nicht
+   "erstellen") → ID `956540482250069` eingeben. Damit gehört das bestehende
+   Konto dem Portfolio. Es ist leer, es gibt nichts zu verlieren.
 4. Beim Werbekonto: *Zahlungsmethode* vorhanden? Sonst Karte oder PayPal
    hinterlegen. *Geschäftsinformationen* (Adresse, ggf. USt-ID) ausgefüllt?
    Meta braucht das für Rechnungen in der EU.
