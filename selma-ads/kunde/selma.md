@@ -186,7 +186,7 @@ ein Verstärker für Content, der organisch schon funktioniert.
   in der Küche, Protein-Zahl im Bild) trägt. Konsequenz: Stufe 1 (4 Shorts
   pro Woche aus den Reels) ist der einzige Hebel, der jetzt zählt. Handle-
   Umbenennung auf @selmanuhija jetzt, solange nichts zu verlieren ist.
-- **Handle-Frage:** @Selma-Health passt nicht zu @selmanuhija auf Instagram und zur Webseite. Umbenennen auf @selmanuhija (falls frei) ist einmal alle 14 Tage möglich. Entscheidung: […]
+- **Handle-Umbenennung auf @selmanuhija:** von Amir freigegeben (17.10.2026). Ausführung über YouTube Studio → Anpassung → Allgemeine Informationen → Handle. Falls @selmanuhija vergeben: @selma.nuhija oder @selmanuhija.coach. Neuer Link danach: youtube.com/@selmanuhija
 - **Zugang:** Amir arbeitet direkt mit Selmas Google-Login (Stand 17.10.2026). Empfehlung: zusätzlich Amirs eigenes Google-Konto als Bearbeiter eintragen.
 - **Stufe 1:** Reels als Shorts, 4/Woche, Freebie-Link statt Keyword.
 - **Stufe 2:** lange Videos ab Woche 9, 2/Monat, Themen = die acht Alltagsprobleme.
