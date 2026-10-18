@@ -68,5 +68,7 @@ sondern in der jeweiligen Sprache natürlich.
   Fehlt eine Angabe: `[…]` setzen und am Ende auflisten.
 - Keine Anzeige mit Zahl + Gewicht, keine Vorher-Nachher, kein
   Körperteil-Fokus, kein Krankheitsversprechen.
+- Hijab nie thematisieren, weder im Text noch im Briefing. Selma erscheint
+  so, wie sie ist, mehr nicht.
 - Hooks nicht aus der Vorwoche kopieren, Gewinner variieren (andere Szene,
   anderer Einstieg, gleicher Winkel).

@@ -18,7 +18,8 @@ umsetzen kann, plus die Begründung in fünf Zeilen.
 
 ## Vorgehen
 1. **Drei Zielgruppen-Ebenen** aufstellen:
-   - **Kalt:** Frauen, Alter 35–55, Standort aus `kunde/selma.md`. Bei Meta
+   - **Kalt:** Frauen, Alter 35–55, Standort DACH (Deutschland, Österreich,
+     Schweiz), Sprache Deutsch. Bei Meta
      gilt heute: breites Targeting mit Advantage+ Audience schlägt meist enge
      Interessen. Interessen nur als Vorschlag (Signal, keine Einschränkung).
    - **Warm:** Interaktionen mit Selmas Instagram-Konto (365 Tage),

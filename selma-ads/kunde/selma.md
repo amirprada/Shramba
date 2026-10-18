@@ -9,9 +9,11 @@ Anzeigen nur, was hier steht.
 - **Name:** Selma Nuhija-Kerić, Instagram @selmanuhija (verifiziert, 7.154 Follower,
   312 Beiträge). Profilname "Selma / Ernährung-Kraft-Fettabbau".
 - **Rolle:** Certified FASTer Way to Fat Loss® Coach.
-- **Webseite:** https://www.selmanuhija.com (DE, mit /en/about und /bs/o-selmi,
-  also dreisprachig DE/EN/BS). Amir betreut die Seite.
-  Offen: Plattform/Hosting […], Meta Pixel vorhanden […], Impressum […], Datenschutz […]
+- **Webseite:** https://selmanuhija.com, eine HTML-Datei mit Hash-Routing, Hosting
+  Hitrost (Slowenien), kein Pixel, Impressum und Datenschutz vorhanden. Englisch und
+  Bosnisch als eigene Dateien. Amir betreut die Seite. **Details: `kunde/webseite.md`.**
+  Datenschutz-URL für Meta: https://selmanuhija.com/datenschutz.html (nach Upload),
+  bis dahin https://selmanuhija.com/#datenschutz
 - **Facebook:** privates Konto und Business-Konto vorhanden. Seite nur technischer Träger, keine Werbung dort. Seitenname: […]
 - **Business Portfolio ID:** 1466488695386557 ("Selma Nuhija", angelegt 17.10.2026). Amir (amir.keric@me.com) mit Full access eingeladen, Status "Invited" bis Amir die Einladung annimmt.
 - **Werbekonto (neu, im Portfolio):** **act_2982640922095203**, Name "Selma Ads", Europe/Berlin, EUR, angelegt 17.10.2026, Owner Business Portfolio "Selma Nuhija". **Das ist das Konto, mit dem Claude arbeitet.** Zahlungsmethode: Mastercard ····2443 (17.10.2026). Abrechnung: bei 2 € Schwelle oder monatlich am 31., von Meta gesetztes Tageslimit 44,63 € (liegt über unserer 10-€-Grenze, kein Problem). Offen: USt-ID bei Meta hinterlegen (sonst 19 % MwSt auf jede Rechnung), Amir als zugewiesene Person (erst nach Annahme der Einladung möglich).
@@ -27,19 +29,22 @@ Anzeigen nur, was hier steht.
   Meta-Ads-MCP beim Login ein Portfolio verlangt und Amir sonst keinen eigenen
   Zugang bekommt. Amir als Person mit voller Kontrolle: […] (offen)
 - **Sprache der Anzeigen:** Deutsch. Englisch/Bosnisch nur auf ausdrücklichen Wunsch.
-- **Zielmarkt:** deutschsprachig (Deutschland, Österreich, Schweiz). Selma wohnt in
-  Bremen. Genaue Länderauswahl: […]
+- **Zielmarkt: DACH** (Deutschland, Österreich, Schweiz), von Amir festgelegt 18.10.2026.
+  Selma sitzt in Bonn (laut Impressum).
 - **Ihre Geschichte (freigegeben für Content):** Mitte 40 (im Content mal 46, mal 47,
   für Anzeigen kein konkretes Alter nennen), hat 13 Kilo verloren, "nicht mit mehr
   Disziplin, sondern mit weniger Kampf": mehr essen, schwerer heben, früher schlafen.
   Vorher: jahrelang Diäten, Cardio, Verzicht, Rückenschmerzen, Erschöpfung, Gewicht in
   der Körpermitte. Wendepunkt: FASTer Way, dann Coach-Ausbildung.
-- **Trägt Hijab.** Sichtbar in jedem Reel. Als bewusstes Unterscheidungsmerkmal in
-  Anzeigen nur nach Selmas Zustimmung: […]
+- **Trägt Hijab.** Sichtbar in jedem Reel, das bleibt natürlich so. **Entscheidung
+  18.10.2026: nicht als Merkmal oder Zielgruppen-Argument in Anzeigen verwenden.**
+  Keine Formulierungen wie "für muslimische Frauen", kein Targeting darauf.
 
 ## Das Angebot (Stand Oktober 2026)
-- **Produkt:** Mitgliedschaft in Selmas Begleitung, **70 € im Monat, monatlich
-  kündbar, Einstieg jederzeit** ("keine festen Runden, jede kann jeden Tag starten").
+- **Produkt:** VIP Membership, **79 $ im Monat (ca. 70 €), monatlich kündbar,
+  Einstieg jederzeit**. Kauf über Affiliate-Link auf fasterwaycoach.com
+  (`?aid=selmanuhija`), nicht auf Selmas Seite. In Anzeigen: "ca. 70 € im Monat"
+  oder kein Preis.
   Früher lief das als 6-Wochen-Kurs mit festem Start (letzter: 12.10.). Falls Selma
   wieder feste Runden macht: Datum hier eintragen […]
 - **Was drin ist:** FASTer Way App mit täglichem 30-Minuten-Workout (Kraft mit
@@ -159,7 +164,11 @@ ein Verstärker für Content, der organisch schon funktioniert.
   wechselt auf Organik (Reels, YouTube) und Flodesk-Konversion.
 - **Größter Hebel ohne Werbegeld:** Wie viele Freebie-Leads werden Kundin?
   Jede Verbesserung in den Flodesk-Mails ist mehr wert als mehr Budget.
-- **Frage an Selma:** Darf sie neben der FASTer-Way-Mitgliedschaft eigene
+- **Umsatzsteuer:** Selma ist Kleinunternehmerin (§ 19 UStG), keine USt-ID. Meta
+  rechnet deshalb **19 % MwSt auf jede Werberechnung** auf, nicht erstattbar.
+  10 €/Tag Budget = ca. 11,90 €/Tag tatsächliche Belastung, 4 Wochen ≈ 335 €.
+  Den Hinweis "Verify tax info" bei Meta einfach stehen lassen.
+- **Frage an Selma (noch offen):** Darf sie neben der FASTer-Way-Mitgliedschaft eigene
   Angebote verkaufen (1:1-Begleitung, Rezept-Pakete, Gruppenprogramm), bei
   denen 100 % bei ihr bleiben? Das würde die Rechnung ändern: […]
 
@@ -191,10 +200,14 @@ ein Verstärker für Content, der organisch schon funktioniert.
 - **Zugang:** Amir arbeitet direkt mit Selmas Google-Login (Stand 17.10.2026). Empfehlung: zusätzlich Amirs eigenes Google-Konto als Bearbeiter eintragen.
 - **Stufe 1:** Reels als Shorts, 4/Woche, Freebie-Link statt Keyword.
 - **Stufe 2:** lange Videos ab Woche 9, 2/Monat, Themen = die acht Alltagsprobleme.
-- **Freebie-Seiten auf der Webseite** (für YouTube-Links nötig): […]
+- **Freebie-Links für YouTube:** vorhanden, siehe `kunde/webseite.md` (drei
+  Flodesk-Links plus Sammel-Link https://selmanuhija.com/#guide).
 
 ## Werkzeuge, die schon laufen
-- **ManyChat:** Keyword-Kommentare → DM mit Freebie-Link. Zugang Amir: ja (Selmas Login). Tarif: […]
+- **ManyChat:** PRO "Marketing Automation", 25 $/Monat netto (29,75 $ brutto),
+  Abbuchung am 12., nächste ca. 12.11.2026. **1.609 von 2.500 Kontakten** belegt,
+  bei 2.500 steigt der Preis. Instagram @selmanuhija verbunden, keine
+  Berechtigungswarnung. PRO enthält den Meta-Ads-Trigger (Click-to-DM). Zugang Amir: ja.
 - **Flodesk:** Mailliste, Freebie-Mails, 28-Tage-Onboarding. Zugang Amir: ja (Selmas Login).
 - **Meta for Business:** Amir ist mit Selmas Konto angemeldet. Risiko: Meta sperrt Konten bei Logins von mehreren Geräten/Orten gern vorübergehend. Deshalb Amirs eigenes Facebook-Konto als Person im Business Portfolio eintragen (Phase 1.2) und 2FA bei Selma aktiv lassen.
 - **FASTer Way App:** Workouts, Makros, Wasser-Tracker (Programminhalt, nicht Werbung).

@@ -94,10 +94,11 @@ Was du noch beantworten musst, bevor Geld fließt:
 1. **ManyChat:** Ist ManyChat mit Selmas Instagram verbunden und hast du Zugang?
    Für Ads braucht ManyChat einen "Ad-Trigger" (Klick auf Anzeige startet den
    Flow), der ist im Pro-Tarif enthalten.
-2. **Webseite:** Wo liegt selmanuhija.com (Wix, Squarespace, Framer, WordPress,
-   Netlify, eigener Server)? Gibt es Impressum und Datenschutzerklärung als
-   eigene Seiten mit URL? Ist ein Meta Pixel eingebaut? Das brauche ich für
-   Instant Forms (Datenschutz-URL) und später für Variante C.
+2. **Webseite (geklärt, siehe `kunde/webseite.md`):** eine HTML-Datei bei
+   Hitrost, Impressum und Datenschutz vorhanden, kein Pixel. Zu tun:
+   `website/impressum.html` und `website/datenschutz.html` ins Root bei
+   Hitrost hochladen; Datenschutz-Abschnitt 12 (Meta-Werbung) von Selma
+   freigeben lassen und einfügen, bevor Instant Forms laufen.
 3. **Budget:** Selma bleiben 35 € pro Kundin und Monat (50 % Provision) und
    sie zahlt Werbung selbst. Deshalb klein: 10 €/Tag, vier Wochen, rund
    300 €, harte Obergrenze 10 €/Tag. Zuerst nur warme Zielgruppe. Die
@@ -105,8 +106,8 @@ Was du noch beantworten musst, bevor Geld fließt:
 4. **Verweildauer: 6 Monate im Schnitt (geklärt).** Damit darf eine Kundin
    70 € Werbung kosten und ein Lead etwa 7 €. Das ist machbar, aber ohne
    Luft: warme Zielgruppe zuerst, kalte nur, wenn sie unter 7 € bleibt.
-5. **Hijab in Anzeigen** bewusst als Merkmal nutzen oder nicht? Selma entscheidet.
-6. **Länder:** nur Deutschland, oder DACH?
+5. **Hijab in Anzeigen:** geklärt, nein.
+6. **Länder:** geklärt, DACH.
 
 **Phase 2 ist fertig, wenn:** diese sechs Punkte in `kunde/selma.md` stehen und
 die Werbekonto-ID aus Phase 1 eingetragen ist.

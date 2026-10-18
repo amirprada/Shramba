@@ -22,7 +22,8 @@ zur Freigabe steht. Eine Freigabe gilt nur für das, was sie nennt, nicht für
 die nächste Woche und nicht für andere Anzeigen.
 
 Hartes Limit, unabhängig von jeder Freigabe:
-- Tagesbudget gesamt über alle aktiven Kampagnen: **max. 10 € pro Tag**.
+- Tagesbudget gesamt über alle aktiven Kampagnen: **max. 10 € pro Tag** (netto;
+  Meta schlägt 19 % MwSt auf, weil Selma Kleinunternehmerin ist).
   Grund: Selma bleiben 35 € pro Kundin und Monat, sie zahlt Werbung selbst
   (siehe `kunde/selma.md`, Budget und Zielwerte). Erhöhung nur, wenn Amir den
   Wert hier ändert.
@@ -33,6 +34,8 @@ Hartes Limit, unabhängig von jeder Freigabe:
   `kunde/selma.md`. Fehlt etwas, schreibst du `[…]` mit Hinweis und fragst.
 - Kennzahlen nur aus dem Werbekonto (MCP) oder aus `berichte/`. Keine
   geschätzten Zahlen als Ergebnisse ausgeben.
+- Hijab nie als Merkmal, Argument oder Targeting-Kriterium verwenden
+  (Entscheidung Selma/Amir 18.10.2026).
 - Keine Erfolgsversprechen in Anzeigen ("10 kg in 6 Wochen"), keine Diagnosen,
   keine Vorher-Nachher-Bilder. Details in `kunde/compliance.md`. Jede Anzeige
   durchläuft den Compliance-Check aus dem Skill `creatives`, bevor sie ins
