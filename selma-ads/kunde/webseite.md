@@ -66,6 +66,9 @@ Flodesk-Links direkt.
   Dringend, weil die Flodesk-Formulare /3-tage-plan und /trainingsguide live
   sind und im Footer auf diese Seiten zeigen sollen. Bis dahin in Flodesk als
   Datenschutz-Link `https://selmanuhija.com/#datenschutz` eintragen.
+  Check 18.10. abends: Die Formulare /3-tage-plan und /trainingsguide zeigen
+  noch auf die Flodesk-Standardseite, das Cortisol-Formular zeigt bereits auf
+  selmanuhija.com. Umstellung in Block G.
 
 ## Entwurf: Datenschutz-Abschnitt "12. Werbung auf Instagram (Meta)"
 (von Selma freigeben lassen, dann in `index.html` unter Abschnitt 11 einfügen

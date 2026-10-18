@@ -74,14 +74,15 @@ Anzeigen nur, was hier steht.
 | RETTUNG | 7 familienfreundliche Gerichte, ein Topf, zwei Teller (PDF) | fertig |
 | TAUSCH | Tausch-Liste, 15 Alltagstausche (PDF) | PDF fertig, **aber keine ManyChat-Automation und kein Flodesk-Workflow** (Systemcheck 18.10.) |
 | PROTEIN | Eiweiß-Spickzettel, 20 Alltagslebensmittel (PDF) | fertig |
-| MORGEN | 4 Frühstücksrezepte (PDF) | fertig |
-| 30 MINUTEN | 30-Minuten-Trainingsguide, 10 Seiten | fertig |
+| MORGEN | 4 Frühstücksrezepte (PDF) | PDF fertig, **kein ManyChat-Keyword** (Check 18.10.) |
+| 30 MINUTEN | 30-Minuten-Trainingsguide, 10 Seiten | PDF fertig, **kein ManyChat-Keyword**; Flodesk-Formular /trainingsguide existiert (Check 18.10.) |
 | PLAN | "So sieht der Plan meiner Klientinnen aus", 16 Seiten | fertig |
 | 15 MINUTEN | 7 Abendessen in 15 Minuten | […] |
 | ABEND | 7 süße Abend-Snacks mit 15 g+ Protein + Abendritual | […] |
 | TELLER | Teller-Guide ab 40 | […] |
 | UNTERWEGS | Bestell-Guide Kantine/Bäcker/Restaurant | […] |
 | START | persönliche Nachricht mit Infos zur Mitgliedschaft | fertig |
+| INFO | wird in der Trainings-Guide-Mail als CTA genannt | **kein Keyword in ManyChat** (Check 18.10.), DMs landen unbeantwortet in der Inbox |
 | – | Cortisolbauch-Guide (PDF), Meal Guide Fat Loss (5 Gerichte) | fertig, ältere Freebies |
 
 ## Zielgruppe
@@ -251,6 +252,28 @@ Geprüft wurden Instagram, ManyChat, Flodesk, Webseite, YouTube. Ergebnis:
 
 Alles andere (Instagram verbunden, ManyChat PRO, Flodesk-Formulare /3-tage-plan
 und /trainingsguide live, YouTube-Shorts geplant) ist in Ordnung.
+
+## Systemcheck 2, 18.10.2026 abends (YouTube, Flodesk, ManyChat, Sinnprüfung)
+Flodesk-Ketten Formular → Segment → Workflow sind bei allen drei Guides sauber.
+ManyChat PRO aktiv, 1.611/2.500 Kontakte, Instagram-Berechtigungen frisch.
+Gefunden:
+| Nr. | Befund | Fix | Status |
+|---|---|---|---|
+| 1 | YouTube: Links in Shorts-Beschreibungen sind nicht anklickbar (Kanal ohne "Erweiterte Funktionen") | Studio → Einstellungen → Kanal → Funktionsberechtigung → Erweiterte Funktionen freischalten; zusätzlich Kanal-Links im Profil setzen | offen, Prompt in NAECHSTE-SCHRITTE Block G |
+| 2 | Videosprache fehlt bei allen 4 Shorts | je Short "Deutsch" setzen | offen, Block G |
+| 3 | Keine Kanal-Links im Profil | selmanuhija.com, Flodesk /3-tage-plan, Instagram eintragen | offen, Block G |
+| 4 | Land des Wohnsitzes nicht gesetzt | Deutschland | offen, Block G |
+| 5 | Kanal-Keywords leer | 8 Begriffe eintragen | offen, Block G |
+| 6 | Keine Membership-Einladung in den Workflows "1600 Kalorien", "Dein Trainings-Guide", "Cortisol-Guide HOMEPAGE" (wie schon RETTUNG) | je Workflow Delay 3 Tage + VIP-Mail (Entwurf `creatives/rettung-folgemails.md`, Mail 3) | wartet auf Selmas FREIGABE, Block H |
+| 7 | ManyChat-Keywords MORGEN, 30 MINUTEN, TAUSCH existieren nicht | 30 MINUTEN → /trainingsguide, TAUSCH → vorläufig /3-tage-plan, MORGEN offen (kein Formular) | offen, Block G |
+| 8 | Keyword INFO fehlt, obwohl die Trainings-Guide-Mail dazu auffordert | INFO als zweites Keyword an die START-Automation hängen | offen, Block G |
+| 9 | Datenschutz-Link der Formulare /3-tage-plan und /trainingsguide zeigt auf Flodesk-Standardseite | auf https://selmanuhija.com/#datenschutz umstellen (nach Hitrost-Upload auf /datenschutz.html) | offen, Block G |
+| 10 | Kein Meta-Ads-Trigger in ManyChat (wird erst für Kampagne gebraucht); **579 ungelesene DMs in der ManyChat-Inbox** | Trigger kommt mit /wochenlauf; Inbox ist Selmas Sache | Selma informieren |
+
+Sinnprüfung (Chrome-Claude): Short 1, 2, 4 verlinken thematisch passend. Short 3
+(200 Kalorien → Cortisol-Guide) wirkt "um die Ecke gedacht", besser wäre die
+Tausch-Liste oder der 3-Tage-Plan. Entscheidung: Short 3 bleibt für KW 43, beim
+nächsten Batch Short 3 auf /3-tage-plan umstellen oder Tausch-Formular bauen.
   **Für Ads:** Die 584 E-Mails sind die beste warme Zielgruppe (Custom Audience
   "Kundenliste" + Lookalike 1 %). Vorher Datenschutz-Abschnitt 12 ergänzen, weil
   dafür gehashte E-Mails an Meta gehen.

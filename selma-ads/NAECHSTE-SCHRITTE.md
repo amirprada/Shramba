@@ -83,6 +83,43 @@ Grobe Zahlen reichen. Daran hängt, ob 7 € pro Lead realistisch sind.
 3. Du und Selma lest die Anzeigentexte. Dann: `FREIGABE <Kürzel>, Budget 10 €/Tag`.
 4. Erst dann läuft Geld.
 
+## Block G · Fixes aus Systemcheck 2 (Chrome-Claude, 30 Minuten)
+Technische Korrekturen ohne inhaltliche Entscheidung. Auftrag für die
+Seitenleiste, jeder Schritt wird vor dem Speichern bestätigt:
+
+```
+Du bist angemeldet als Selma (YouTube Studio, Flodesk, ManyChat). Führe die folgenden Korrekturen aus. Vor jedem Klick auf "Speichern" oder "Publish" kurz zeigen, was gespeichert wird, und auf mein OK warten. Nichts löschen.
+
+A · YOUTUBE STUDIO (studio.youtube.com)
+1. Einstellungen → Kanal → Grundlegende Infos: "Land des Wohnsitzes" = Deutschland. Keywords eintragen: abnehmen ab 40, Frauen ab 40, Perimenopause, Wechseljahre, Protein, Krafttraining, Intervallfasten, FASTer Way. Speichern.
+2. Einstellungen → Kanal → Funktionsberechtigung: Status von "Erweiterte Funktionen" ansehen. Wenn "Freischalten" angeboten wird: den Weg über Telefon- bzw. Video-/Ausweisprüfung starten und mir sagen, was verlangt wird (Code per SMS an Selmas Nummer, Ausweis-Foto oder Video-Selfie). Nicht selbst abschließen, nur bis zur Stelle gehen, an der Selma gebraucht wird, und Screenshot.
+3. Anpassung → Profil → Links: drei Links anlegen, in dieser Reihenfolge:
+   "Webseite" → https://selmanuhija.com
+   "3-Tage-Plan kostenlos" → https://fancy-wave-35324.myflodesk.com/3-tage-plan
+   "Instagram" → https://instagram.com/selmanuhija
+   Veröffentlichen.
+4. Inhalte → Shorts: bei allen vier geplanten Shorts Details → "Mehr anzeigen" → Videosprache = Deutsch. Speichern. Datum, Uhrzeit, Titel und Beschreibung nicht anfassen.
+
+B · FLODESK (app.flodesk.com)
+5. Forms → "/3-tage-plan" bearbeiten: Datenschutz-Hinweis/Link unter dem Button auf https://selmanuhija.com/#datenschutz setzen (so wie es das Cortisol-Formular macht). Publish. Dasselbe für "/trainingsguide".
+
+C · MANYCHAT (app.manychat.com, Instagram @selmanuhija)
+6. Automation → Keyword-Automation öffnen, die auf START reagiert. Keyword INFO als weiteres Trigger-Wort hinzufügen (gleiche Antwort). Speichern.
+7. Neue Keyword-Automation "30 MINUTEN": Trigger auf Kommentar und DM mit "30 MINUTEN" und "30MINUTEN". Antwort auf den Kommentar: "Schau in deine DMs 💌". DM-Text: "Hier ist dein 30-Minuten-Trainingsguide, trag dich kurz ein und er kommt per Mail: https://fancy-wave-35324.myflodesk.com/trainingsguide". Aufbau wie die PLAN-Automation (gleiche Verzögerung, gleicher Stil). Aktivieren.
+8. Neue Keyword-Automation "TAUSCH": gleich aufgebaut, DM-Text: "Meine Tausch-Liste kommt gerade neu. Bis dahin bekommst du hier meinen 3-Tage-Plan mit allen Rezepten: https://fancy-wave-35324.myflodesk.com/3-tage-plan". Aktivieren.
+9. Settings → Inbox: Zahl der ungelesenen Nachrichten und das Datum der ältesten ungelesenen notieren. Nichts beantworten.
+
+AUSGABE: Liste 1–9 mit "erledigt" oder "offen, weil …", plus Screenshots von Kanal-Links, Funktionsberechtigung, den beiden neuen ManyChat-Automationen.
+```
+
+## Block H · Membership-Mails in Flodesk (erst nach Selmas FREIGABE)
+Betrifft die Workflows "7 Familienrezepte", "1600 Kalorien 3 Tage Meal Plan",
+"Dein Trainings-Guide", "Cortisol-Guide HOMEPAGE". Entwurf der Mail steht in
+`creatives/rettung-folgemails.md` (Mail 3 ist die VIP-Einladung, Mail 2 nur
+für RETTUNG). Sobald Selma den Text freigibt, bekommt Chrome-Claude den
+Auftrag: je Workflow nach der PDF-Mail "Zeitverzögerung 3 Tage" und dann die
+VIP-Mail einfügen, als Entwurf zeigen, nach OK publishen.
+
 ## Danach, jede Woche
 | Wann | Wer | Was |
 |---|---|---|
