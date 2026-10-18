@@ -72,7 +72,7 @@ Anzeigen nur, was hier steht.
 | Keyword | Freebie | Stand |
 |---|---|---|
 | RETTUNG | 7 familienfreundliche Gerichte, ein Topf, zwei Teller (PDF) | fertig |
-| TAUSCH | Tausch-Liste, 15 Alltagstausche (PDF) | fertig |
+| TAUSCH | Tausch-Liste, 15 Alltagstausche (PDF) | PDF fertig, **aber keine ManyChat-Automation und kein Flodesk-Workflow** (Systemcheck 18.10.) |
 | PROTEIN | Eiweiß-Spickzettel, 20 Alltagslebensmittel (PDF) | fertig |
 | MORGEN | 4 Frühstücksrezepte (PDF) | fertig |
 | 30 MINUTEN | 30-Minuten-Trainingsguide, 10 Seiten | fertig |
@@ -234,10 +234,23 @@ ein Verstärker für Content, der organisch schon funktioniert.
   Delivery · Trainings-Guide · 5-Day Meal Plan · GLP-1 Guide · Anti-Stress.
   Zugang Amir: ja (Selmas Login).
   **Lesart:** Die Lead-Maschine läuft, 584 Kontakte sind da. Der Engpass ist
-  nicht die Lead-Zahl, sondern der Weg vom Freebie zur Membership. Offen: Gibt
-  es nach jedem Freebie-Workflow eine Einladung zur Membership, und wie viele
-  der 584 sind Kundinnen geworden? Das ist die Zahl, die den Lead-Zielpreis
-  (7 €) bestätigt oder kippt.
+  nicht die Lead-Zahl, sondern der Weg vom Freebie zur Membership. Erster
+  Befund (Systemcheck 18.10.): Der RETTUNG-Workflow "7 Familienrezepte" hat
+  nur **eine** Mail, keine Einladung zur Membership. Die anderen Freebie-
+  Workflows sind noch nicht geprüft. Offen: wie viele der 584 sind Kundinnen
+  geworden? Das ist die Zahl, die den Lead-Zielpreis (7 €) bestätigt oder kippt.
+
+## Systemcheck 18.10.2026 (Chrome-Claude, Punkte 1–13)
+Geprüft wurden Instagram, ManyChat, Flodesk, Webseite, YouTube. Ergebnis:
+| Nr. | Befund | Folge | Wer |
+|---|---|---|---|
+| 5 | RETTUNG-Workflow in Flodesk: nur 1 Mail, keine Membership-Einladung | Leads bekommen das PDF und dann nichts mehr. Mail 2 (Tag 3) und Mail 3 (Tag 7) mit Einladung fehlen | Claude schreibt Entwurf, Selma gibt frei, Amir trägt ein |
+| 8 | Keyword TAUSCH hat keine ManyChat-Automation; ManyChat übergibt E-Mails nicht direkt an Flodesk (nur Link zum Formular) | Wer auf dem Reel "TAUSCH" kommentiert, bekommt nichts. Für Ads reicht der Formular-Link (kein Direkt-Sync nötig) | Amir in ManyChat anlegen, oder CTA ändern |
+| 13 | selmanuhija.com/datenschutz.html und /impressum.html: 404 | Flodesk-Formulare sind live, Impressum/Datenschutz nur als Hash-Link auf der Startseite erreichbar. Dateien liegen in `website/`, nur Upload fehlt | Amir, Hitrost |
+| 9–12 | Meta nicht prüfbar, Business-Suite-Einstellungen gesperrt | Facebook-Seite und Amirs Zuweisung weiter offen | Amir: Einladung annehmen (Block C) |
+
+Alles andere (Instagram verbunden, ManyChat PRO, Flodesk-Formulare /3-tage-plan
+und /trainingsguide live, YouTube-Shorts geplant) ist in Ordnung.
   **Für Ads:** Die 584 E-Mails sind die beste warme Zielgruppe (Custom Audience
   "Kundenliste" + Lookalike 1 %). Vorher Datenschutz-Abschnitt 12 ergänzen, weil
   dafür gehashte E-Mails an Meta gehen.

@@ -20,13 +20,21 @@ Stand 18.10.: vier Shorts geplant. Ab jetzt jede Woche am Mac:
    der neuen Reels der Woche (Chrome-Claude kann sie auslesen). Daraus kommt
    der nächste Batch.
 
-## Block B · Flodesk-Formulare (Chrome-Claude, 15 Minuten)
-1. Auftrag aus dem Chat ("app.flodesk.com, angemeldet als Selma. Zwei Full
-   page-Formulare …") in die Seitenleiste kopieren.
-2. Die beiden Links, die er am Ende ausgibt, hier in den Chat schicken.
-3. Mit eigener E-Mail testen: eintragen, Bestätigungsmail, dann Plan/Liste.
-4. Ich ersetze die Platzhalter in `youtube/2026-43.md`; du tauschst die Links in
-   den YouTube-Beschreibungen und Kommentaren von Short 1 und 3 aus.
+## Block B · Flodesk (Formulare erledigt 18.10., Rest offen)
+Formulare /3-tage-plan und /trainingsguide sind live und in den Shorts verlinkt.
+Noch offen:
+1. Mit eigener E-Mail testen: eintragen, Bestätigungsmail, dann Plan/Guide.
+2. **RETTUNG-Workflow erweitern** (Systemcheck: nur 1 Mail, keine Einladung).
+   Ich schreibe Mail 2 und Mail 3 als Entwurf in `creatives/`, Selma gibt frei,
+   du trägst sie in Flodesk ein (Workflow "7 Familienrezepte" → Schritt
+   hinzufügen → Zeitverzögerung 3 Tage → E-Mail; dann 4 Tage → E-Mail).
+3. **TAUSCH:** entweder (a) in ManyChat eine Keyword-Automation TAUSCH anlegen,
+   die das PDF schickt und zum Flodesk-Formular verlinkt, plus Flodesk-Workflow
+   "Tausch-Liste" (1 Mail mit PDF), oder (b) Selma sagt im nächsten Reel ein
+   anderes Keyword. Bis dahin verlinken Short 3 und die Shorts-Kommentare den
+   Cortisol-Guide.
+4. Datenschutz-Link in beiden Flodesk-Formularen: bis Block D erledigt ist
+   `https://selmanuhija.com/#datenschutz`, danach `/datenschutz.html`.
 
 ## Block C · Meta fertig machen (20 Minuten)
 1. Einladung annehmen: Mail an amir.keric@me.com vom Business Portfolio
@@ -50,7 +58,10 @@ Stand 18.10.: vier Shorts geplant. Ab jetzt jede Woche am Mac:
    - Testen: "Liste die Werbekonten, auf die du Zugriff hast." Es muss
      act_2982640922095203 "Selma Ads" erscheinen.
 
-## Block D · Webseite (10 Minuten + Selma)
+## Block D · Webseite (10 Minuten + Selma) · **zuerst erledigen**
+Stand 18.10. abends: `/datenschutz.html` und `/impressum.html` liefern 404.
+Die Flodesk-Formulare sind live, darum ist das der einzige Punkt mit
+rechtlichem Zeitdruck.
 1. Bei Hitrost einloggen → Dateimanager oder FTP → `impressum.html` und
    `datenschutz.html` aus `selma-ads/website/` ins gleiche Verzeichnis wie
    `index.html` hochladen.

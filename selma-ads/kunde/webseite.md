@@ -62,6 +62,10 @@ Flodesk-Links direkt.
   Root-Verzeichnis bei Hitrost; danach gelten
   `https://selmanuhija.com/datenschutz.html` und
   `https://selmanuhija.com/impressum.html`.
+  **Stand 18.10. abends: beide URLs liefern 404, Upload steht noch aus.**
+  Dringend, weil die Flodesk-Formulare /3-tage-plan und /trainingsguide live
+  sind und im Footer auf diese Seiten zeigen sollen. Bis dahin in Flodesk als
+  Datenschutz-Link `https://selmanuhija.com/#datenschutz` eintragen.
 
 ## Entwurf: Datenschutz-Abschnitt "12. Werbung auf Instagram (Meta)"
 (von Selma freigeben lassen, dann in `index.html` unter Abschnitt 11 einfügen
