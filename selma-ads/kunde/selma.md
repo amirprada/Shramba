@@ -209,7 +209,9 @@ ein Verstärker für Content, der organisch schon funktioniert.
   Umbenennung auf @selmanuhija jetzt, solange nichts zu verlieren ist.
 - **Handle-Umbenennung:** erledigt 17.10.2026, @selma.nuhija (Ersatz, weil @selmanuhija vergeben). Nächste Änderung erst nach 14 Tagen möglich.
 - **Zugang:** Amir arbeitet direkt mit Selmas Google-Login (Stand 17.10.2026). Empfehlung: zusätzlich Amirs eigenes Google-Konto als Bearbeiter eintragen.
-- **Stufe 1:** Reels als Shorts, 4/Woche, Freebie-Link statt Keyword.
+- **Stufe 1:** Reels als Shorts, 4/Woche, Freebie-Link statt Keyword. **Erster Batch:
+  `youtube/2026-43.md`** (Reels vom 06.–16.10., stärkste: PLAN 16.000 Aufrufe/369
+  Kommentare, Perimenopause 12.400, 200 vs. 200 12.100, 47/30 Minuten 7.794).
 - **Stufe 2:** lange Videos ab Woche 9, 2/Monat, Themen = die acht Alltagsprobleme.
 - **Freebie-Links für YouTube:** vorhanden, siehe `kunde/webseite.md` (drei
   Flodesk-Links plus Sammel-Link https://selmanuhija.com/#guide).
