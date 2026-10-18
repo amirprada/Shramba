@@ -60,8 +60,9 @@ Woche bei mir aus.
 - **Training:** täglich 30 Minuten in der FASTer Way App, Kraft mit
   Kurzhanteln und kurze Intervalle. Die Trainerin zeigt immer eine
   leichtere Variante.
-- **Begleitung:** 28 Tage lang jeden Tag eine kurze Mail von mir zum
-  Einstieg, dazu meine persönliche Begleitung und die Community.
+- **Begleitung:** 28 Tage fundiertes Onboarding mit E-Mails und
+  Videoaufzeichnungen von mir, dazu meine persönliche Begleitung und die
+  Community.
 
 Das Ganze heißt VIP Membership, kostet 70 € im Monat (79 US-Dollar), ist monatlich
 kündbar, und du kannst jederzeit einsteigen.

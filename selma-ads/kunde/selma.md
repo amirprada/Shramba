@@ -61,8 +61,10 @@ Anzeigen nur, was hier steht.
   Flodesk-Privacy-Text: offen).
 - **Was drin ist:** FASTer Way App mit täglichem 30-Minuten-Workout (Kraft mit
   Kurzhanteln, HIIT, Trainerin zeigt leichtere Varianten), Makro-Setup und Tracking
-  in der App, 28-Tage-Onboarding per täglicher E-Mail (Flodesk), Selmas persönliche
-  Begleitung und Community. Noch offen: Gruppenformat (WhatsApp? App-Community?) […]
+  in der App, **28 Tage fundiertes Onboarding mit E-Mails und Videoaufzeichnungen
+  von Selma** (Flodesk-Workflow), dazu Selmas persönliche Begleitung und Community.
+  Formulierung (Amir, 18.10.): nicht "kurze Mail", sondern "fundiertes Onboarding
+  mit E-Mails und Videoaufzeichnungen mit mir sowie persönlicher Begleitung". Noch offen: Gruppenformat (WhatsApp? App-Community?) […]
 - **Die Methode in vier Bausteinen:** Essfenster 16:8 (Einstieg 12:12 oder 14:10),
   vollwertige Lebensmittel, proteinfokussiert, Carb Cycling abgestimmt aufs Training.
   Prinzip: "Länger fasten ist nicht besser fasten." Keine 1200-kcal-Diät, kein
