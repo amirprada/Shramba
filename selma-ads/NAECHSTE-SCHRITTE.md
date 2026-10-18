@@ -4,17 +4,21 @@ Reihenfolge ist Empfehlung. Jeder Block ist unabhängig, du kannst auch springen
 "Chrome-Claude" = die Claude-Seitenleiste in deinem Chrome. Die Aufträge dafür
 stehen jeweils als Kasten zum Kopieren.
 
-## Block A · YouTube starten (heute, 30 Minuten)
-1. Originaldateien der vier Reels besorgen, ohne Instagram-Wasserzeichen:
-   CapCut-Export oder Galerie auf Selmas Handy. Reels vom 14.10., 06.10.,
-   11.10., 08.10.
-2. studio.youtube.com → "Erstellen" → "Videos hochladen" → Datei wählen.
-3. Titel + Beschreibung aus `youtube/2026-43.md` einfügen. "Nicht für Kinder".
-4. Sichtbarkeit "Planen": Mo 19.10. 18:30 / Mi 21.10. 18:30 / Fr 23.10. 18:30 /
-   So 25.10. 10:00. Speichern.
-5. Video in der Liste öffnen → Kommentar aus der Datei schreiben → drei Punkte
-   → "Fixieren".
-6. Für alle vier wiederholen. Fertig.
+## Block A · YouTube am Mac (erledigt für KW 43, ab jetzt wöchentlich)
+Stand 18.10.: vier Shorts geplant. Ab jetzt jede Woche am Mac:
+1. Reel-Datei aus Edits in die Galerie exportieren, per AirDrop auf den Mac
+   (Stimme und Musik bleiben drin, wie am 18.10. geprüft).
+2. studio.youtube.com → oben rechts "Erstellen" → "Videos hochladen" → Datei.
+   Hochformat unter 3 Minuten wird automatisch als Short erkannt.
+3. Titel und Beschreibung aus `youtube/<KW>.md` einfügen. "Nein, nicht für
+   Kinder". Weiter, Weiter.
+4. Sichtbarkeit "Planen", Datum und Uhrzeit (werktags 18:30, Sonntag 10:00),
+   "Planen".
+5. Nach der Veröffentlichung: Video in "Inhalte" öffnen → Kommentare →
+   Kommentar aus der Batch-Datei schreiben → drei Punkte → "Fixieren".
+6. Sonntags: Screenshot "Analytics, letzte 7 Tage" an Claude, dazu die Links
+   der neuen Reels der Woche (Chrome-Claude kann sie auslesen). Daraus kommt
+   der nächste Batch.
 
 ## Block B · Flodesk-Formulare (Chrome-Claude, 15 Minuten)
 1. Auftrag aus dem Chat ("app.flodesk.com, angemeldet als Selma. Zwei Full
