@@ -78,6 +78,8 @@ rechtlichem Zeitdruck.
 Grobe Zahlen reichen. Daran hängt, ob 7 € pro Lead realistisch sind.
 
 ## Block F · Erster Wochenlauf (sobald Block C fertig ist)
+0. **Vorher lesen:** `notizen/evergreen-ads-ideen.md` (dauerhafte Kampagne,
+   Start mit 5 €/Tag). Entscheiden, was übernommen wird, dann Skills anpassen lassen.
 1. Terminal: `cd Shramba/selma-ads`, `claude`, dann `/wochenlauf`.
 2. Claude legt alles pausiert an und zeigt die Zusammenfassung.
 3. Du und Selma lest die Anzeigentexte. Dann: `FREIGABE <Kürzel>, Budget 10 €/Tag`.
