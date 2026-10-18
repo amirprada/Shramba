@@ -50,8 +50,9 @@ Anzeigen nur, was hier steht.
 ## Das Angebot (Stand Oktober 2026)
 - **Produkt:** VIP Membership, **79 $ im Monat (ca. 70 €), monatlich kündbar,
   Einstieg jederzeit**. Kauf über Affiliate-Link auf fasterwaycoach.com
-  (`?aid=selmanuhija`), nicht auf Selmas Seite. In Anzeigen: "ca. 70 € im Monat"
-  oder kein Preis.
+  (`?aid=selmanuhija`), nicht auf Selmas Seite. **Preisformulierung (Amir,
+  18.10.): "70 € im Monat (79 US-Dollar), monatlich kündbar", ohne "ca.".**
+  In Anzeigen entweder genau so oder kein Preis.
   Früher lief das als 6-Wochen-Kurs mit festem Start (letzter: 12.10.). Falls Selma
   wieder feste Runden macht: Datum hier eintragen […]
 - **Was drin ist:** FASTer Way App mit täglichem 30-Minuten-Workout (Kraft mit

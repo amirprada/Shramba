@@ -63,7 +63,7 @@ Woche bei mir aus.
 - **Begleitung:** 28 Tage lang jeden Tag eine kurze Mail von mir zum
   Einstieg, dazu meine persönliche Begleitung und die Community.
 
-Das Ganze heißt VIP Membership, kostet ca. 70 € im Monat, ist monatlich
+Das Ganze heißt VIP Membership, kostet 70 € im Monat (79 US-Dollar), ist monatlich
 kündbar, und du kannst jederzeit einsteigen.
 
 → Hier anmelden: https://fasterwaycoach.com/vip-membership?aid=selmanuhija
@@ -76,7 +76,7 @@ Deine Selma
 ---
 
 ## Prüfliste vor FREIGABE
-- [ ] Preis "ca. 70 € im Monat" stimmt noch (79 $)?
+- [ ] Preis "70 € im Monat (79 US-Dollar)" stimmt noch?
 - [ ] Affiliate-Link öffnet die richtige Seite?
 - [ ] Gruppenformat (Community): WhatsApp oder App? Falls bekannt, in Mail 3 konkret nennen.
 - [ ] Vorname-Platzhalter in Flodesk: `{{ first_name }}`-Feld einsetzen, Fallback "du".

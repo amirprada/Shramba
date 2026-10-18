@@ -107,7 +107,7 @@ und in `datenschutz.html` ebenso)
 
 ## Kleine Punkte für später (nicht dringend)
 - Preis steht in Dollar ("79 $ pro Monat, ca. 70 €"). In Anzeigen nur
-  "ca. 70 € im Monat" oder gar kein Preis.
+  "70 € im Monat (79 US-Dollar)" oder gar kein Preis.
 - `og:image` prüfen (Vorschaubild beim Teilen des Links in DMs).
 - Drei Guides stehen auf "bald verfügbar". Jeder davon wäre ein neues
   Keyword für Reels und Shorts.
