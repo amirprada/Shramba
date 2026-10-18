@@ -34,6 +34,7 @@ auf dem Server, hier nicht vorhanden.
 | 3 protein-reiche Frühstücke (PDF) | live | https://fancy-wave-35324.myflodesk.com/ulmzrd47su |
 | Cortisolbauch in der Lebensmitte (PDF) | live | https://fancy-wave-35324.myflodesk.com/afmucnrqxi |
 | 3-Tage-Plan 1.600 kcal / 120 g Protein (Flodesk-Formular, 18.10.) | live, nicht auf der Webseite verlinkt | https://fancy-wave-35324.myflodesk.com/3-tage-plan |
+| 30-Minuten-Trainingsguide (Flodesk-Formular, 18.10.) | live, nicht auf der Webseite verlinkt | https://fancy-wave-35324.myflodesk.com/trainingsguide |
 | Lean Protein Liste | "bald verfügbar" | – |
 | Insulin Guide (11 Strategien) | "bald verfügbar" | – |
 | Ballaststoff-Hebel | "bald verfügbar" | – |
