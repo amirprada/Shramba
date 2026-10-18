@@ -23,7 +23,14 @@ Anzeigen nur, was hier steht.
   Währung, Geschäftsinfos). Vor der ersten Kampagne über "Go to Account
   overview" vervollständigen.
 - **E-Mail (Business):** selma.wellness@selmanuhija.com (Domain hat also Mail-Hosting)
-- **Business Portfolio:** "Selma Nuhija" wird am 17.10.2026 über den Chrome-Claude angelegt. Business Suite zeigt danach "No Facebook Pages or Instagram profiles" → Seite und Instagram müssen noch unter Einstellungen hinzugefügt werden. Ursprünglicher Stand: Das Werbekonto hängt an Selmas persönlichem
+- **Business Portfolio:** "Selma Nuhija", angelegt 17.10.2026. **Instagram @selmanuhija
+  ist drin** (18.10.). **Facebook-Seite fehlt noch.** Stand 18.10.: Die
+  Unternehmenseinstellungen sind für die aktuelle Browser-Sitzung gesperrt
+  ("Anfrage in Bearbeitung", URL-Typ `blocked_ig_user_in_mbs`): Nach dem
+  Instagram-Claim läuft die Business-Suite-Sitzung als Instagram-Nutzer, der
+  keine Einstellungen ändern darf. Lösung: in der Business Suite oben links auf
+  Selmas Facebook-Profil wechseln oder Amir nimmt seine Einladung an und arbeitet
+  mit eigenem Konto. Ursprünglicher Stand: Das Werbekonto hängt an Selmas persönlichem
   Facebook-Konto (Ads Manager zeigt "Your account: Selma Nuhija-Keric, 1 ad account"
   und den Button "Create a business portfolio"). Muss angelegt werden, weil der
   Meta-Ads-MCP beim Login ein Portfolio verlangt und Amir sonst keinen eigenen
@@ -168,9 +175,13 @@ ein Verstärker für Content, der organisch schon funktioniert.
   rechnet deshalb **19 % MwSt auf jede Werberechnung** auf, nicht erstattbar.
   10 €/Tag Budget = ca. 11,90 €/Tag tatsächliche Belastung, 4 Wochen ≈ 335 €.
   Den Hinweis "Verify tax info" bei Meta einfach stehen lassen.
-- **Frage an Selma (noch offen):** Darf sie neben der FASTer-Way-Mitgliedschaft eigene
-  Angebote verkaufen (1:1-Begleitung, Rezept-Pakete, Gruppenprogramm), bei
-  denen 100 % bei ihr bleiben? Das würde die Rechnung ändern: […]
+- **Coach-Vertrag (geklärt 18.10.2026):** Als Fat-Loss-Programm darf Selma **nur**
+  FASTer Way to Fat Loss verkaufen. Eigene Coaching-Programme, Kurse oder
+  Rezept-Pakete als Konkurrenzangebot sind ausgeschlossen. **Erlaubt sind
+  Produkte:** Mode/Merch, Verbrauchsmaterialien (z. B. Supplements, siehe
+  FASTer-Way-Import-Kalkulator vom 30.09.2026), Zubehör. Folge für die Werbung:
+  Die 35 €/Monat-Rechnung bleibt der Maßstab. Produkte sind ein späterer
+  Zusatzhebel für Bestandskundinnen, kein Grund für mehr Werbebudget.
 
 ## YouTube
 - **Kanal:** vorhanden, Handle **@selma.nuhija** (seit 17.10.2026, vorher @Selma-Health,
@@ -208,7 +219,9 @@ ein Verstärker für Content, der organisch schon funktioniert.
   Abbuchung am 12., nächste ca. 12.11.2026. **1.609 von 2.500 Kontakten** belegt,
   bei 2.500 steigt der Preis. Instagram @selmanuhija verbunden, keine
   Berechtigungswarnung. PRO enthält den Meta-Ads-Trigger (Click-to-DM). Zugang Amir: ja.
-- **Flodesk:** Mailliste, Freebie-Mails, 28-Tage-Onboarding. Zugang Amir: ja (Selmas Login).
+- **Flodesk:** Mailliste, Freebie-Mails, 28-Tage-Onboarding. **25 Workflows**
+  (Stand 18.10.2026, z. B. "Anti-Stress": 7 Einträge, 7 abgeschlossen).
+  Abonnentinnen-Zahl und Liste der Workflows noch offen. Zugang Amir: ja (Selmas Login).
 - **Meta for Business:** Amir ist mit Selmas Konto angemeldet. Risiko: Meta sperrt Konten bei Logins von mehreren Geräten/Orten gern vorübergehend. Deshalb Amirs eigenes Facebook-Konto als Person im Business Portfolio eintragen (Phase 1.2) und 2FA bei Selma aktiv lassen.
 - **FASTer Way App:** Workouts, Makros, Wasser-Tracker (Programminhalt, nicht Werbung).
 - **Google Drive:** Freebie-PDFs, Website-Copy, Karussell-Brief.
