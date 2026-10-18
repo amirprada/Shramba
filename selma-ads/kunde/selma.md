@@ -219,9 +219,26 @@ ein Verstärker für Content, der organisch schon funktioniert.
   Abbuchung am 12., nächste ca. 12.11.2026. **1.609 von 2.500 Kontakten** belegt,
   bei 2.500 steigt der Preis. Instagram @selmanuhija verbunden, keine
   Berechtigungswarnung. PRO enthält den Meta-Ads-Trigger (Click-to-DM). Zugang Amir: ja.
-- **Flodesk:** Mailliste, Freebie-Mails, 28-Tage-Onboarding. **25 Workflows**
-  (Stand 18.10.2026, z. B. "Anti-Stress": 7 Einträge, 7 abgeschlossen).
-  Abonnentinnen-Zahl und Liste der Workflows noch offen. Zugang Amir: ja (Selmas Login).
+- **Flodesk (Stand 18.10.2026):** **584 Abonnentinnen** (Active + Unconfirmed),
+  **25 Workflows, alle Published**, zusammen 708 Einträge, 702 abgeschlossen.
+  Nur "VIP MEMBERSHIP ONBOARDING 28 TAGE" hat aktuell 6 Personen aktiv im
+  Workflow. Am 17.10. allein kamen acht neue Leads (Tags: "1600 120 g Protein
+  3-Tage Meal Plan", "Cortisol_Hormon_Guide_Insta", "3 proteinreiche
+  Frühstücksrezepte", "7 Familienrezepte"). Freebie-Workflows u. a.: 1600 Kalorien
+  3 Tage Meal Plan · 7 Familienrezepte (Trigger RETTUNG) · 4 Frühstücksrezepte
+  (Trigger PROTEIN) · Abnehmplan Reel (Trigger YES) · Der Guide über 3 Gründe ·
+  Erstgespräch-Bestätigung · 5 Familienrezepte HOMEPAGE · 3 Frühstücksrezepte
+  HOMEPAGE · Cortisol-Guide HOMEPAGE · 5 Rezepte Mittag/Abendessen · Lead Magnet
+  Delivery · Trainings-Guide · 5-Day Meal Plan · GLP-1 Guide · Anti-Stress.
+  Zugang Amir: ja (Selmas Login).
+  **Lesart:** Die Lead-Maschine läuft, 584 Kontakte sind da. Der Engpass ist
+  nicht die Lead-Zahl, sondern der Weg vom Freebie zur Membership. Offen: Gibt
+  es nach jedem Freebie-Workflow eine Einladung zur Membership, und wie viele
+  der 584 sind Kundinnen geworden? Das ist die Zahl, die den Lead-Zielpreis
+  (7 €) bestätigt oder kippt.
+  **Für Ads:** Die 584 E-Mails sind die beste warme Zielgruppe (Custom Audience
+  "Kundenliste" + Lookalike 1 %). Vorher Datenschutz-Abschnitt 12 ergänzen, weil
+  dafür gehashte E-Mails an Meta gehen.
 - **Meta for Business:** Amir ist mit Selmas Konto angemeldet. Risiko: Meta sperrt Konten bei Logins von mehreren Geräten/Orten gern vorübergehend. Deshalb Amirs eigenes Facebook-Konto als Person im Business Portfolio eintragen (Phase 1.2) und 2FA bei Selma aktiv lassen.
 - **FASTer Way App:** Workouts, Makros, Wasser-Tracker (Programminhalt, nicht Werbung).
 - **Google Drive:** Freebie-PDFs, Website-Copy, Karussell-Brief.

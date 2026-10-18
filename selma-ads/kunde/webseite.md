@@ -78,6 +78,13 @@ und in `datenschutz.html` ebenso)
 > Ausspielen von Anzeigen selbst verarbeitet, erklärt Meta in seiner
 > Datenrichtlinie: https://www.facebook.com/privacy/policy. Ein Meta-Pixel
 > ist auf dieser Website nicht eingebunden.
+> Um meine Anzeigen gezielt auszuspielen, kann ich Meta außerdem eine
+> verschlüsselte (gehashte) Liste von E-Mail-Adressen meiner Abonnentinnen
+> übermitteln ("Custom Audience"). Meta nutzt sie nur zum Abgleich mit
+> bestehenden Konten und löscht die Hashes nach dem Abgleich. Rechtsgrundlage
+> ist mein berechtigtes Interesse an der Ansprache bestehender Kontakte
+> (Art. 6 Abs. 1 lit. f DSGVO); du kannst dem jederzeit per E-Mail
+> widersprechen.
 
 ## Was die Seite für Ads und YouTube liefert
 - **Datenschutz-URL** für Instant Forms: `https://selmanuhija.com/datenschutz.html`
