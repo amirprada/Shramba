@@ -89,7 +89,7 @@ Alle neun Punkte ausgeführt, Telefonprüfung von Selma gemacht. Rest offen:
   (Studio → Einstellungen → Kanal → Funktionsberechtigung), oder warten.
 - Selma liest den neuen START-DM-Text in ManyChat gegen (Automation "Auto-send
   links from comments") und bestätigt den Button-Link fasterwaycoach.com/?aid=selmanuhija.
-- Frage an Selma: Gibt es den 21-Tage Reset (99 $) noch als Produkt?
+- 21-Tage Reset: gibt es nicht mehr (geklärt 18.10.). Nur Membership + 28-Tage-Onboarding.
 
 Der ausgeführte Auftrag, zur Doku:
 

@@ -53,8 +53,12 @@ Anzeigen nur, was hier steht.
   (`?aid=selmanuhija`), nicht auf Selmas Seite. **Preisformulierung (Amir,
   18.10.): "70 € im Monat (79 US-Dollar), monatlich kündbar", ohne "ca.".**
   In Anzeigen entweder genau so oder kein Preis.
-  Früher lief das als 6-Wochen-Kurs mit festem Start (letzter: 12.10.). Falls Selma
-  wieder feste Runden macht: Datum hier eintragen […]
+  Früher lief das als 6-Wochen-Kurs mit festem Start (letzter: 12.10.) und als
+  "21-Tage Reset" (79 $). **Beides gibt es nicht mehr (Amir, 18.10.).** Es gibt
+  nur noch die monatliche Mitgliedschaft mit dem 28-tägigen Einstiegs-Onboarding.
+  Alte Texte, die "21-Tage Reset", "Start 03.11." oder "6 Wochen" nennen, sind
+  veraltet und werden ersetzt, wo sie auftauchen (ManyChat START: erledigt;
+  Flodesk-Privacy-Text: offen).
 - **Was drin ist:** FASTer Way App mit täglichem 30-Minuten-Workout (Kraft mit
   Kurzhanteln, HIIT, Trainerin zeigt leichtere Varianten), Makro-Setup und Tracking
   in der App, 28-Tage-Onboarding per täglicher E-Mail (Flodesk), Selmas persönliche
