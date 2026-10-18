@@ -39,6 +39,22 @@ gesehen, nicht den Kurs selbst. Kauf ist optional.
 4. **Color Block als Testformat**: farbige Textfläche mit dem Hook über
    Selmas Reel, als eine von mehreren Anzeigenvarianten.
 
+## Leistungsziel richtig wählen (Hinweis aus Reel "freiheitmedia", 19.10.)
+Behauptung im Reel: Bei Conversion-Kampagnen "Maximize number of
+conversions" statt "Maximize value of conversions" zu wählen, schadet der
+Profitabilität.
+- **Gilt für Online-Shops** mit Pixel und Kaufwerten. Meta kann nur dann auf
+  Wert optimieren, wenn die Website Käufe mit Betrag meldet.
+- **Für Selma nicht anwendbar:** kein Pixel, die Membership wird auf
+  fasterwaycoach.com gekauft, Meta sieht keinen Kauf und keinen Wert. Die
+  Option "Value" gibt es für ihre Kampagnenart gar nicht.
+- **Was wir daraus übernehmen:** Das Leistungsziel muss zum echten Ziel
+  passen. Für Click-to-DM (Variante A): Ziel "Interaktion", Ort "Instagram
+  Direct", Leistungsziel "Anzahl der Unterhaltungen maximieren". Nicht "Klicks"
+  oder "Reichweite". Für Instant Forms (Variante B, später): "Anzahl der
+  Leads maximieren".
+- Beim Anlegen im Werbekonto dieses Feld prüfen und im Wochenbericht nennen.
+
 ## Was gleich bleibt
 - FREIGABE-Regel, nur Instagram-Platzierungen, Compliance für Abnehm-Werbung
   (keine "du bist/du kannst abnehmen"-Sätze, keine Vorher-Nachher-Bilder).
