@@ -72,17 +72,17 @@ Anzeigen nur, was hier steht.
 | Keyword | Freebie | Stand |
 |---|---|---|
 | RETTUNG | 7 familienfreundliche Gerichte, ein Topf, zwei Teller (PDF) | fertig |
-| TAUSCH | Tausch-Liste, 15 Alltagstausche (PDF) | PDF fertig, **aber keine ManyChat-Automation und kein Flodesk-Workflow** (Systemcheck 18.10.) |
+| TAUSCH | Tausch-Liste, 15 Alltagstausche (PDF) | ManyChat-Automation seit 18.10. live, schickt vorläufig den 3-Tage-Plan (/3-tage-plan). Eigenes Tausch-Formular + Workflow weiter offen |
 | PROTEIN | Eiweiß-Spickzettel, 20 Alltagslebensmittel (PDF) | fertig |
 | MORGEN | 4 Frühstücksrezepte (PDF) | PDF fertig, **kein ManyChat-Keyword** (Check 18.10.) |
-| 30 MINUTEN | 30-Minuten-Trainingsguide, 10 Seiten | PDF fertig, **kein ManyChat-Keyword**; Flodesk-Formular /trainingsguide existiert (Check 18.10.) |
+| 30 MINUTEN | 30-Minuten-Trainingsguide, 10 Seiten | ManyChat-Automation seit 18.10. live → Flodesk /trainingsguide |
 | PLAN | "So sieht der Plan meiner Klientinnen aus", 16 Seiten | fertig |
 | 15 MINUTEN | 7 Abendessen in 15 Minuten | […] |
 | ABEND | 7 süße Abend-Snacks mit 15 g+ Protein + Abendritual | […] |
 | TELLER | Teller-Guide ab 40 | […] |
 | UNTERWEGS | Bestell-Guide Kantine/Bäcker/Restaurant | […] |
 | START | persönliche Nachricht mit Infos zur Mitgliedschaft | fertig |
-| INFO | wird in der Trainings-Guide-Mail als CTA genannt | **kein Keyword in ManyChat** (Check 18.10.), DMs landen unbeantwortet in der Inbox |
+| INFO | wird in der Trainings-Guide-Mail als CTA genannt | seit 18.10. zweites Keyword der START-Automation, auch per DM |
 | – | Cortisolbauch-Guide (PDF), Meal Guide Fat Loss (5 Gerichte) | fertig, ältere Freebies |
 
 ## Zielgruppe
@@ -259,16 +259,16 @@ ManyChat PRO aktiv, 1.611/2.500 Kontakte, Instagram-Berechtigungen frisch.
 Gefunden:
 | Nr. | Befund | Fix | Status |
 |---|---|---|---|
-| 1 | YouTube: Links in Shorts-Beschreibungen sind nicht anklickbar (Kanal ohne "Erweiterte Funktionen") | Studio → Einstellungen → Kanal → Funktionsberechtigung → Erweiterte Funktionen freischalten; zusätzlich Kanal-Links im Profil setzen | offen, Prompt in NAECHSTE-SCHRITTE Block G |
-| 2 | Videosprache fehlt bei allen 4 Shorts | je Short "Deutsch" setzen | offen, Block G |
-| 3 | Keine Kanal-Links im Profil | selmanuhija.com, Flodesk /3-tage-plan, Instagram eintragen | offen, Block G |
-| 4 | Land des Wohnsitzes nicht gesetzt | Deutschland | offen, Block G |
-| 5 | Kanal-Keywords leer | 8 Begriffe eintragen | offen, Block G |
+| 1 | YouTube: Links in Shorts-Beschreibungen sind nicht anklickbar (Kanal ohne "Erweiterte Funktionen") | Telefonprüfung **erledigt 18.10. (Selma)**, damit "mittlere Funktionen" frei. Erweiterte Funktionen brauchen zusätzlich Video-Selfie, Ausweis-Foto oder Kanalverlauf (Zeit). Kanal-Links gesetzt | teilweise, Rest Selma |
+| 2 | Videosprache fehlt bei allen 4 Shorts | je Short "Deutsch" setzen | erledigt 18.10. |
+| 3 | Keine Kanal-Links im Profil | selmanuhija.com, Flodesk /3-tage-plan, Instagram eintragen | erledigt 18.10. |
+| 4 | Land des Wohnsitzes nicht gesetzt | Deutschland | erledigt 18.10. |
+| 5 | Kanal-Keywords leer | 8 Begriffe eintragen | erledigt 18.10. |
 | 6 | Keine Membership-Einladung in den Workflows "1600 Kalorien", "Dein Trainings-Guide", "Cortisol-Guide HOMEPAGE" (wie schon RETTUNG) | je Workflow Delay 3 Tage + VIP-Mail (Entwurf `creatives/rettung-folgemails.md`, Mail 3) | wartet auf Selmas FREIGABE, Block H |
-| 7 | ManyChat-Keywords MORGEN, 30 MINUTEN, TAUSCH existieren nicht | 30 MINUTEN → /trainingsguide, TAUSCH → vorläufig /3-tage-plan, MORGEN offen (kein Formular) | offen, Block G |
-| 8 | Keyword INFO fehlt, obwohl die Trainings-Guide-Mail dazu auffordert | INFO als zweites Keyword an die START-Automation hängen | offen, Block G |
-| 9 | Datenschutz-Link der Formulare /3-tage-plan und /trainingsguide zeigt auf Flodesk-Standardseite | auf https://selmanuhija.com/#datenschutz umstellen (nach Hitrost-Upload auf /datenschutz.html) | offen, Block G |
-| 10 | Kein Meta-Ads-Trigger in ManyChat (wird erst für Kampagne gebraucht); **579 ungelesene DMs in der ManyChat-Inbox** | Trigger kommt mit /wochenlauf; Inbox ist Selmas Sache | Selma informieren |
+| 7 | ManyChat-Keywords MORGEN, 30 MINUTEN, TAUSCH existieren nicht | 30 MINUTEN → /trainingsguide, TAUSCH → vorläufig /3-tage-plan, beide Kommentar (alle Posts) + DM | erledigt 18.10., live. MORGEN weiter offen |
+| 8 | Keyword INFO fehlt, obwohl die Trainings-Guide-Mail dazu auffordert | INFO als zweites Keyword an die START-Automation hängen, "DMs you" aktiviert | erledigt 18.10. **Dabei entdeckt:** Der START-DM-Text war veraltet (21-Tage Reset, Start 03.11., 99 $). Ersetzt durch Membership-Text (ca. 70 €/Monat, Inhalt aus diesem Profil). Button "Hier anmelden" zeigt auf fasterwaycoach.com/?aid=selmanuhija (Startseite mit Affiliate-ID, nicht /vip-membership), unverändert gelassen. **Selma soll Text und Link gegenlesen.** |
+| 9 | Datenschutz-Link der Formulare /3-tage-plan und /trainingsguide zeigt auf Flodesk-Standardseite | auf https://selmanuhija.com/#datenschutz umstellen (Flodesk-weit, gilt für alle Formulare) | erledigt 18.10. Nebenfund: Privacy-Text nennt noch "6-wöchiges Programm", bei Gelegenheit auf "VIP Membership" ändern |
+| 10 | Kein Meta-Ads-Trigger in ManyChat (wird erst für Kampagne gebraucht); **582 ungelesene DMs in der ManyChat-Inbox**, älteste über 1 Jahr, nach Namen überwiegend Spam/Bots | Trigger kommt mit /wochenlauf; Inbox ist Selmas Sache | Selma informieren |
 
 Sinnprüfung (Chrome-Claude): Short 1, 2, 4 verlinken thematisch passend. Short 3
 (200 Kalorien → Cortisol-Guide) wirkt "um die Ecke gedacht", besser wäre die

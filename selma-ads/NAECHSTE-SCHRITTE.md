@@ -83,9 +83,15 @@ Grobe Zahlen reichen. Daran hängt, ob 7 € pro Lead realistisch sind.
 3. Du und Selma lest die Anzeigentexte. Dann: `FREIGABE <Kürzel>, Budget 10 €/Tag`.
 4. Erst dann läuft Geld.
 
-## Block G · Fixes aus Systemcheck 2 (Chrome-Claude, 30 Minuten)
-Technische Korrekturen ohne inhaltliche Entscheidung. Auftrag für die
-Seitenleiste, jeder Schritt wird vor dem Speichern bestätigt:
+## Block G · Fixes aus Systemcheck 2 (erledigt 18.10. abends)
+Alle neun Punkte ausgeführt, Telefonprüfung von Selma gemacht. Rest offen:
+- Erweiterte YouTube-Funktionen: Selma macht Video-Selfie oder Ausweis-Foto
+  (Studio → Einstellungen → Kanal → Funktionsberechtigung), oder warten.
+- Selma liest den neuen START-DM-Text in ManyChat gegen (Automation "Auto-send
+  links from comments") und bestätigt den Button-Link fasterwaycoach.com/?aid=selmanuhija.
+- Frage an Selma: Gibt es den 21-Tage Reset (99 $) noch als Produkt?
+
+Der ausgeführte Auftrag, zur Doku:
 
 ```
 Du bist angemeldet als Selma (YouTube Studio, Flodesk, ManyChat). Führe die folgenden Korrekturen aus. Vor jedem Klick auf "Speichern" oder "Publish" kurz zeigen, was gespeichert wird, und auf mein OK warten. Nichts löschen.
