@@ -17,7 +17,8 @@ auf dem Server, hier nicht vorhanden.
 - **Fonts:** Cormorant Garamond + Montserrat über Google Fonts.
 
 ## Angebot und Kaufweg
-- **VIP Membership: 79 $ pro Monat (ca. 70 €), monatlich kündbar.**
+- **VIP Membership: 70 € im Monat (79 US-Dollar)\*, monatlich kündbar.** (Format seit 19.10.
+  wie ManyChat; Fußnote zum Wechselkurs bleibt, weil in US-Dollar abgerechnet wird.)
   4 Wochen Onboarding, danach laufende Begleitung.
 - **Der Kauf passiert nicht auf selmanuhija.com**, sondern über den
   Affiliate-Link `fasterwaycoach.com/vip-membership?aid=selmanuhija`.
@@ -106,7 +107,7 @@ und in `datenschutz.html` ebenso)
   wenn Variante C getestet wird.
 
 ## Kleine Punkte für später (nicht dringend)
-- Preis steht in Dollar ("79 $ pro Monat, ca. 70 €"). In Anzeigen nur
+- Preis steht seit 19.10. als "70 € im Monat (79 US-Dollar)*" mit Wechselkurs-Fußnote. In Anzeigen nur
   "70 € im Monat (79 US-Dollar)" oder gar kein Preis.
 - `og:image` prüfen (Vorschaubild beim Teilen des Links in DMs).
 - Drei Guides stehen auf "bald verfügbar". Jeder davon wäre ein neues

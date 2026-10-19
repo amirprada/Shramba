@@ -54,23 +54,25 @@ eine Woche mit den Familiengerichten liegt hinter dir. Falls du dich
 fragst, wie es weitergeht, wenn die 7 Rezepte durch sind: so sieht eine
 Woche bei mir aus.
 
-- **Essen:** Essfenster, das zu deinem Tag passt (Einstieg 12:12, später
-  16:8). Vollwertige Lebensmittel, Protein im Mittelpunkt, Kohlenhydrate
-  je nach Trainingstag. Kartoffeln, Nudeln und Brot bleiben.
-- **Training:** täglich 30 Minuten in der FASTer Way App, Kraft mit
-  Kurzhanteln und kurze Intervalle. Die Trainerin zeigt immer eine
-  leichtere Variante.
+- **Essen:** personalisierte Makros, angepasst an deine Ziele und
+  Ausgangslage. Essfenster, das zu deinem Tag passt. Carb Cycling: Wir
+  essen und trainieren nicht jeden Tag gleich, Ernährung und Training
+  werden aneinander angepasst. Kartoffeln, Nudeln und Brot bleiben.
+- **Training:** täglich 30 Minuten in der FASTer Way App, in den Varianten
+  Regular, Advanced und Foundations, für jedes Level.
+- **Lumi:** deine persönliche KI-Assistentin in der App. Mealplanung und
+  Tracking gehen ganz nebenbei, auch auf Deutsch.
 - **Begleitung:** 28 Tage fundiertes Onboarding mit E-Mails und
-  Videoaufzeichnungen von mir, dazu meine persönliche Begleitung und die
-  Community.
+  Videoaufzeichnungen von mir, meine tägliche persönliche Begleitung und
+  eine unterstützende Community von Frauen mit dem gleichen Ziel.
 
-Das Ganze heißt VIP Membership, kostet 70 € im Monat (79 US-Dollar), ist monatlich
-kündbar, und du kannst jederzeit einsteigen.
+Die monatliche VIP Membership kostet dich 70 € (79 US-Dollar). Einstieg
+jederzeit, monatlich kündbar, keine versteckten Kosten.
 
 → Hier anmelden: https://fasterwaycoach.com/vip-membership?aid=selmanuhija
 
 Wenn du vorher Fragen hast, antworte einfach auf diese Mail oder schreib
-mir auf Instagram (@selmanuhija). Ich antworte persönlich.
+mir auf Instagram (@selmanuhija). Ich beantworte alles persönlich.
 
 Deine Selma
 
