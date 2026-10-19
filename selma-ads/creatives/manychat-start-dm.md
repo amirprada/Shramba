@@ -9,6 +9,7 @@ FASTer Way to Fat Loss kommt aus den USA und wurde speziell für Frauen in der L
 
 Das bekommst du in meiner VIP Membership:
 • Personalisierte Makros, angepasst an deine Ziele und deine Ausgangslage
+• Carb Cycling: Wir essen nicht jeden Tag gleich und trainieren nicht jeden Tag gleich. Ernährung und Training werden aneinander angepasst
 • Tägliche 30-Minuten-Workouts in den Varianten Regular, Advanced und Foundations, für jedes Level
 • Lumi, deine persönliche KI-Assistentin in der FASTer Way App: Mealplanung und Tracking gehen damit ganz nebenbei. Lumi spricht viele Sprachen, auch Deutsch.
 • 28 Tage fundiertes Onboarding mit E-Mails und Videoaufzeichnungen von mir
