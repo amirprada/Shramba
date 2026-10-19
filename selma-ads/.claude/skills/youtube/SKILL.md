@@ -27,9 +27,16 @@ Für jedes Reel der Woche:
   dann 3 Hashtags (#abnehmenab40 #frauenab40 #shorts).
 - **Angepinnter Kommentar:** ein Satz + Link. "Die 7 Gerichte, bei denen alle
   dasselbe essen, gibt's hier: selmanuhija.com/rettung"
+- **Links in Shorts sind nicht anklickbar** (YouTube-Regel für alle Kanäle,
+  gilt für Beschreibung und Kommentare). Deshalb immer die kurze, abtippbare
+  Adresse nennen: selmanuhija.com/plan, /cortisol, /training, /rezepte
+  (Weiterleitungen auf die Flodesk-Formulare, liegen in `website/<slug>/`).
+  Dazu "oder tippe auf mein Profil, dort ist der Link". Neues Freebie = neue
+  Weiterleitung anlegen.
 - **Hinweis zur Datei:** Original ohne Instagram-Wasserzeichen, Hochformat 9:16,
-  unter 60 Sekunden. Keyword-Einblendung ("Schreib RETTUNG") kann bleiben, es
-  schadet nicht, aber der Link ist der Weg.
+  unter 60 Sekunden. Sagt Selma im Video "kommentiere PLAN" o. ä.: Auf YouTube
+  passiert darauf nichts (kein ManyChat). Solche Kommentare von Hand mit der
+  kurzen Adresse beantworten, siehe Teil C.
 - Fehlt die Freebie-Seite auf der Webseite: Link auf selmanuhija.com setzen
   und in "Offen" vermerken.
 
