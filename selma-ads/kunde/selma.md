@@ -59,9 +59,10 @@ Anzeigen nur, was hier steht.
   Alte Texte, die "21-Tage Reset", "Start 03.11." oder "6 Wochen" nennen, sind
   veraltet und werden ersetzt, wo sie auftauchen (ManyChat START: erledigt;
   Flodesk-Privacy-Text: offen).
-- **Was drin ist:** FASTer Way App mit täglichem 30-Minuten-Workout (Kraft mit
-  Kurzhanteln, HIIT, Trainerin zeigt leichtere Varianten), Makro-Setup und Tracking
-  in der App, **28 Tage fundiertes Onboarding mit E-Mails und Videoaufzeichnungen
+- **Was drin ist:** FASTer Way App mit täglichem 30-Minuten-Workout in den
+  Varianten Regular, Advanced und Foundations (Kraft mit Kurzhanteln, HIIT),
+  personalisierte Makros nach Ziel und Ausgangslage, KI-Assistentin "Lumi" in der
+  App für Mealplanung und Tracking (spricht auch Deutsch), keine versteckten Kosten, **28 Tage fundiertes Onboarding mit E-Mails und Videoaufzeichnungen
   von Selma** (Flodesk-Workflow), dazu Selmas persönliche Begleitung und Community.
   Formulierung (Amir, 18.10.): nicht "kurze Mail", sondern "fundiertes Onboarding
   mit E-Mails und Videoaufzeichnungen mit mir sowie persönlicher Begleitung". Noch offen: Gruppenformat (WhatsApp? App-Community?) […]
