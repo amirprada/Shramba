@@ -296,3 +296,18 @@ nächsten Batch Short 3 auf /3-tage-plan umstellen oder Tausch-Formular bauen.
   Blumen-Foto (laut Karussell-Brief vorhanden). Ablage: […]
 - Freebie-PDFs aus Google Drive (Seiten als Bild in Anzeigen zeigen ist ok).
 - Kundinnen-Stimmen: nur mit Freigabe, ohne Kilo-Angaben: […]
+
+## Abgleich Angebotstexte, 19.10.2026 (Chrome-Claude)
+Sauber: YouTube (Kanal, alle Shorts), Instagram-Bio, ManyChat TAUSCH, 30 MINUTEN,
+Rettung, Protein, Grab, Bauch, Yes, Mitte, Richtig, Start (8.7.), 3-Tage-Plan.
+Keine Story-Highlights vorhanden.
+Probleme:
+1. **Keyword-Konflikt:** Sechs weitere Automationen reagieren ebenfalls auf
+   "Start"/"START". Mehrere DMs gleichzeitig, teils mit altem Angebot.
+2. START/Info-Automation zeigte noch "ca. 70 €" und Button ohne /vip-membership.
+3. Automation "OKTOBER" ist LIVE, das Reel verspricht "starte mit mir am
+   Montag, dem 5. Oktober" (alter fester Starttermin).
+4. Flodesk nicht geprüft, Sitzung abgelaufen.
+5. **Widerspruch Workout-Varianten:** Webseite sagt "Standard, Advanced und
+   Gym Workouts", ManyChat-Text sagt "Regular, Advanced und Foundations".
+   Klärung durch Selma offen.
