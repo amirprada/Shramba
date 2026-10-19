@@ -59,7 +59,7 @@ Woche bei mir aus.
   essen und trainieren nicht jeden Tag gleich, Ernährung und Training
   werden aneinander angepasst. Kartoffeln, Nudeln und Brot bleiben.
 - **Training:** täglich 30 Minuten in der FASTer Way App, in den Varianten
-  Regular, Advanced und Foundations, für jedes Level.
+  Standard, Advanced, Foundation und Gym, für jedes Level.
 - **Lumi:** deine persönliche KI-Assistentin in der App. Mealplanung und
   Tracking gehen ganz nebenbei, auch auf Deutsch.
 - **Begleitung:** 28 Tage fundiertes Onboarding mit E-Mails und

@@ -60,7 +60,7 @@ Anzeigen nur, was hier steht.
   veraltet und werden ersetzt, wo sie auftauchen (ManyChat START: erledigt;
   Flodesk-Privacy-Text: offen).
 - **Was drin ist:** FASTer Way App mit täglichem 30-Minuten-Workout in den
-  Varianten Regular, Advanced und Foundations (Kraft mit Kurzhanteln, HIIT),
+  Varianten Standard, Advanced, Foundation und Gym (Kraft mit Kurzhanteln, HIIT),
   personalisierte Makros nach Ziel und Ausgangslage, KI-Assistentin "Lumi" in der
   App für Mealplanung und Tracking (spricht auch Deutsch), keine versteckten Kosten, **28 Tage fundiertes Onboarding mit E-Mails und Videoaufzeichnungen
   von Selma** (Flodesk-Workflow), dazu Selmas persönliche Begleitung und Community.
@@ -308,6 +308,5 @@ Probleme:
 3. Automation "OKTOBER" ist LIVE, das Reel verspricht "starte mit mir am
    Montag, dem 5. Oktober" (alter fester Starttermin).
 4. Flodesk nicht geprüft, Sitzung abgelaufen.
-5. **Widerspruch Workout-Varianten:** Webseite sagt "Standard, Advanced und
-   Gym Workouts", ManyChat-Text sagt "Regular, Advanced und Foundations".
-   Klärung durch Selma offen.
+5. Workout-Varianten geklärt (Amir, 19.10.): **Standard, Advanced, Foundation und
+   Gym**. Webseite und Repo-Texte angepasst, ManyChat folgt.
