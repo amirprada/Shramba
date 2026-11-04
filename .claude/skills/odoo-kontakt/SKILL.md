@@ -1,32 +1,50 @@
 ---
 name: odoo-kontakt
-description: Kontakte aus Notizen, Visitenkarten, Fotos oder E-Mail-Signaturen in Odoo (https://www.ols-bio.com/odoo/contacts) prüfen, fehlende Kontakte und Firmen anlegen und Gesprächsnotizen plus Folge-Aktivitäten im Chatter einpflegen. Arbeitet über Claude in Chrome mit Amirs Odoo-Login. Anwenden bei "in Odoo anlegen", "Kontakt einpflegen", "Aktivität anlegen", "gibt es den schon in Odoo", "Messe-Notizen nach Odoo".
+description: Kontakte aus Fotos von Notizen, Visitenkarten oder E-Mail-Signaturen erfassen und in Odoo (https://www.ols-bio.com/odoo/contacts) einpflegen. Zwei Phasen: "erfassen" (vom Handy in der Cloud, Fotos → Eingabedatei im Repo, kein Browser nötig) und "einpflegen" (am Laptop mit Claude in Chrome: prüfen ob Kontakt existiert, sonst anlegen, Notiz loggen, Aktivität planen). Anwenden bei "Notizen erfassen", "in Odoo anlegen", "Kontakt einpflegen", "Aktivität anlegen", "gibt es den schon in Odoo", "Messe-Notizen nach Odoo".
 ---
 
-# Odoo-Kontakt anlegen und Aktivität einpflegen
+# Odoo-Kontakt: erfassen und einpflegen
 
-Amir (Global Product Manager, OLS OMNI Life Science) bringt nach Messen, Besuchen,
-Calls oder Demos Notizen mit. Dieser Skill bringt sie nach Odoo: pro Person prüfen,
-ob der Kontakt existiert, sonst anlegen, dann Gesprächsnotiz loggen und eine
-Folge-Aktivität planen.
+Amir (Global Product Manager, OLS OMNI Life Science) fotografiert nach Messen,
+Besuchen, Calls oder Demos seine Notizen mit dem Handy. Der Skill läuft in zwei
+Phasen, die über das Repo zusammenarbeiten:
+
+| Phase | Wo | Braucht | Ergebnis |
+|---|---|---|---|
+| **1 Erfassen** | Handy, Cloud-Sitzung | nur die Fotos | Eingabedatei `eingaben/<datum>-<anlass>.md`, committet und gepusht |
+| **2 Einpflegen** | Laptop, Desktop-App mit Claude in Chrome | Chrome mit Odoo-Login | Kontakte, Notizen und Aktivitäten in Odoo; Bericht in der Eingabedatei, committet und gepusht |
+
+Welche Phase gemeint ist, ergibt sich aus dem Auftrag und der Umgebung: Fotos
+im Auftrag und keine Chrome-Werkzeuge = Phase 1. „Einpflegen“, „nach Odoo“ oder
+Chrome verbunden = Phase 2. Im Zweifel beide Phasen nacheinander, sofern Chrome
+verbunden ist; sonst Phase 1 und am Ende sagen, dass Phase 2 am Laptop folgt.
 
 Leitprinzip: **nichts erfinden, nichts doppelt anlegen, nichts löschen.**
 
-## Voraussetzungen (vor jeder Aktion prüfen)
-1. **Claude in Chrome ist verbunden.** Werkzeuge in einem ToolSearch laden:
-   `select:mcp__claude-in-chrome__tabs_context_mcp,mcp__claude-in-chrome__navigate,mcp__claude-in-chrome__computer,mcp__claude-in-chrome__read_page,mcp__claude-in-chrome__form_input,mcp__claude-in-chrome__tabs_create_mcp,mcp__claude-in-chrome__tabs_close_mcp`
-   Wenn die Chrome-Werkzeuge fehlen oder nicht antworten: sagen, dass die
-   Browser-Erweiterung nicht verbunden ist, und stattdessen nur Schritt 1
-   (Datenextraktion) liefern. **Nie so tun, als wäre etwas in Odoo angelegt.**
-2. `tabs_context_mcp` aufrufen, dann einen **neuen Tab** öffnen und
-   `https://www.ols-bio.com/odoo/contacts` laden. Amir ist dort eingeloggt.
-   Erscheint die Login-Maske, Amir bitten, sich einzuloggen, und warten.
-   Keine Passwörter eingeben oder erfragen.
-3. Nur die Kontakte-App und den Chatter benutzen. Keine anderen Odoo-Apps,
-   keine Einstellungen, keine Massenaktionen, kein Löschen, kein Archivieren,
-   kein Zusammenführen.
+---
 
-## Schritt 1 – Kontakte aus dem Material extrahieren
+# Phase 1 – Erfassen (Handy / Cloud)
+
+Kein Browser nötig. Nie versuchen, aus der Cloud Odoo zu erreichen.
+
+1. Vor dem Start `git pull` auf dem aktuellen Branch, damit keine Eingabedatei
+   überschrieben wird.
+2. Fotos lesen und Kontakte nach den **Extraktionsregeln** unten herausziehen.
+3. Eingabedatei anlegen: `.claude/skills/odoo-kontakt/eingaben/<YYYY-MM-DD>-<anlass>.md`
+   nach `vorlage.md`, mit dieser Kopfzeile:
+   ```
+   status: offen
+   anlass: <Messe/Besuch/Call – Ort>   (fehlt es in den Notizen: "[ergänzen]")
+   datum: <YYYY-MM-DD>                  (Datum der Fotos / des Auftrags)
+   ```
+4. Alles Unsichere mit `[?]` markieren, Fragen an Amir unter „Offene Fragen“
+   am Ende der Datei sammeln. Wenn Amir im Chat antwortet, die Datei
+   nachziehen und die `[?]` entfernen.
+5. Committen und pushen (Commit-Text: „odoo-kontakt: <anlass> erfasst, N Kontakte“).
+6. Im Chat kurz: Anzahl Kontakte, offene Fragen, und der Hinweis
+   „Zum Einpflegen am Laptop: Shramba öffnen, git pull, dann /odoo-kontakt einpflegen“.
+
+## Extraktionsregeln (gelten in beiden Phasen)
 Material: Fotos handschriftlicher Notizen, Visitenkarten, Stichpunkte,
 E-Mail-Signaturen, Teilnehmerlisten. Die Vorlage in `vorlage.md` nutzen.
 
@@ -47,6 +65,27 @@ Regeln beim Lesen:
 - Personen ohne jeden Anhaltspunkt für Name **oder** E-Mail werden nicht
   angelegt, sondern nur im Bericht als "nicht anlegbar" aufgeführt.
 - Mehrere Personen derselben Firma: Firma einmal, Personen darunter.
+
+---
+
+# Phase 2 – Einpflegen (Laptop / Chrome)
+
+Alle Eingabedateien mit `status: offen` abarbeiten, älteste zuerst, es sei denn
+Amir nennt eine bestimmte Datei. Vorher `git pull`.
+
+## Voraussetzungen (vor jeder Aktion prüfen)
+1. **Claude in Chrome ist verbunden.** Werkzeuge in einem ToolSearch laden:
+   `select:mcp__claude-in-chrome__tabs_context_mcp,mcp__claude-in-chrome__navigate,mcp__claude-in-chrome__computer,mcp__claude-in-chrome__read_page,mcp__claude-in-chrome__form_input,mcp__claude-in-chrome__tabs_create_mcp,mcp__claude-in-chrome__tabs_close_mcp`
+   Wenn die Chrome-Werkzeuge fehlen oder nicht antworten: sagen, dass die
+   Browser-Erweiterung nicht verbunden ist, und stattdessen nur Phase 1
+   (Erfassen) ausführen. **Nie so tun, als wäre etwas in Odoo angelegt.**
+2. `tabs_context_mcp` aufrufen, dann einen **neuen Tab** öffnen und
+   `https://www.ols-bio.com/odoo/contacts` laden. Amir ist dort eingeloggt.
+   Erscheint die Login-Maske, Amir bitten, sich einzuloggen, und warten.
+   Keine Passwörter eingeben oder erfragen.
+3. Nur die Kontakte-App und den Chatter benutzen. Keine anderen Odoo-Apps,
+   keine Einstellungen, keine Massenaktionen, kein Löschen, kein Archivieren,
+   kein Zusammenführen.
 
 **Freigabe vor dem Schreiben:** Die extrahierte Tabelle (Name · Firma · E-Mail ·
 geplante Aktivität · Unsicherheiten) kurz zeigen. Einträge ohne `[?]` dürfen
@@ -120,8 +159,10 @@ E-Mail an den Kontakt schicken).
 Pro Kontakt genau **eine** offene Aktivität anlegen. Hat der Kontakt bereits eine
 offene Aktivität zum selben Thema, keine zweite anlegen, sondern melden.
 
-## Schritt 5 – Bericht
-Tabs schließen, die der Skill geöffnet hat. Dann kurze Tabelle:
+## Schritt 5 – Bericht und Abschluss
+Tabs schließen, die der Skill geöffnet hat. Dann in der Eingabedatei:
+`status: eingepflegt` setzen (bei Resten mit `[?]`: `status: teilweise`) und am
+Ende einen Abschnitt `## Bericht <YYYY-MM-DD>` mit dieser Tabelle anhängen:
 
 | Kontakt | Firma | Status | Odoo-ID | Notiz | Aktivität |
 |---|---|---|---|---|---|
@@ -130,7 +171,10 @@ Tabs schließen, die der Skill geöffnet hat. Dann kurze Tabelle:
 | … | … | wartet auf Bestätigung `[?]` | – | – | – |
 
 Darunter: offene Punkte (unleserliche Stellen, Namensgleichheiten, Kontakte
-ohne E-Mail, abweichende Daten in Odoo). Oder „Nichts offen."
+ohne E-Mail, abweichende Daten in Odoo). Oder „Nichts offen.“
+
+Committen und pushen (Commit-Text: „odoo-kontakt: <anlass> eingepflegt, N neu,
+M bestanden“). Dieselbe Tabelle im Chat zeigen.
 
 ## Abbruchregeln
 - Browser antwortet nach 2–3 Versuchen nicht, Seite lädt nicht, Element
