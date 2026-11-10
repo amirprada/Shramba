@@ -161,7 +161,7 @@ button.opt:disabled { cursor: default; opacity: 1; color: var(--ink); }
   <h2 id="merk-h">Das musst du wissen</h2>
   <ul>
     <li><b>Schall</b> sind alle Signale und Geräusche, die unser Ohr erreichen. Ein Ton entsteht nur, wenn ein Gegenstand <mark>schnell schwingt</mark> (Lineal, Stimmgabel, Stimmbänder).</li>
-    <li><b>Frequenz:</b> Wie oft etwas in einer Sekunde hin- und herschwingt. Einheit: Hertz (Hz), 1 kHz = 1000 Hz. <mark>Höhere Frequenz = höherer Ton.</mark></li>
+    <li><b>Frequenz:</b> Wie oft etwas in einer Sekunde hin- und herschwingt. <mark>Höhere Frequenz = höherer Ton.</mark></li>
     <li><b>Amplitude:</b> die maximale Auslenkung, also wie weit etwas schwingt. <mark>Größere Amplitude = lauterer Ton.</mark></li>
     <li><b>Schallgeschwindigkeit:</b> In Luft legt Schall etwa <mark>340 m in 1 Sekunde</mark> zurück (340 m/s). Licht ist viel schneller, darum siehst du den Blitz sofort und hörst den Donner später.</li>
     <li><b>Gewitter-Regel:</b> Sekunden zwischen Blitz und Donner zählen und mal 340 m rechnen. <mark>3 Sekunden ≈ 1 km.</mark></li>
@@ -204,7 +204,7 @@ button.opt:disabled { cursor: default; opacity: 1; color: var(--ink); }
   <div class="panel">
     <svg class="wave" id="labwave" viewBox="0 0 600 190" role="img" aria-label="Schwingungsbild"></svg>
     <div class="sliders">
-      <label for="labf">Frequenz: <output id="labfo">3 Hz</output>
+      <label for="labf">Frequenz: <output id="labfo">3-mal pro Sekunde</output>
         <input type="range" id="labf" min="1" max="10" step="1" value="3">
       </label>
       <label for="laba">Amplitude: <output id="labao">mittel</output>
@@ -336,12 +336,12 @@ $("gwform").addEventListener("submit", function (e) {
 function labDraw() {
   var f = +$("labf").value, a = +$("laba").value;
   $("labwave").innerHTML = waveSvgInner(f, a * 7, true);
-  $("labfo").textContent = f + " Hz";
+  $("labfo").textContent = f + "-mal pro Sekunde";
   $("labao").textContent = a <= 3 ? "klein" : a <= 7 ? "mittel" : "groß";
-  $("labsay").innerHTML = "In 1 Sekunde siehst du <b>" + f + (f === 1 ? " Schwingung" : " Schwingungen") + "</b>, also " + f + " Hz. " +
+  $("labsay").innerHTML = "In 1 Sekunde siehst du <b>" + f + (f === 1 ? " Schwingung" : " Schwingungen") + "</b>. " +
     (f >= 7 ? "Das ist eine hohe Frequenz: Der Ton ist <b>hoch</b>. " : f <= 3 ? "Das ist eine niedrige Frequenz: Der Ton ist <b>tief</b>. " : "") +
     (a >= 8 ? "Die Amplitude ist groß: Der Ton ist <b>laut</b>." : a <= 3 ? "Die Amplitude ist klein: Der Ton ist <b>leise</b>." : "");
-  $("labnote").textContent = "Zum Anhören spielen wir " + f * 100 + " Hz. So langsame Schwingungen wie " + f + " Hz kann unser Ohr nicht hören.";
+  $("labnote").textContent = "Zum Anhören schwingt der Ton 100-mal schneller. So langsame Schwingungen kann unser Ohr nicht hören.";
 }
 $("labf").addEventListener("input", labDraw);
 $("laba").addEventListener("input", labDraw);
@@ -359,14 +359,13 @@ var MC = [
   { q: "Du zupfst ein Lineal an der Tischkante. Dann machst du den schwingenden Teil kürzer. Was passiert?", a: "Der Ton wird höher", w: ["Der Ton wird tiefer", "Der Ton bleibt gleich", "Es gibt keinen Ton mehr"], why: "Ein kürzeres Stück schwingt schneller. Schnellere Schwingung bedeutet höhere Frequenz, also einen höheren Ton." },
   { q: "Eine angeschlagene Stimmgabel wird ins Wasser gehalten. Das Wasser spritzt. Was zeigt der Versuch?", a: "Die Stimmgabel schwingt, nur zu schnell für unsere Augen", w: ["Die Stimmgabel ist heiß", "Wasser macht den Ton lauter", "Die Stimmgabel schwingt gar nicht"], why: "Man sieht die Bewegung nicht, aber das spritzende Wasser beweist: Die Stimmgabel schwingt sehr schnell." },
   { q: "Was schwingt, wenn du sprichst oder singst?", a: "Deine Stimmbänder", w: ["Deine Zähne", "Deine Ohren", "Deine Lunge"], why: "Luft wird an den Stimmbändern vorbeigepresst und bringt sie zum Schwingen. Das spürst du am Kehlkopf." },
-  { q: "Was gibt die Frequenz an?", a: "Wie viele Schwingungen in einer Sekunde stattfinden", w: ["Wie weit etwas ausgelenkt wird", "Wie schnell der Schall durch die Luft läuft", "Wie lange ein Ton dauert"], why: "Frequenz = Anzahl der vollständigen Hin- und Herbewegungen in 1 Sekunde. Einheit: Hertz (Hz)." },
+  { q: "Was gibt die Frequenz an?", a: "Wie viele Schwingungen in einer Sekunde stattfinden", w: ["Wie weit etwas ausgelenkt wird", "Wie schnell der Schall durch die Luft läuft", "Wie lange ein Ton dauert"], why: "Frequenz = Anzahl der vollständigen Hin- und Herbewegungen in 1 Sekunde." },
   { q: "Du schlägst das Lineal stärker an. Die Amplitude wird größer. Wie verändert sich der Ton?", a: "Er wird lauter", w: ["Er wird höher", "Er wird tiefer", "Er wird leiser"], why: "Die Amplitude ist die maximale Auslenkung. Größere Amplitude bedeutet lauterer Ton. Die Tonhöhe hängt von der Frequenz ab." },
   { q: "Warum siehst du bei einem Gewitter zuerst den Blitz und hörst erst später den Donner?", a: "Weil Licht viel schneller ist als Schall", w: ["Weil der Donner später entsteht", "Weil Schall schneller ist als Licht", "Weil die Wolken den Donner festhalten"], why: "Blitz und Donner entstehen gleichzeitig. Das Licht ist fast sofort bei dir, der Schall braucht für jeden Kilometer etwa 3 Sekunden." },
-  { q: "Wie schnell breitet sich Schall in Luft ungefähr aus?", a: "340 m in einer Sekunde", w: ["340 km in einer Sekunde", "34 m in einer Sekunde", "3 m in einer Sekunde"], why: "Merksatz: Schall breitet sich in Luft mit etwa 340 m/s aus." },
-  { q: "Welche Einheit hat die Frequenz?", a: "Hertz (Hz)", w: ["Meter (m)", "Sekunde (s)", "Meter pro Sekunde (m/s)"], why: "Die Frequenz wird in Hertz gemessen. 1 Hz bedeutet: eine Schwingung in einer Sekunde." }
+  { q: "Wie schnell breitet sich Schall in Luft ungefähr aus?", a: "340 m in einer Sekunde", w: ["340 km in einer Sekunde", "34 m in einer Sekunde", "3 m in einer Sekunde"], why: "Merksatz: Schall breitet sich in Luft mit etwa 340 m/s aus." }
 ];
 function numQs() {
-  var t1 = rnd(2, 12), t2 = rnd(2, 10), n = rnd(2, 6), secs = pick([2, 3, 4, 5]), hz = pick([10, 20, 30, 40, 50]), khz = pick([2, 3, 5, 1.5, 2.5, 0.5]);
+  var t1 = rnd(2, 12), t2 = rnd(2, 10), n = rnd(2, 6), secs = pick([2, 3, 4, 5]), hz = pick([10, 20, 30, 40, 50]), km = rnd(1, 5);
   var far = rnd(6, 12), near = far - rnd(2, 4), closer = Math.random() < 0.5;
   var first = closer ? far : near, second = closer ? near : far;
   return [
@@ -374,12 +373,12 @@ function numQs() {
       why: t1 + " · 340 m = " + de(t1 * 340) + " m. Das sind etwa " + de(Math.round(t1 * 340 / 100) / 10) + " km." },
     { q: "Ein Gewitter ist " + de(t2 * 340) + " m entfernt. Wie viele Sekunden nach dem Blitz hörst du den Donner?", num: t2, tol: 0.03, unit: "s",
       why: "Der Schall schafft 340 m in 1 s. " + de(t2 * 340) + " m : 340 m = " + t2 + ". Also " + t2 + " Sekunden." },
-    { q: "Ein Lineal schwingt in " + secs + " Sekunden " + hz * secs + "-mal hin und her. Wie groß ist die Frequenz?", num: hz, tol: 0, unit: "Hz",
-      why: "Frequenz = Schwingungen in 1 Sekunde: " + hz * secs + " : " + secs + " = " + hz + " Hz." },
-    { q: "Rechne um: " + de(khz) + " kHz sind wie viele Hertz?", num: khz * 1000, tol: 0, unit: "Hz",
-      why: "1 kHz = 1000 Hz. Also " + de(khz) + " · 1000 = " + de(khz * 1000) + " Hz." },
-    { q: "Das Schwingungsbild zeigt genau 1 Sekunde. Wie groß ist die Frequenz?", svg: n, num: n, tol: 0, unit: "Hz",
-      why: "Zähle die vollständigen Schwingungen (einmal hoch und einmal runter): Es sind " + n + " in 1 Sekunde, also " + n + " Hz." },
+    { q: "Ein Lineal schwingt in " + secs + " Sekunden " + hz * secs + "-mal hin und her. Wie oft schwingt es in 1 Sekunde?", num: hz, tol: 0, unit: "-mal",
+      why: "Die Frequenz ist die Anzahl der Schwingungen in 1 Sekunde: " + hz * secs + " : " + secs + " = " + hz + "." },
+    { q: "Nutze die Faustregel: Ein Gewitter ist etwa " + km + " km entfernt. Wie viele Sekunden vergehen ungefähr zwischen Blitz und Donner?", num: km * 3, tol: 0.05, unit: "s",
+      why: "Faustregel: 3 Sekunden für 1 km. Also " + km + " · 3 = " + km * 3 + " Sekunden." },
+    { q: "Das Schwingungsbild zeigt genau 1 Sekunde. Wie viele Schwingungen sind es in 1 Sekunde?", svg: n, num: n, tol: 0, unit: "Schwingungen",
+      why: "Zähle die vollständigen Schwingungen (einmal hoch und einmal runter): Es sind " + n + " in 1 Sekunde." },
     { q: "Beim ersten Blitz vergehen " + first + " Sekunden bis zum Donner. Beim nächsten Blitz sind es " + second + " Sekunden. Was passiert mit dem Gewitter?",
       a: closer ? "Es kommt näher" : "Es entfernt sich", w: [closer ? "Es entfernt sich" : "Es kommt näher", "Es bleibt am gleichen Ort", "Das kann man so nicht erkennen"],
       why: "Je " + (closer ? "kürzer" : "länger") + " die Zeit zwischen Blitz und Donner, desto " + (closer ? "näher" : "weiter weg") + " ist das Gewitter: " + first + " · 340 m = " + de(first * 340) + " m, danach " + second + " · 340 m = " + de(second * 340) + " m." }
