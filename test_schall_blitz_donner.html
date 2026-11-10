@@ -1,0 +1,461 @@
+<title>Blitz-und-Donner-Test</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: Heftseite auf Karopapier – schmale Lesespalte: Merkkasten, Gewitter-Versuch (Nachthimmel), Schwingungs-Labor, Test */
+:root {
+  --paper: #fbfcfe;
+  --grid: #e3e9f3;
+  --ink: #1b2233;
+  --muted: #5d6778;
+  --blue: #1f4fd1;        /* Füllertinte */
+  --blue-soft: #e6edff;
+  --red: #c8352b;         /* Korrekturstift */
+  --red-soft: #fde9e6;
+  --green: #1d7a4a;
+  --green-soft: #e3f4ea;
+  --card: #ffffff;
+  --line: #cfd7e4;
+  --hl: #fff2b3;          /* Textmarker */
+  --sky: #141b33;         /* Nachthimmel im Gewitter-Versuch, in beiden Themes dunkel */
+  --sky-flash: #5b6ea8;
+  --sky-ink: #e9edf8;
+  --sky-muted: #a4aecb;
+  --bolt: #ffd84a;
+  --ground: #0b0f1d;
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #12161f; --grid: #1c2230; --ink: #e7ebf3; --muted: #9aa4b6;
+    --blue: #8fb0ff; --blue-soft: #1d2744; --red: #ff8a7f; --red-soft: #3a1c1a; --green: #6fd39d; --green-soft: #15301f;
+    --card: #181d28; --line: #2c3446; --hl: #4a4115;
+    --sky: #0c1122; --sky-flash: #4a5c96; --sky-ink: #e9edf8; --sky-muted: #a4aecb; --bolt: #ffd84a; --ground: #05070f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #12161f; --grid: #1c2230; --ink: #e7ebf3; --muted: #9aa4b6;
+  --blue: #8fb0ff; --blue-soft: #1d2744; --red: #ff8a7f; --red-soft: #3a1c1a; --green: #6fd39d; --green-soft: #15301f;
+  --card: #181d28; --line: #2c3446; --hl: #4a4115;
+  --sky: #0c1122; --sky-flash: #4a5c96; --sky-ink: #e9edf8; --sky-muted: #a4aecb; --bolt: #ffd84a; --ground: #05070f;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 17px;
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 32px 64px;
+}
+.wrap { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2rem, 5vw, 2.9rem); font-weight: 800; letter-spacing: -0.01em; }
+h2 { font-size: 1.6rem; font-weight: 700; }
+h3 { font-size: 1.15rem; font-weight: 700; }
+p { margin: 0; max-width: 65ch; }
+.eyebrow { font-family: var(--f-mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red); }
+.stack { display: flex; flex-direction: column; gap: 14px; }
+.muted { color: var(--muted); }
+mark { background: var(--hl); color: inherit; padding: 0 3px; border-radius: 2px; }
+.m { font-family: var(--f-mono); white-space: nowrap; }
+header { display: flex; flex-direction: column; gap: 12px; }
+
+/* Merkkasten */
+.merk { background: var(--blue-soft); border-left: 4px solid var(--blue); padding: 18px 20px; border-radius: 0 6px 6px 0; }
+.merk ul { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 8px; }
+.chain { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-family: var(--f-mono); font-size: 0.88rem; }
+.chain span { background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 4px 10px; }
+.chain i { font-style: normal; color: var(--blue); font-weight: 600; }
+
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.calc { font-family: var(--f-mono); font-size: 0.95rem; font-variant-numeric: tabular-nums; background: var(--paper); border: 1px dashed var(--line); border-radius: 6px; padding: 10px 12px; overflow-x: auto; line-height: 1.9; }
+
+.btnrow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+button.btn { font: 700 0.95rem var(--f-body); cursor: pointer; border-radius: 6px; padding: 10px 16px; border: 1.5px solid var(--blue); background: var(--blue); color: var(--paper); }
+button.btn.ghost { background: transparent; color: var(--blue); }
+button.btn:disabled { opacity: 0.45; cursor: default; }
+button:focus-visible, input:focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+
+.form { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; }
+.form label { display: flex; flex-direction: column; gap: 4px; font-size: 0.9rem; color: var(--muted); }
+.unit { display: flex; align-items: center; gap: 8px; font-family: var(--f-mono); color: var(--ink); }
+input[type="text"] { font: 600 1.05rem var(--f-mono); color: var(--ink); background: var(--paper); border: 1.5px solid var(--line); border-radius: 6px; padding: 9px 10px; width: 8em; max-width: 100%; }
+.fb { font-weight: 700; }
+.fb.ok { color: var(--green); }
+.fb.no { color: var(--red); }
+
+/* Gewitter-Versuch */
+.scene { position: relative; height: 190px; border-radius: 8px; overflow: hidden; background: var(--sky); color: var(--sky-ink); }
+.scene.flash { background: var(--sky-flash); }
+.scene .floor { position: absolute; inset: auto 0 0 0; height: 26px; background: var(--ground); }
+.scene svg { position: absolute; display: block; }
+.scene .cloud { left: 4%; top: 14px; width: 110px; height: auto; }
+.scene .boltsvg { left: calc(4% + 38px); top: 62px; width: 34px; height: 104px; opacity: 0; }
+.scene.flash .boltsvg, .scene .boltsvg.on { opacity: 1; }
+.scene .house { right: 5%; bottom: 26px; width: 64px; height: auto; }
+.scene .ring { position: absolute; top: 40px; bottom: 26px; left: 0; width: 26px; border-right: 3px solid var(--sky-ink); border-radius: 0 60% 60% 0 / 0 50% 50% 0; opacity: 0; will-change: transform; }
+.scene .ring.on { opacity: 0.85; }
+.scene .clock { position: absolute; right: 12px; top: 10px; font: 600 1.5rem var(--f-mono); font-variant-numeric: tabular-nums; }
+.scene .status { position: absolute; left: 12px; bottom: 32px; right: 90px; font-size: 0.85rem; color: var(--sky-muted); }
+
+/* Schwingungs-Labor */
+.lab { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.wave { width: 100%; height: auto; display: block; background: var(--paper); border: 1px dashed var(--line); border-radius: 6px; }
+.wave .axis { stroke: var(--line); stroke-width: 1.5; fill: none; }
+.wave .curve { stroke: var(--blue); stroke-width: 3; fill: none; stroke-linejoin: round; }
+.wave .amp { stroke: var(--red); stroke-width: 2; fill: none; }
+.wave text { fill: var(--muted); font: 600 13px var(--f-mono); }
+.wave text.ampt { fill: var(--red); }
+.sliders { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.sliders label { display: flex; flex-direction: column; gap: 6px; font-size: 0.95rem; min-width: 0; }
+.sliders output { font-family: var(--f-mono); font-weight: 600; color: var(--blue); }
+input[type="range"] { width: 100%; accent-color: var(--blue); height: 28px; }
+
+/* Test */
+.bar { height: 8px; background: var(--line); border-radius: 99px; overflow: hidden; }
+.bar > div { height: 100%; background: var(--blue); width: 0; transition: width .2s; }
+.qhead { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-family: var(--f-mono); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.qtext { font-size: 1.15rem; font-weight: 700; max-width: 60ch; }
+.opts { display: grid; gap: 8px; }
+button.opt { font: 400 1rem var(--f-body); text-align: left; cursor: pointer; color: var(--ink); background: var(--paper); border: 1.5px solid var(--line); border-radius: 6px; padding: 11px 14px; min-width: 0; }
+button.opt[aria-pressed="true"] { border-color: var(--blue); background: var(--blue-soft); font-weight: 700; }
+button.opt.right { border-color: var(--green); background: var(--green-soft); font-weight: 700; }
+button.opt.wrong { border-color: var(--red); background: var(--red-soft); }
+button.opt:disabled { cursor: default; opacity: 1; color: var(--ink); }
+.why { background: var(--paper); border: 1px dashed var(--line); border-radius: 6px; padding: 10px 12px; }
+.big { font: 800 2.4rem var(--f-display); font-variant-numeric: tabular-nums; }
+.review { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 10px; }
+
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .panel { padding: 16px; }
+  .scene .cloud { width: 86px; }
+  .scene .boltsvg { left: calc(4% + 28px); }
+}
+@media (prefers-reduced-motion: reduce) { .bar > div { transition: none; } }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="eyebrow">Physik · Klasse 6 · Schall und Hören</span>
+  <h1>Blitz, Donner und Schall</h1>
+  <p>Übe für den Test: erst der Merkkasten, dann zwei Versuche zum Ausprobieren und am Ende 12 Testaufgaben mit Punkten. Bei jedem neuen Test kommen andere Zahlen.</p>
+</header>
+
+<section class="merk stack" aria-labelledby="merk-h">
+  <h2 id="merk-h">Das musst du wissen</h2>
+  <ul>
+    <li><b>Schall</b> sind alle Signale und Geräusche, die unser Ohr erreichen. Ein Ton entsteht nur, wenn ein Gegenstand <mark>schnell schwingt</mark> (Lineal, Stimmgabel, Stimmbänder).</li>
+    <li><b>Frequenz:</b> Wie oft etwas in einer Sekunde hin- und herschwingt. Einheit: Hertz (Hz), 1 kHz = 1000 Hz. <mark>Höhere Frequenz = höherer Ton.</mark></li>
+    <li><b>Amplitude:</b> die maximale Auslenkung, also wie weit etwas schwingt. <mark>Größere Amplitude = lauterer Ton.</mark></li>
+    <li><b>Schallgeschwindigkeit:</b> In Luft legt Schall etwa <mark>340 m in 1 Sekunde</mark> zurück (340 m/s). Licht ist viel schneller, darum siehst du den Blitz sofort und hörst den Donner später.</li>
+    <li><b>Gewitter-Regel:</b> Sekunden zwischen Blitz und Donner zählen und mal 340 m rechnen. <mark>3 Sekunden ≈ 1 km.</mark></li>
+  </ul>
+  <div class="chain" aria-label="Weg des Schalls">
+    <span>Schallquelle<br>z. B. Gitarre</span><i>→</i><span>Schallträger<br>z. B. Luft</span><i>→</i><span>Schallempfänger<br>z. B. Ohr</span>
+  </div>
+</section>
+
+<section class="stack" aria-labelledby="gw-h">
+  <h2 id="gw-h">Versuch 1: Wie weit ist das Gewitter weg?</h2>
+  <p class="muted">Löse einen Blitz aus. Die Stoppuhr läuft, bis der Donner am Haus ankommt. Rechne dann die Entfernung aus.</p>
+  <div class="panel">
+    <div class="scene" id="scene">
+      <svg class="cloud" viewBox="0 0 110 60" aria-hidden="true"><path fill="#7c88ad" d="M24 54a20 20 0 0 1-2-40 26 26 0 0 1 50-4 22 22 0 0 1 16 44z"/></svg>
+      <svg class="boltsvg" id="bolt" viewBox="0 0 34 104" aria-hidden="true"><polygon fill="#ffd84a" points="20,0 2,52 15,52 6,104 32,40 18,40 28,0"/></svg>
+      <div class="ring" id="ring"></div>
+      <svg class="house" viewBox="0 0 64 56" aria-hidden="true"><polygon fill="#a4aecb" points="32,2 2,26 62,26"/><rect fill="#7c88ad" x="8" y="26" width="48" height="30"/><rect fill="#ffd84a" x="16" y="34" width="12" height="12"/><rect fill="#141b33" x="38" y="36" width="10" height="20"/></svg>
+      <div class="floor"></div>
+      <div class="clock" id="clock" aria-live="off">0,0 s</div>
+      <div class="status" id="gwstatus" aria-live="polite">Bereit. Der Ton ist nur zu hören, wenn dein Gerät nicht stumm ist.</div>
+    </div>
+    <div class="btnrow">
+      <button class="btn" id="gwgo" type="button">Blitz auslösen</button>
+      <span class="muted" style="font-size:.9rem">Jedes Mal ist das Gewitter anders weit weg.</span>
+    </div>
+    <form class="form" id="gwform" hidden>
+      <label for="gwin">Entfernung des Gewitters
+        <span class="unit"><input type="text" id="gwin" inputmode="decimal" autocomplete="off"> m</span>
+      </label>
+      <button class="btn" type="submit">Prüfen</button>
+    </form>
+    <div id="gwfb" class="stack" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="stack" aria-labelledby="lab-h">
+  <h2 id="lab-h">Versuch 2: Schwingungs-Labor</h2>
+  <p class="muted">Verändere Frequenz und Amplitude und schau, was mit dem Schwingungsbild passiert. Mit „Ton anhören“ hörst du den Unterschied.</p>
+  <div class="panel">
+    <svg class="wave" id="labwave" viewBox="0 0 600 190" role="img" aria-label="Schwingungsbild"></svg>
+    <div class="sliders">
+      <label for="labf">Frequenz: <output id="labfo">3 Hz</output>
+        <input type="range" id="labf" min="1" max="10" step="1" value="3">
+      </label>
+      <label for="laba">Amplitude: <output id="labao">mittel</output>
+        <input type="range" id="laba" min="1" max="10" step="1" value="6">
+      </label>
+    </div>
+    <div class="btnrow">
+      <button class="btn" id="labplay" type="button">Ton anhören</button>
+      <span class="muted" id="labnote" style="font-size:.9rem"></span>
+    </div>
+    <p id="labsay"></p>
+  </div>
+</section>
+
+<section class="stack" aria-labelledby="test-h">
+  <h2 id="test-h">Test: 12 Aufgaben</h2>
+  <p class="muted">Wähle eine Antwort oder tippe eine Zahl ein und drücke „Prüfen“. Du bekommst sofort die Erklärung. Für jede richtige Antwort gibt es 1 Punkt.</p>
+  <div class="panel" id="test"></div>
+</section>
+
+</div>
+
+<script>
+(function () {
+"use strict";
+var $ = function (id) { return document.getElementById(id); };
+var rnd = function (a, b) { return a + Math.floor(Math.random() * (b - a + 1)); };
+var pick = function (arr) { return arr[rnd(0, arr.length - 1)]; };
+var shuffle = function (arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = rnd(0, i); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; };
+var de = function (n) { return String(Math.round(n * 100) / 100).replace(".", ",").replace(/\B(?=(\d{3})+(?!\d))/g, n >= 10000 ? "." : ""); };
+function parseNum(s) {
+  s = String(s).trim().replace(/\s/g, "").replace(/[a-zA-Z\/]+$/, "");
+  if (/^\d{1,3}(\.\d{3})+$/.test(s)) s = s.replace(/\./g, "");
+  s = s.replace(",", ".");
+  if (!/^-?\d+(\.\d+)?$/.test(s)) return NaN;
+  return parseFloat(s);
+}
+function wavePath(n, amp, x0, x1, mid) {
+  var d = "", steps = 300;
+  for (var i = 0; i <= steps; i++) {
+    var x = x0 + (x1 - x0) * i / steps;
+    var y = mid - amp * Math.sin(2 * Math.PI * n * i / steps);
+    d += (i ? "L" : "M") + x.toFixed(1) + " " + y.toFixed(1);
+  }
+  return d;
+}
+function waveSvgInner(n, amp, showAmp) {
+  var x0 = 40, x1 = 570, mid = 85;
+  var h = '<line class="axis" x1="' + x0 + '" y1="' + mid + '" x2="590" y2="' + mid + '"/>';
+  [0, 0.5, 1].forEach(function (t) {
+    var x = x0 + (x1 - x0) * t;
+    h += '<line class="axis" x1="' + x + '" y1="' + (mid - 6) + '" x2="' + x + '" y2="' + (mid + 6) + '"/>';
+    h += '<text x="' + x + '" y="180" text-anchor="middle">' + String(t).replace(".", ",") + ' s</text>';
+  });
+  h += '<path class="curve" d="' + wavePath(n, amp, x0, x1, mid) + '"/>';
+  if (showAmp) {
+    var xp = x0 + (x1 - x0) / (4 * n);
+    h += '<line class="amp" x1="' + xp + '" y1="' + mid + '" x2="' + xp + '" y2="' + (mid - amp) + '"/>';
+    h += '<text class="ampt" x="' + (xp + 8) + '" y="' + (mid - amp / 2 + 4) + '">Amplitude</text>';
+  }
+  return h;
+}
+
+/* ---------- Ton ---------- */
+var ac = null;
+function audio() {
+  try {
+    if (!ac) { var AC = window.AudioContext || window.webkitAudioContext; if (!AC) return null; ac = new AC(); }
+    if (ac.state === "suspended") ac.resume();
+    return ac;
+  } catch (e) { return null; }
+}
+function thunder(vol) {
+  var a = audio(); if (!a) return;
+  var len = Math.floor(a.sampleRate * 2.6), buf = a.createBuffer(1, len, a.sampleRate), d = buf.getChannelData(0), last = 0;
+  for (var i = 0; i < len; i++) { last = (last + 0.04 * (Math.random() * 2 - 1)) / 1.04; d[i] = last * 14 * Math.pow(1 - i / len, 2) * (0.6 + 0.4 * Math.sin(i / 2300)); }
+  var src = a.createBufferSource(), lp = a.createBiquadFilter(), g = a.createGain();
+  src.buffer = buf; lp.type = "lowpass"; lp.frequency.value = 380; g.gain.value = vol;
+  src.connect(lp); lp.connect(g); g.connect(a.destination); src.start();
+}
+function tone(freq, vol) {
+  var a = audio(); if (!a) return false;
+  var o = a.createOscillator(), g = a.createGain(), t = a.currentTime;
+  o.type = "sine"; o.frequency.value = freq;
+  g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + 0.03); g.gain.setValueAtTime(vol, t + 0.9); g.gain.linearRampToValueAtTime(0, t + 1);
+  o.connect(g); g.connect(a.destination); o.start(t); o.stop(t + 1.05);
+  return true;
+}
+
+/* ---------- Versuch 1: Gewitter ---------- */
+var gw = { t: 0, running: false, raf: 0 };
+$("gwgo").addEventListener("click", function () {
+  if (gw.running) return;
+  audio();
+  gw.t = rnd(2, 8); gw.running = true;
+  var scene = $("scene"), ring = $("ring"), clock = $("clock");
+  $("gwform").hidden = true; $("gwfb").innerHTML = ""; $("gwin").value = "";
+  $("gwgo").disabled = true;
+  $("gwstatus").textContent = "Blitz! Das Licht ist sofort da. Der Schall ist noch unterwegs …";
+  scene.classList.add("flash");
+  setTimeout(function () { scene.classList.remove("flash"); $("bolt").classList.add("on"); setTimeout(function () { $("bolt").classList.remove("on"); }, 350); }, 160);
+  var start = performance.now();
+  var from = scene.clientWidth * 0.04 + 40, to = scene.clientWidth * 0.95 - 64 - 26;
+  ring.classList.add("on");
+  (function frame(now) {
+    var el = Math.min((now - start) / 1000, gw.t), p = el / gw.t;
+    ring.style.transform = "translateX(" + (from + (to - from) * p) + "px)";
+    clock.textContent = el.toFixed(1).replace(".", ",") + " s";
+    if (el < gw.t) { gw.raf = requestAnimationFrame(frame); return; }
+    ring.classList.remove("on");
+    thunder(Math.max(0.25, 1 - gw.t / 11));
+    gw.running = false; $("gwgo").disabled = false; $("gwgo").textContent = "Neuer Blitz";
+    $("gwstatus").textContent = "Donner! Er kam " + gw.t + " Sekunden nach dem Blitz an.";
+    $("gwform").hidden = false; $("gwin").focus({ preventScroll: true });
+  })(start);
+});
+$("gwform").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var v = parseNum($("gwin").value), right = gw.t * 340, out = $("gwfb");
+  if (isNaN(v)) { out.innerHTML = '<span class="fb no">Tippe eine Zahl ein, zum Beispiel 680.</span>'; return; }
+  var ok = Math.abs(v - right) <= right * 0.03;
+  out.innerHTML =
+    '<span class="fb ' + (ok ? "ok" : "no") + '">' + (ok ? "Richtig!" : "Noch nicht. Schau dir die Rechnung an:") + '</span>' +
+    '<div class="calc">In 1 s schafft der Schall 340 m.<br>In ' + gw.t + ' s schafft er ' + gw.t + ' · 340 m = <b>' + de(right) + ' m</b>' +
+    ' (das sind ' + de(right / 1000) + ' km).<br>Faustregel: ' + gw.t + ' s : 3 ≈ ' + de(Math.round(gw.t / 3 * 10) / 10) + ' km</div>';
+});
+
+/* ---------- Versuch 2: Labor ---------- */
+function labDraw() {
+  var f = +$("labf").value, a = +$("laba").value;
+  $("labwave").innerHTML = waveSvgInner(f, a * 7, true);
+  $("labfo").textContent = f + " Hz";
+  $("labao").textContent = a <= 3 ? "klein" : a <= 7 ? "mittel" : "groß";
+  $("labsay").innerHTML = "In 1 Sekunde siehst du <b>" + f + (f === 1 ? " Schwingung" : " Schwingungen") + "</b>, also " + f + " Hz. " +
+    (f >= 7 ? "Das ist eine hohe Frequenz: Der Ton ist <b>hoch</b>. " : f <= 3 ? "Das ist eine niedrige Frequenz: Der Ton ist <b>tief</b>. " : "") +
+    (a >= 8 ? "Die Amplitude ist groß: Der Ton ist <b>laut</b>." : a <= 3 ? "Die Amplitude ist klein: Der Ton ist <b>leise</b>." : "");
+  $("labnote").textContent = "Zum Anhören spielen wir " + f * 100 + " Hz. So langsame Schwingungen wie " + f + " Hz kann unser Ohr nicht hören.";
+}
+$("labf").addEventListener("input", labDraw);
+$("laba").addEventListener("input", labDraw);
+$("labplay").addEventListener("click", function () {
+  var ok = tone(+$("labf").value * 100, Math.pow(+$("laba").value / 10, 2) * 0.5);
+  if (!ok) $("labnote").textContent = "Dein Gerät kann hier keinen Ton abspielen.";
+});
+labDraw();
+
+/* ---------- Test ---------- */
+var MC = [
+  { q: "Was ist Schall?", a: "Alle Signale und Geräusche, die unser Ohr erreichen", w: ["Nur laute Geräusche wie Donner", "Licht, das wir sehen können", "Die Luft, die wir einatmen"], why: "Schall ist alles, was wir hören können: Musik, Stimmen, Geräusche und auch der Donner." },
+  { q: "Wann entsteht ein hörbarer Ton?", a: "Wenn ein Gegenstand schnell schwingt", w: ["Wenn ein Gegenstand ganz ruhig liegt", "Wenn ein Gegenstand warm wird", "Wenn ein Gegenstand schwer ist"], why: "Nur wenn etwas schnell hin- und herschwingt, entsteht ein Ton. Kommt das Lineal zur Ruhe, ist der Ton weg." },
+  { q: "Eine Gitarre spielt, du hörst sie. Was ist dabei die Luft?", a: "Der Schallträger", w: ["Die Schallquelle", "Der Schallempfänger", "Die Amplitude"], why: "Die Gitarre ist die Schallquelle, die Luft überträgt den Schall (Schallträger), dein Ohr ist der Schallempfänger." },
+  { q: "Du zupfst ein Lineal an der Tischkante. Dann machst du den schwingenden Teil kürzer. Was passiert?", a: "Der Ton wird höher", w: ["Der Ton wird tiefer", "Der Ton bleibt gleich", "Es gibt keinen Ton mehr"], why: "Ein kürzeres Stück schwingt schneller. Schnellere Schwingung bedeutet höhere Frequenz, also einen höheren Ton." },
+  { q: "Eine angeschlagene Stimmgabel wird ins Wasser gehalten. Das Wasser spritzt. Was zeigt der Versuch?", a: "Die Stimmgabel schwingt, nur zu schnell für unsere Augen", w: ["Die Stimmgabel ist heiß", "Wasser macht den Ton lauter", "Die Stimmgabel schwingt gar nicht"], why: "Man sieht die Bewegung nicht, aber das spritzende Wasser beweist: Die Stimmgabel schwingt sehr schnell." },
+  { q: "Was schwingt, wenn du sprichst oder singst?", a: "Deine Stimmbänder", w: ["Deine Zähne", "Deine Ohren", "Deine Lunge"], why: "Luft wird an den Stimmbändern vorbeigepresst und bringt sie zum Schwingen. Das spürst du am Kehlkopf." },
+  { q: "Was gibt die Frequenz an?", a: "Wie viele Schwingungen in einer Sekunde stattfinden", w: ["Wie weit etwas ausgelenkt wird", "Wie schnell der Schall durch die Luft läuft", "Wie lange ein Ton dauert"], why: "Frequenz = Anzahl der vollständigen Hin- und Herbewegungen in 1 Sekunde. Einheit: Hertz (Hz)." },
+  { q: "Du schlägst das Lineal stärker an. Die Amplitude wird größer. Wie verändert sich der Ton?", a: "Er wird lauter", w: ["Er wird höher", "Er wird tiefer", "Er wird leiser"], why: "Die Amplitude ist die maximale Auslenkung. Größere Amplitude bedeutet lauterer Ton. Die Tonhöhe hängt von der Frequenz ab." },
+  { q: "Warum siehst du bei einem Gewitter zuerst den Blitz und hörst erst später den Donner?", a: "Weil Licht viel schneller ist als Schall", w: ["Weil der Donner später entsteht", "Weil Schall schneller ist als Licht", "Weil die Wolken den Donner festhalten"], why: "Blitz und Donner entstehen gleichzeitig. Das Licht ist fast sofort bei dir, der Schall braucht für jeden Kilometer etwa 3 Sekunden." },
+  { q: "Wie schnell breitet sich Schall in Luft ungefähr aus?", a: "340 m in einer Sekunde", w: ["340 km in einer Sekunde", "34 m in einer Sekunde", "3 m in einer Sekunde"], why: "Merksatz: Schall breitet sich in Luft mit etwa 340 m/s aus." },
+  { q: "Welche Einheit hat die Frequenz?", a: "Hertz (Hz)", w: ["Meter (m)", "Sekunde (s)", "Meter pro Sekunde (m/s)"], why: "Die Frequenz wird in Hertz gemessen. 1 Hz bedeutet: eine Schwingung in einer Sekunde." }
+];
+function numQs() {
+  var t1 = rnd(2, 12), t2 = rnd(2, 10), n = rnd(2, 6), secs = pick([2, 3, 4, 5]), hz = pick([10, 20, 30, 40, 50]), khz = pick([2, 3, 5, 1.5, 2.5, 0.5]);
+  var far = rnd(6, 12), near = far - rnd(2, 4), closer = Math.random() < 0.5;
+  var first = closer ? far : near, second = closer ? near : far;
+  return [
+    { q: "Du siehst einen Blitz. " + t1 + " Sekunden später hörst du den Donner. Wie weit ist das Gewitter entfernt?", num: t1 * 340, tol: 0.03, unit: "m",
+      why: t1 + " · 340 m = " + de(t1 * 340) + " m. Das sind etwa " + de(Math.round(t1 * 340 / 100) / 10) + " km." },
+    { q: "Ein Gewitter ist " + de(t2 * 340) + " m entfernt. Wie viele Sekunden nach dem Blitz hörst du den Donner?", num: t2, tol: 0.03, unit: "s",
+      why: "Der Schall schafft 340 m in 1 s. " + de(t2 * 340) + " m : 340 m = " + t2 + ". Also " + t2 + " Sekunden." },
+    { q: "Ein Lineal schwingt in " + secs + " Sekunden " + hz * secs + "-mal hin und her. Wie groß ist die Frequenz?", num: hz, tol: 0, unit: "Hz",
+      why: "Frequenz = Schwingungen in 1 Sekunde: " + hz * secs + " : " + secs + " = " + hz + " Hz." },
+    { q: "Rechne um: " + de(khz) + " kHz sind wie viele Hertz?", num: khz * 1000, tol: 0, unit: "Hz",
+      why: "1 kHz = 1000 Hz. Also " + de(khz) + " · 1000 = " + de(khz * 1000) + " Hz." },
+    { q: "Das Schwingungsbild zeigt genau 1 Sekunde. Wie groß ist die Frequenz?", svg: n, num: n, tol: 0, unit: "Hz",
+      why: "Zähle die vollständigen Schwingungen (einmal hoch und einmal runter): Es sind " + n + " in 1 Sekunde, also " + n + " Hz." },
+    { q: "Beim ersten Blitz vergehen " + first + " Sekunden bis zum Donner. Beim nächsten Blitz sind es " + second + " Sekunden. Was passiert mit dem Gewitter?",
+      a: closer ? "Es kommt näher" : "Es entfernt sich", w: [closer ? "Es entfernt sich" : "Es kommt näher", "Es bleibt am gleichen Ort", "Das kann man so nicht erkennen"],
+      why: "Je " + (closer ? "kürzer" : "länger") + " die Zeit zwischen Blitz und Donner, desto " + (closer ? "näher" : "weiter weg") + " ist das Gewitter: " + first + " · 340 m = " + de(first * 340) + " m, danach " + second + " · 340 m = " + de(second * 340) + " m." }
+  ];
+}
+var T = { qs: [], i: 0, score: 0, sel: null, log: [] };
+function newTest() {
+  var qs = shuffle(shuffle(MC).slice(0, 6).concat(numQs()));
+  qs.forEach(function (q) { if (q.a) q.opts = shuffle([q.a].concat(q.w)); });
+  T = { qs: qs, i: 0, score: 0, sel: null, log: [] };
+  showQ();
+}
+function showQ() {
+  var q = T.qs[T.i], N = T.qs.length, h = "";
+  T.sel = null;
+  h += '<div class="bar"><div style="width:' + (T.i / N * 100) + '%"></div></div>';
+  h += '<div class="qhead"><span>Aufgabe ' + (T.i + 1) + ' von ' + N + '</span><span>Punkte: ' + T.score + '</span></div>';
+  h += '<p class="qtext">' + q.q + '</p>';
+  if (q.svg) h += '<svg class="wave" viewBox="0 0 600 190" role="img" aria-label="Schwingungsbild über 1 Sekunde">' + waveSvgInner(q.svg, 55, false) + '</svg>';
+  if (q.opts) {
+    h += '<div class="opts" id="opts">' + q.opts.map(function (o, k) { return '<button class="opt" type="button" id="opt' + k + '" aria-pressed="false">' + o + '</button>'; }).join("") + '</div>';
+    h += '<div class="btnrow"><button class="btn" type="button" id="check" disabled>Prüfen</button></div>';
+  } else {
+    h += '<form class="form" id="numform"><label for="ans">Deine Antwort<span class="unit"><input type="text" id="ans" inputmode="decimal" autocomplete="off"> ' + q.unit + '</span></label><button class="btn" type="submit" id="check">Prüfen</button></form>';
+  }
+  h += '<div id="fb" class="stack" aria-live="polite"></div>';
+  $("test").innerHTML = h;
+  if (q.opts) {
+    q.opts.forEach(function (o, k) {
+      $("opt" + k).addEventListener("click", function () {
+        T.sel = k;
+        q.opts.forEach(function (_, m) { $("opt" + m).setAttribute("aria-pressed", m === k ? "true" : "false"); });
+        $("check").disabled = false;
+      });
+    });
+    $("check").addEventListener("click", function () {
+      var ok = q.opts[T.sel] === q.a;
+      q.opts.forEach(function (o, m) {
+        var b = $("opt" + m); b.disabled = true;
+        if (o === q.a) b.classList.add("right"); else if (m === T.sel) b.classList.add("wrong");
+      });
+      done(ok, q.opts[T.sel], q.a);
+    });
+  } else {
+    $("numform").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var v = parseNum($("ans").value);
+      if (isNaN(v)) { $("fb").innerHTML = '<span class="fb no">Tippe eine Zahl ein.</span>'; return; }
+      $("ans").disabled = true;
+      done(Math.abs(v - q.num) <= Math.abs(q.num) * q.tol + 1e-9, de(v) + " " + q.unit, de(q.num) + " " + q.unit);
+    });
+  }
+}
+function done(ok, given, right) {
+  var q = T.qs[T.i], last = T.i === T.qs.length - 1;
+  if (ok) T.score++;
+  T.log.push({ q: q.q, ok: ok, given: given, right: right, why: q.why });
+  $("check").disabled = true;
+  $("fb").innerHTML = '<span class="fb ' + (ok ? "ok" : "no") + '">' + (ok ? "Richtig! +1 Punkt" : "Leider falsch. Richtig ist: " + right) + '</span>' +
+    '<p class="why">' + q.why + '</p><div class="btnrow"><button class="btn" type="button" id="nextq">' + (last ? "Ergebnis anzeigen" : "Weiter") + '</button></div>';
+  $("nextq").addEventListener("click", function () { T.i++; if (T.i < T.qs.length) showQ(); else showResult(); });
+  $("nextq").focus({ preventScroll: true });
+}
+function showResult() {
+  var N = T.qs.length, s = T.score, wrong = T.log.filter(function (l) { return !l.ok; });
+  var msg = s === N ? "Alles richtig. Du bist bereit für den Test!" : s >= N * 0.75 ? "Sehr gut. Schau dir nur noch deine Fehler an." : s >= N * 0.5 ? "Schon ordentlich. Lies den Merkkasten noch einmal und mach einen neuen Test." : "Das üben wir noch. Lies den Merkkasten, probiere die beiden Versuche aus und starte dann neu.";
+  var h = '<div class="bar"><div style="width:100%"></div></div><span class="eyebrow">Dein Ergebnis</span><div class="big">' + s + ' von ' + N + ' Punkten</div><p>' + msg + '</p>';
+  if (wrong.length) {
+    h += '<h3>Das schaust du dir noch einmal an</h3><ol class="review">' + wrong.map(function (l) {
+      return '<li><b>' + l.q + '</b><br><span class="fb no">Deine Antwort: ' + l.given + '</span><br><span class="fb ok">Richtig: ' + l.right + '</span><br><span class="muted">' + l.why + '</span></li>';
+    }).join("") + '</ol>';
+  }
+  h += '<div class="btnrow"><button class="btn" type="button" id="again">Neuer Test mit neuen Zahlen</button></div>';
+  $("test").innerHTML = h;
+  $("again").addEventListener("click", newTest);
+}
+newTest();
+})();
+</script>
