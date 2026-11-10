@@ -120,6 +120,8 @@ input[type="text"] { font: 600 1.05rem var(--f-mono); color: var(--ink); backgro
 .wave .amp { stroke: var(--red); stroke-width: 2; fill: none; }
 .wave text { fill: var(--muted); font: 600 13px var(--f-mono); }
 .wave text.ampt { fill: var(--red); }
+.wave text.lbl { fill: var(--ink); font: 800 20px var(--f-display); }
+.hoer { border-top: 1px dashed var(--line); padding-top: 18px; }
 .sliders { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
 .sliders label { display: flex; flex-direction: column; gap: 6px; font-size: 0.95rem; min-width: 0; }
 .sliders output { font-family: var(--f-mono); font-weight: 600; color: var(--blue); }
@@ -154,7 +156,7 @@ button.opt:disabled { cursor: default; opacity: 1; color: var(--ink); }
 <header>
   <span class="eyebrow">Physik · Klasse 6 · Schall und Hören</span>
   <h1>Blitz, Donner und Schall</h1>
-  <p>Übe für den Test: erst der Merkkasten, dann zwei Versuche zum Ausprobieren und am Ende 12 Testaufgaben mit Punkten. Bei jedem neuen Test kommen andere Zahlen.</p>
+  <p>Übe für den Test: erst der Merkkasten, dann zwei Versuche zum Ausprobieren und am Ende 20 Testaufgaben mit Punkten. Bei jedem neuen Test kommen andere Zahlen.</p>
 </header>
 
 <section class="merk stack" aria-labelledby="merk-h">
@@ -216,11 +218,21 @@ button.opt:disabled { cursor: default; opacity: 1; color: var(--ink); }
       <span class="muted" id="labnote" style="font-size:.9rem"></span>
     </div>
     <p id="labsay"></p>
+    <div class="hoer stack">
+      <h3>Hör-Spiel: Welcher Ton ist höher?</h3>
+      <p class="muted">Du hörst zwei Töne nacheinander. Der Ton mit mehr Schwingungen pro Sekunde klingt höher.</p>
+      <div class="btnrow">
+        <button class="btn" id="hplay" type="button">Zwei Töne abspielen</button>
+        <button class="btn ghost" id="h1" type="button" disabled>Der erste war höher</button>
+        <button class="btn ghost" id="h2" type="button" disabled>Der zweite war höher</button>
+      </div>
+      <div id="hfb" aria-live="polite"></div>
+    </div>
   </div>
 </section>
 
 <section class="stack" aria-labelledby="test-h">
-  <h2 id="test-h">Test: 12 Aufgaben</h2>
+  <h2 id="test-h">Test: 20 Aufgaben</h2>
   <p class="muted">Wähle eine Antwort oder tippe eine Zahl ein und drücke „Prüfen“. Du bekommst sofort die Erklärung. Für jede richtige Antwort gibt es 1 Punkt.</p>
   <div class="panel" id="test"></div>
 </section>
@@ -268,6 +280,17 @@ function waveSvgInner(n, amp, showAmp) {
   return h;
 }
 
+function waveDuo(nA, aA, nB, aB) {
+  var x0 = 50, x1 = 570, h = "";
+  [[nA, aA, 70, "A"], [nB, aB, 215, "B"]].forEach(function (r) {
+    h += '<text class="lbl" x="12" y="' + (r[2] + 7) + '">' + r[3] + '</text>';
+    h += '<line class="axis" x1="' + x0 + '" y1="' + r[2] + '" x2="590" y2="' + r[2] + '"/>';
+    h += '<path class="curve" d="' + wavePath(r[0], r[1], x0, x1, r[2]) + '"/>';
+  });
+  h += '<text x="' + x0 + '" y="296" text-anchor="middle">0 s</text><text x="' + x1 + '" y="296" text-anchor="middle">1 s</text>';
+  return '<svg class="wave" viewBox="0 0 600 305" role="img" aria-label="Schwingungsbilder von Ton A und Ton B">' + h + '</svg>';
+}
+
 /* ---------- Ton ---------- */
 var ac = null;
 function audio() {
@@ -285,9 +308,9 @@ function thunder(vol) {
   src.buffer = buf; lp.type = "lowpass"; lp.frequency.value = 380; g.gain.value = vol;
   src.connect(lp); lp.connect(g); g.connect(a.destination); src.start();
 }
-function tone(freq, vol) {
+function tone(freq, vol, delay) {
   var a = audio(); if (!a) return false;
-  var o = a.createOscillator(), g = a.createGain(), t = a.currentTime;
+  var o = a.createOscillator(), g = a.createGain(), t = a.currentTime + (delay || 0);
   o.type = "sine"; o.frequency.value = freq;
   g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + 0.03); g.gain.setValueAtTime(vol, t + 0.9); g.gain.linearRampToValueAtTime(0, t + 1);
   o.connect(g); g.connect(a.destination); o.start(t); o.stop(t + 1.05);
@@ -351,6 +374,26 @@ $("labplay").addEventListener("click", function () {
 });
 labDraw();
 
+var hoer = { a: 0, b: 0, streak: 0 };
+function hoerPlay() { tone(hoer.a, 0.3, 0); return tone(hoer.b, 0.3, 1.3); }
+$("hplay").addEventListener("click", function () {
+  if (!hoer.a) {
+    var base = pick([200, 260, 330, 440, 520]), other = Math.round(base * pick([1.25, 1.5, 2]));
+    if (Math.random() < 0.5) { hoer.a = base; hoer.b = other; } else { hoer.a = other; hoer.b = base; }
+    $("hfb").innerHTML = "";
+  }
+  if (!hoerPlay()) { $("hfb").innerHTML = '<span class="fb no">Dein Gerät kann hier keinen Ton abspielen.</span>'; return; }
+  $("hplay").textContent = "Noch einmal anhören"; $("h1").disabled = false; $("h2").disabled = false;
+});
+function hoerAns(first) {
+  var ok = (hoer.a > hoer.b) === first;
+  hoer.streak = ok ? hoer.streak + 1 : 0;
+  $("hfb").innerHTML = '<span class="fb ' + (ok ? "ok" : "no") + '">' + (ok ? "Richtig!" : "Leider nein.") + '</span> Der erste Ton schwingt ' + hoer.a + '-mal pro Sekunde, der zweite ' + hoer.b + '-mal. Mehr Schwingungen pro Sekunde bedeutet: höherer Ton.' + (hoer.streak > 1 ? ' <b>' + hoer.streak + ' in Folge richtig.</b>' : '');
+  hoer.a = 0; $("h1").disabled = true; $("h2").disabled = true; $("hplay").textContent = "Neue Töne abspielen";
+}
+$("h1").addEventListener("click", function () { hoerAns(true); });
+$("h2").addEventListener("click", function () { hoerAns(false); });
+
 /* ---------- Test ---------- */
 var MC = [
   { q: "Was ist Schall?", a: "Alle Signale und Geräusche, die unser Ohr erreichen", w: ["Nur laute Geräusche wie Donner", "Licht, das wir sehen können", "Die Luft, die wir einatmen"], why: "Schall ist alles, was wir hören können: Musik, Stimmen, Geräusche und auch der Donner." },
@@ -362,8 +405,47 @@ var MC = [
   { q: "Was gibt die Frequenz an?", a: "Wie viele Schwingungen in einer Sekunde stattfinden", w: ["Wie weit etwas ausgelenkt wird", "Wie schnell der Schall durch die Luft läuft", "Wie lange ein Ton dauert"], why: "Frequenz = Anzahl der vollständigen Hin- und Herbewegungen in 1 Sekunde." },
   { q: "Du schlägst das Lineal stärker an. Die Amplitude wird größer. Wie verändert sich der Ton?", a: "Er wird lauter", w: ["Er wird höher", "Er wird tiefer", "Er wird leiser"], why: "Die Amplitude ist die maximale Auslenkung. Größere Amplitude bedeutet lauterer Ton. Die Tonhöhe hängt von der Frequenz ab." },
   { q: "Warum siehst du bei einem Gewitter zuerst den Blitz und hörst erst später den Donner?", a: "Weil Licht viel schneller ist als Schall", w: ["Weil der Donner später entsteht", "Weil Schall schneller ist als Licht", "Weil die Wolken den Donner festhalten"], why: "Blitz und Donner entstehen gleichzeitig. Das Licht ist fast sofort bei dir, der Schall braucht für jeden Kilometer etwa 3 Sekunden." },
-  { q: "Wie schnell breitet sich Schall in Luft ungefähr aus?", a: "340 m in einer Sekunde", w: ["340 km in einer Sekunde", "34 m in einer Sekunde", "3 m in einer Sekunde"], why: "Merksatz: Schall breitet sich in Luft mit etwa 340 m/s aus." }
+  { q: "Wie schnell breitet sich Schall in Luft ungefähr aus?", a: "340 m in einer Sekunde", w: ["340 km in einer Sekunde", "34 m in einer Sekunde", "3 m in einer Sekunde"], why: "Merksatz: Schall breitet sich in Luft mit etwa 340 m/s aus." },
+  { q: "Ein Gegenstand schwingt sehr oft in einer Sekunde. Wie klingt der Ton?", a: "Hoch", w: ["Tief", "Leise", "Man hört nie etwas"], why: "Viele Schwingungen in 1 Sekunde bedeuten eine hohe Frequenz. Der Ton klingt hoch." },
+  { q: "Ein Gegenstand schwingt nur wenige Male in einer Sekunde. Wie klingt der Ton?", a: "Tief", w: ["Hoch", "Laut", "Schrill"], why: "Wenige Schwingungen in 1 Sekunde bedeuten eine niedrige Frequenz. Der Ton klingt tief." },
+  { q: "Eine Maus piepst hoch, ein Bär brummt tief. Bei wem sind es mehr Schwingungen pro Sekunde?", a: "Bei der Maus", w: ["Beim Bären", "Bei beiden gleich viele", "Das hängt nur von der Lautstärke ab"], why: "Hoher Ton = viele Schwingungen pro Sekunde. Das Piepsen der Maus hat also die höhere Frequenz." },
+  { q: "Ein Ton soll höher werden. Was muss sich ändern?", a: "Die Frequenz muss größer werden", w: ["Die Amplitude muss größer werden", "Die Frequenz muss kleiner werden", "Die Amplitude muss kleiner werden"], why: "Die Tonhöhe hängt von der Frequenz ab: mehr Schwingungen pro Sekunde, höherer Ton." },
+  { q: "Ein Ton soll leiser werden, aber gleich hoch bleiben. Was muss sich ändern?", a: "Die Amplitude muss kleiner werden", w: ["Die Frequenz muss kleiner werden", "Die Frequenz muss größer werden", "Die Amplitude muss größer werden"], why: "Die Lautstärke hängt von der Amplitude ab. Kleinere Auslenkung, leiserer Ton. Die Frequenz bleibt gleich, also bleibt die Tonhöhe gleich." },
+  { q: "Du spannst beim Singen deine Stimmbänder stärker an. Was passiert?", a: "Sie schwingen schneller, der Ton wird höher", w: ["Sie schwingen langsamer, der Ton wird tiefer", "Der Ton wird nur lauter", "Sie hören auf zu schwingen"], why: "Stärker gespannte Stimmbänder schwingen schneller. Mehr Schwingungen pro Sekunde ergeben einen höheren Ton." },
+  { q: "Du presst beim Singen mehr Luft an den Stimmbändern vorbei. Sie schwingen heftiger. Was passiert?", a: "Deine Stimme wird lauter", w: ["Deine Stimme wird höher", "Deine Stimme wird tiefer", "Deine Stimme wird leiser"], why: "Heftiger schwingen heißt: größere Amplitude. Der Ton wird lauter." },
+  { q: "Das Lineal ragt sehr weit über die Tischkante. Du siehst es langsam schwingen, hörst aber keinen richtigen Ton. Warum?", a: "Es schwingt zu langsam für einen hörbaren Ton", w: ["Es schwingt zu schnell für unsere Ohren", "Lange Lineale können nicht schwingen", "Die Amplitude ist zu groß"], why: "Damit ein hörbarer Ton entsteht, muss ein Gegenstand schnell schwingen. Das lange Stück schwingt dafür zu langsam." },
+  { q: "In einem Schwingungsbild liegen die Wellen sehr eng nebeneinander. Was bedeutet das?", a: "Viele Schwingungen pro Sekunde, also ein hoher Ton", w: ["Wenige Schwingungen pro Sekunde, also ein tiefer Ton", "Ein sehr lauter Ton", "Ein sehr leiser Ton"], why: "Eng nebeneinander heißt: In der gleichen Zeit passen viele Schwingungen. Die Frequenz ist hoch, der Ton auch." },
+  { q: "In einem Schwingungsbild schlagen die Wellen sehr weit nach oben und unten aus. Was bedeutet das?", a: "Große Amplitude, also ein lauter Ton", w: ["Kleine Amplitude, also ein leiser Ton", "Ein hoher Ton", "Ein tiefer Ton"], why: "Der Ausschlag nach oben und unten ist die Amplitude. Große Amplitude bedeutet lauter Ton." },
+  { q: "Wie sieht das Schwingungsbild eines tiefen, leisen Tons aus?", a: "Wenige Wellen mit kleinem Ausschlag", w: ["Viele Wellen mit großem Ausschlag", "Viele Wellen mit kleinem Ausschlag", "Wenige Wellen mit großem Ausschlag"], why: "Tief = wenige Schwingungen pro Sekunde. Leise = kleine Amplitude." },
+  { q: "Wie sieht das Schwingungsbild eines hohen, lauten Tons aus?", a: "Viele Wellen mit großem Ausschlag", w: ["Wenige Wellen mit kleinem Ausschlag", "Viele Wellen mit kleinem Ausschlag", "Wenige Wellen mit großem Ausschlag"], why: "Hoch = viele Schwingungen pro Sekunde. Laut = große Amplitude." }
 ];
+function freqQs() {
+  var lo = rnd(2, 4), hi = lo + rnd(2, 4), aHi = Math.random() < 0.5, askHigh = Math.random() < 0.5;
+  var q1 = { q: "Die Bilder zeigen zwei Töne in 1 Sekunde. Welcher Ton ist " + (askHigh ? "höher" : "tiefer") + "?", html: waveDuo(aHi ? hi : lo, 40, aHi ? lo : hi, 40),
+    a: (aHi === askHigh) ? "Ton A" : "Ton B", w: [(aHi === askHigh) ? "Ton B" : "Ton A", "Beide sind gleich hoch"],
+    why: "Ton " + (aHi ? "A" : "B") + " hat " + hi + " Schwingungen in 1 Sekunde, Ton " + (aHi ? "B" : "A") + " nur " + lo + ". Mehr Schwingungen pro Sekunde = höherer Ton." };
+  var n2 = rnd(3, 5), aLoud = Math.random() < 0.5, askLoud = Math.random() < 0.5;
+  var q2 = { q: "Die Bilder zeigen zwei Töne in 1 Sekunde. Welcher Ton ist " + (askLoud ? "lauter" : "leiser") + "?", html: waveDuo(n2, aLoud ? 55 : 20, n2, aLoud ? 20 : 55),
+    a: (aLoud === askLoud) ? "Ton A" : "Ton B", w: [(aLoud === askLoud) ? "Ton B" : "Ton A", "Beide sind gleich laut"],
+    why: "Beide Töne haben " + n2 + " Schwingungen in 1 Sekunde, sind also gleich hoch. Ton " + (aLoud ? "A" : "B") + " hat die größere Amplitude und ist darum lauter." };
+  var l3 = rnd(2, 3), h3 = l3 + rnd(3, 4), aH = Math.random() < 0.5, aL = Math.random() < 0.5;
+  var name = function (h, l) { return (h ? "Höher" : "Tiefer") + " und " + (l ? "lauter" : "leiser"); };
+  var q3 = { q: "Vergleiche die beiden Schwingungsbilder. Wie klingt Ton A im Vergleich zu Ton B?", html: waveDuo(aH ? h3 : l3, aL ? 55 : 20, aH ? l3 : h3, aL ? 20 : 55),
+    a: name(aH, aL), w: [name(!aH, aL), name(aH, !aL), name(!aH, !aL)],
+    why: "Ton A hat " + (aH ? "mehr" : "weniger") + " Schwingungen in 1 Sekunde, ist also " + (aH ? "höher" : "tiefer") + ". Seine Amplitude ist " + (aL ? "größer" : "kleiner") + ", er ist also " + (aL ? "lauter" : "leiser") + "." };
+  var animals = shuffle([["einem Kolibri", 50], ["einer Hummel", 130], ["einer Biene", 250], ["einer Stubenfliege", 330], ["einer Mücke", 600]]).slice(0, 2);
+  var up = function (t) { return t.charAt(0).toUpperCase() + t.slice(1); };
+  var hiA = animals[0][1] > animals[1][1] ? animals[0] : animals[1], loA = hiA === animals[0] ? animals[1] : animals[0];
+  var q4 = { q: "Die Flügel schlagen bei " + animals[0][0] + " etwa " + animals[0][1] + "-mal pro Sekunde, bei " + animals[1][0] + " etwa " + animals[1][1] + "-mal. Bei wem klingt das Summen höher?",
+    a: "Bei " + hiA[0], w: ["Bei " + loA[0], "Bei beiden gleich hoch"], why: hiA[1] + " ist mehr als " + loA[1] + ". Mehr Schwingungen pro Sekunde ergeben den höheren Ton." };
+  var sA = pick([110, 150, 220, 330]), sB = sA + pick([60, 110, 220]), swap = Math.random() < 0.5;
+  var q5 = { q: "Gitarrensaite A schwingt " + (swap ? sB : sA) + "-mal pro Sekunde, Saite B schwingt " + (swap ? sA : sB) + "-mal pro Sekunde. Welche Saite klingt tiefer?",
+    a: swap ? "Saite B" : "Saite A", w: [swap ? "Saite A" : "Saite B", "Beide klingen gleich"], why: "Die Saite mit weniger Schwingungen pro Sekunde (" + sA + ") klingt tiefer." };
+  var per = pick([100, 200, 250, 440]), ts = rnd(2, 5);
+  var q6 = { q: "Eine Stimmgabel schwingt " + per + "-mal in 1 Sekunde. Wie oft schwingt sie in " + ts + " Sekunden?", num: per * ts, tol: 0, unit: "-mal",
+    why: per + " · " + ts + " = " + de(per * ts) + " Schwingungen." };
+  return [q1, q2, q3, q4, q5, q6];
+}
 function numQs() {
   var t1 = rnd(2, 12), t2 = rnd(2, 10), n = rnd(2, 6), secs = pick([2, 3, 4, 5]), hz = pick([10, 20, 30, 40, 50]), km = rnd(1, 5);
   var far = rnd(6, 12), near = far - rnd(2, 4), closer = Math.random() < 0.5;
@@ -377,7 +459,7 @@ function numQs() {
       why: "Die Frequenz ist die Anzahl der Schwingungen in 1 Sekunde: " + hz * secs + " : " + secs + " = " + hz + "." },
     { q: "Nutze die Faustregel: Ein Gewitter ist etwa " + km + " km entfernt. Wie viele Sekunden vergehen ungefähr zwischen Blitz und Donner?", num: km * 3, tol: 0.05, unit: "s",
       why: "Faustregel: 3 Sekunden für 1 km. Also " + km + " · 3 = " + km * 3 + " Sekunden." },
-    { q: "Das Schwingungsbild zeigt genau 1 Sekunde. Wie viele Schwingungen sind es in 1 Sekunde?", svg: n, num: n, tol: 0, unit: "Schwingungen",
+    { q: "Das Schwingungsbild zeigt genau 1 Sekunde. Wie viele Schwingungen sind es in 1 Sekunde?", html: '<svg class="wave" viewBox="0 0 600 190" role="img" aria-label="Schwingungsbild über 1 Sekunde">' + waveSvgInner(n, 55, false) + '</svg>', num: n, tol: 0, unit: "Schwingungen",
       why: "Zähle die vollständigen Schwingungen (einmal hoch und einmal runter): Es sind " + n + " in 1 Sekunde." },
     { q: "Beim ersten Blitz vergehen " + first + " Sekunden bis zum Donner. Beim nächsten Blitz sind es " + second + " Sekunden. Was passiert mit dem Gewitter?",
       a: closer ? "Es kommt näher" : "Es entfernt sich", w: [closer ? "Es entfernt sich" : "Es kommt näher", "Es bleibt am gleichen Ort", "Das kann man so nicht erkennen"],
@@ -386,7 +468,7 @@ function numQs() {
 }
 var T = { qs: [], i: 0, score: 0, sel: null, log: [] };
 function newTest() {
-  var qs = shuffle(shuffle(MC).slice(0, 6).concat(numQs()));
+  var qs = shuffle(shuffle(MC).slice(0, 8).concat(numQs(), freqQs()));
   qs.forEach(function (q) { if (q.a) q.opts = shuffle([q.a].concat(q.w)); });
   T = { qs: qs, i: 0, score: 0, sel: null, log: [] };
   showQ();
@@ -397,7 +479,7 @@ function showQ() {
   h += '<div class="bar"><div style="width:' + (T.i / N * 100) + '%"></div></div>';
   h += '<div class="qhead"><span>Aufgabe ' + (T.i + 1) + ' von ' + N + '</span><span>Punkte: ' + T.score + '</span></div>';
   h += '<p class="qtext">' + q.q + '</p>';
-  if (q.svg) h += '<svg class="wave" viewBox="0 0 600 190" role="img" aria-label="Schwingungsbild über 1 Sekunde">' + waveSvgInner(q.svg, 55, false) + '</svg>';
+  if (q.html) h += q.html;
   if (q.opts) {
     h += '<div class="opts" id="opts">' + q.opts.map(function (o, k) { return '<button class="opt" type="button" id="opt' + k + '" aria-pressed="false">' + o + '</button>'; }).join("") + '</div>';
     h += '<div class="btnrow"><button class="btn" type="button" id="check" disabled>Prüfen</button></div>';
@@ -428,7 +510,8 @@ function showQ() {
       var v = parseNum($("ans").value);
       if (isNaN(v)) { $("fb").innerHTML = '<span class="fb no">Tippe eine Zahl ein.</span>'; return; }
       $("ans").disabled = true;
-      done(Math.abs(v - q.num) <= Math.abs(q.num) * q.tol + 1e-9, de(v) + " " + q.unit, de(q.num) + " " + q.unit);
+      var sp = q.unit.charAt(0) === "-" ? "" : " ";
+      done(Math.abs(v - q.num) <= Math.abs(q.num) * q.tol + 1e-9, de(v) + sp + q.unit, de(q.num) + sp + q.unit);
     });
   }
 }
