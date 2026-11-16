@@ -1,0 +1,675 @@
+<title>Steinzeit-Training 6</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: Grabungsprotokoll auf Schiefer – eine Lesespalte, oben Fortschrittsleiste, jede Übung ein "Fundstück" mit Nummer; Farben aus den Pigmenten der Höhlenmalerei (Holzkohle, Ocker, Hämatit) */
+:root {
+  --stone: #eef0ee;        /* heller Schiefer */
+  --card: #fbfbf9;
+  --ink: #23262b;          /* Holzkohle */
+  --muted: #5c6268;
+  --line: #cfd4d1;
+  --ocker: #8a5a0c;        /* Ocker: Akzent */
+  --ocker-soft: #f6ead0;
+  --haem: #b3301f;         /* Hämatit: falsch */
+  --haem-soft: #f9e2dd;
+  --moos: #1f7446;         /* richtig */
+  --moos-soft: #dff1e5;
+  --hl: #ffe9a3;
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --stone: #17191c; --card: #1f2226; --ink: #e9ebe8; --muted: #a0a7ab; --line: #363b40;
+    --ocker: #e3b25a; --ocker-soft: #37290f; --haem: #ff8f7d; --haem-soft: #3d1c17;
+    --moos: #72d39c; --moos-soft: #163322; --hl: #5a4a12; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --stone: #17191c; --card: #1f2226; --ink: #e9ebe8; --muted: #a0a7ab; --line: #363b40;
+  --ocker: #e3b25a; --ocker-soft: #37290f; --haem: #ff8f7d; --haem-soft: #3d1c17;
+  --moos: #72d39c; --moos-soft: #163322; --hl: #5a4a12; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--stone); color: var(--ink);
+  font-family: var(--f-body); font-size: 17px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 72px;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--stone); }
+.wrap { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px; }
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; max-width: 65ch; }
+ul { margin: 0; padding-left: 1.2em; }
+.stack { display: flex; flex-direction: column; gap: 14px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.muted { color: var(--muted); }
+.eyebrow { font-family: var(--f-mono); font-size: 0.76rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ocker); }
+mark { background: var(--hl); color: inherit; padding: 0 3px; border-radius: 2px; }
+
+/* Fortschritt */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--stone); border-bottom: 1px solid var(--line); padding-block: 10px; }
+.bar-in { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; }
+.bar-top { display: flex; justify-content: space-between; gap: 12px; font-family: var(--f-mono); font-size: 0.8rem; }
+.track { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
+.track > i { display: block; height: 100%; width: 0; background: var(--moos); transition: width .3s; }
+.nav { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: thin; }
+.nav a { flex: none; font-family: var(--f-mono); font-size: 0.78rem; text-decoration: none; color: var(--ink); border: 1px solid var(--line); background: var(--card); border-radius: 4px; padding: 3px 9px; }
+.nav a.done { background: var(--moos-soft); border-color: var(--moos); color: var(--moos); }
+.nav a.part { background: var(--ocker-soft); border-color: var(--ocker); }
+
+header.top { padding-top: 28px; }
+.lead { font-size: 1.1rem; }
+
+/* Zeitleiste maßstäblich */
+.scale { background: var(--card); border: 1px solid var(--line); padding: 16px; }
+.scale-bar { display: flex; height: 26px; }
+.scale-bar .alt { flex: 1; background: var(--ocker); }
+.scale-bar .jung { flex: 0 0 0.32%; min-width: 3px; background: var(--haem); }
+.scale-lab { display: flex; justify-content: space-between; gap: 12px; font-family: var(--f-mono); font-size: 0.76rem; color: var(--muted); }
+.scale-lab span:last-child { text-align: right; color: var(--haem); }
+
+/* Spickzettel */
+details { background: var(--card); border: 1px solid var(--line); }
+details + details { border-top: 0; }
+summary { cursor: pointer; padding: 12px 14px; font-family: var(--f-display); font-weight: 700; }
+details > div { padding: 0 14px 14px; display: flex; flex-direction: column; gap: 8px; }
+table { border-collapse: collapse; font-size: 0.92rem; width: 100%; min-width: 560px; }
+th, td { text-align: left; vertical-align: top; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+th { font-family: var(--f-mono); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.scroll { overflow-x: auto; }
+
+/* Übungen */
+.aufgabe { background: var(--card); border: 1px solid var(--line); padding: 22px 18px; scroll-margin-top: 110px; }
+.aufgabe > .head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+.badge { font-family: var(--f-mono); font-size: 0.76rem; padding: 2px 8px; border-radius: 3px; background: var(--stone); color: var(--muted); white-space: nowrap; }
+.badge.done { background: var(--moos-soft); color: var(--moos); }
+.badge.part { background: var(--ocker-soft); color: var(--ocker); }
+.body { display: flex; flex-direction: column; gap: 10px; }
+
+button, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--ocker); outline-offset: 2px; }
+.btn { border: 1.5px solid var(--ink); background: var(--ink); color: var(--card); padding: 8px 16px; border-radius: 4px; font-weight: 700; }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); font-weight: 400; }
+.fb { font-weight: 700; min-height: 1.6em; }
+.fb.ok { color: var(--moos); } .fb.no { color: var(--haem); }
+
+.item { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; justify-content: space-between; padding: 10px 12px; border: 1px solid var(--line); border-left-width: 4px; background: var(--stone); }
+.item > .t { flex: 1 1 260px; min-width: 0; }
+.item.ok { border-left-color: var(--moos); background: var(--moos-soft); }
+.item.no { border-left-color: var(--haem); background: var(--haem-soft); }
+.item .why { flex-basis: 100%; font-size: 0.92rem; color: var(--muted); }
+.chip { border: 1.5px solid var(--line); background: var(--card); padding: 5px 12px; border-radius: 999px; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--card); border-color: var(--ink); }
+select { background: var(--card); border: 1.5px solid var(--line); border-radius: 4px; padding: 5px 8px; max-width: 100%; }
+select.ok { border-color: var(--moos); background: var(--moos-soft); }
+select.no { border-color: var(--haem); background: var(--haem-soft); }
+
+.q { padding: 14px; border: 1px solid var(--line); background: var(--stone); display: flex; flex-direction: column; gap: 10px; }
+.q .qt { font-weight: 700; }
+.q .n { font-family: var(--f-mono); color: var(--ocker); margin-right: 6px; }
+.opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; }
+.opt { text-align: left; border: 1.5px solid var(--line); background: var(--card); padding: 8px 12px; border-radius: 4px; }
+.opt[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
+.opt.ok { border-color: var(--moos); background: var(--moos-soft); }
+.opt.no { border-color: var(--haem); background: var(--haem-soft); }
+.opt:disabled { cursor: default; opacity: 1; }
+.q .why { font-size: 0.94rem; color: var(--muted); }
+
+.ord { display: flex; gap: 10px; align-items: center; padding: 8px 12px; border: 1px solid var(--line); background: var(--stone); }
+.ord .pos { font-family: var(--f-mono); color: var(--ocker); width: 1.5em; }
+.ord .t { flex: 1; min-width: 0; }
+.ord .t small { display: block; color: var(--muted); }
+.ord button { border: 1.5px solid var(--line); background: var(--card); border-radius: 4px; width: 38px; height: 38px; }
+.ord.ok { background: var(--moos-soft); border-color: var(--moos); }
+.ord.no { background: var(--haem-soft); border-color: var(--haem); }
+
+.gap { line-height: 2.3; max-width: 68ch; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.card { text-align: left; min-height: 120px; border: 1.5px solid var(--line); background: var(--stone); padding: 12px; border-radius: 4px; display: flex; flex-direction: column; gap: 6px; }
+.card b { font-family: var(--f-display); font-size: 1.1rem; }
+.card span { font-size: 0.94rem; }
+.card em { font-style: normal; font-family: var(--f-mono); font-size: 0.72rem; color: var(--muted); margin-top: auto; }
+.card[aria-pressed="true"] { background: var(--ocker-soft); border-color: var(--ocker); }
+
+textarea { width: 100%; min-height: 130px; background: var(--card); border: 1.5px solid var(--line); border-radius: 4px; padding: 10px; resize: vertical; }
+.open { padding: 14px; border: 1px solid var(--line); background: var(--stone); display: flex; flex-direction: column; gap: 10px; }
+.model { border-left: 4px solid var(--ocker); background: var(--ocker-soft); padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+.model label { display: flex; gap: 8px; align-items: flex-start; }
+.model input { margin-top: 6px; }
+
+.result { border: 2px solid var(--ink); padding: 16px; display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: baseline; }
+.result .big { font-family: var(--f-display); font-weight: 800; font-size: 2.2rem; font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+
+<div class="bar">
+  <div class="bar-in">
+    <div class="bar-top"><span>Steinzeit-Training</span><span id="prog" role="status">0 von 0 Übungen geschafft</span></div>
+    <div class="track"><i id="track"></i></div>
+    <nav class="nav" id="nav" aria-label="Übungen"></nav>
+  </div>
+</div>
+
+<div class="wrap">
+<header class="top stack">
+  <div class="eyebrow">Geschichte · Klasse 6 · Vorbereitung auf den Test</div>
+  <h1>Von den ersten Menschen bis zur Altsteinzeit</h1>
+  <p class="lead">Alles aus deinen Buchseiten, den Museums-Texten und deinem Heft, zum Anklicken und Ausprobieren. Arbeite die Übungen der Reihe nach durch und mach am Ende den Probetest.</p>
+  <div class="scale stack" aria-label="Maßstäbliche Zeitleiste der Steinzeit">
+    <h3>So lang war die Steinzeit wirklich</h3>
+    <div class="scale-bar" role="img" aria-label="Balken: Die Altsteinzeit füllt fast die ganze Breite, die Jungsteinzeit ist nur ein schmaler Strich am rechten Ende."><div class="alt"></div><div class="jung"></div></div>
+    <div class="scale-lab"><span>vor 2,5 Mio. Jahren: Beginn der Altsteinzeit</span><span>roter Strich: die ganze Jungsteinzeit (ca. 10 000 bis 2000 v. Chr.)</span></div>
+    <p class="muted">Der Balken ist maßstabsgetreu. Wäre die Zeit seit dem Beginn der Steinzeit ein einziger Tag, dann würde die Jungsteinzeit erst gegen 23:53 Uhr anfangen.</p>
+  </div>
+</header>
+
+<section class="stack" aria-labelledby="spick-h">
+  <div class="eyebrow">Zum Nachschlagen</div>
+  <h2 id="spick-h">Spickzettel</h2>
+  <p class="muted">Lies zuerst, was du nicht mehr sicher weißt. Beim Probetest bleibt der Spickzettel zu.</p>
+  <div>
+    <details>
+      <summary>Epochen und Steinzeit</summary>
+      <div>
+        <p><b>Epoche:</b> Gliederung der Geschichte in bestimmte Zeiträume. Die vier Großepochen sind <mark>Ur- und Frühgeschichte</mark>, <mark>Antike (Altertum)</mark>, <mark>Mittelalter</mark> und <mark>Neuzeit</mark>. Den Übergang von einer Epoche in die nächste nennt man <b>Sattelzeit</b>.</p>
+        <p><b>Steinzeit:</b> ältester Abschnitt der Menschheitsgeschichte. Der Name kommt vom Stein, aus dem Werkzeuge und Jagdwaffen gemacht wurden. Holz, Pflanzenfasern, Tierhaut und Sehnen wurden auch benutzt, haben sich aber im Boden zersetzt.</p>
+        <ul>
+          <li>Beginn vor etwa <b>2,5 Millionen Jahren</b> mit der Gattung „Homo“ (lateinisch für Mensch), in Afrika.</li>
+          <li><b>Altsteinzeit</b> bis etwa 10 000 v. Chr. (im Buch: etwa 9000 v. Chr.), danach <b>Jungsteinzeit</b> mit dem Beginn der Sesshaftigkeit.</li>
+          <li>Ende der Jungsteinzeit etwa <b>2000 v. Chr.</b>, dann Metallzeiten (Bronzezeit). Die Übergänge sind fließend.</li>
+          <li><b>Geröllgeräte:</b> die ersten Steinwerkzeuge, etwa zum Öffnen von Nüssen.</li>
+          <li><b>Faustkeil:</b> von allen Seiten bearbeitet, tropfenförmig, das Universalwerkzeug: schaben, bohren, schlagen. Am besten aus <b>Feuerstein</b>.</li>
+          <li>Feuerstein + Markasit oder Pyrit = Funken, also Feuer.</li>
+        </ul>
+      </div>
+    </details>
+    <details>
+      <summary>Menschenarten im Vergleich</summary>
+      <div>
+        <p>Die ersten Menschenarten entstanden vor über vier Millionen Jahren in Afrika, der <mark>„Wiege der Menschheit“</mark>. Mehrere Menschenarten lebten nebeneinander (noch bis vor 10 000 Jahren) und vermischten sich auch.</p>
+        <div class="scroll"><table>
+          <thead><tr><th>Art</th><th>Wann?</th><th>Größe</th><th>Besonderes</th></tr></thead>
+          <tbody>
+            <tr><td><b>Vormensch</b><br>Australopithecus</td><td>vor 4,5 bis 1 Mio. Jahren, Afrika</td><td>100–150 cm</td><td>ging aufrecht, einfache Werkzeuge, kein Feuer, kleines Gehirn</td></tr>
+            <tr><td><b>Frühmensch</b><br>Homo habilis</td><td>vor 2,1 bis 1,5 Mio. Jahren, Afrika</td><td>100–145 cm</td><td>einfache Werkzeuge, vermutlich kein Feuer, Grunzlaute und Schreie</td></tr>
+            <tr><td><b>Urmensch</b><br>Homo erectus</td><td>vor 2 Mio. bis 40 000 Jahren; Afrika, Asien, Europa</td><td>160–180 cm</td><td>nutzte das Feuer, einfache Steinwerkzeuge, einfache Sprache</td></tr>
+            <tr><td><b>Neandertaler</b><br>Homo sapiens neanderthalensis</td><td>vor 130 000 bis 40 000 Jahren</td><td>etwa 160 cm</td><td>viele Steinwerkzeuge und Waffen, konnte denken und sprechen</td></tr>
+            <tr><td><b>Jetztzeitmensch</b><br>Homo sapiens sapiens</td><td>seit etwa 300 000 Jahren, zuerst Afrika</td><td>bis 180 cm</td><td>überwand Meerengen, besiedelte die ganze Erde, glaubte an übersinnliche Mächte</td></tr>
+          </tbody>
+        </table></div>
+        <p><b>Ausbreitung des Jetztzeitmenschen:</b> Ursprung in Afrika (vor 300 000 bis 100 000 Jahren) → Europa und Australien (vor 40 000 Jahren) → Nordostasien (vor 35 000 bis 25 000 Jahren) → Beringstraße (vor 18 000 Jahren) → Nordamerika (vor 11 000 Jahren) → Südamerika.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Neandertaler: früher und heute</summary>
+      <div>
+        <ul>
+          <li><b>1856:</b> Zwei Arbeiter finden in einem Steinbruch im Neandertal bei Düsseldorf Knochen, rund 42 000 Jahre alt.</li>
+          <li><b>Früher:</b> nur Vermutungen. Man hielt ihn für einen „Affenmenschen“, ein brutales Monster, geistig unterlegen.</li>
+          <li><b>Heute:</b> Funde an über 1500 Orten von Portugal bis Russland (Knochen, Zähne, Steinwerkzeuge). Er lebte in Gruppen in Höhlen oder Zelten, nutzte Werkzeug und Feuer, sorgte für andere, begrub seine Toten, konnte sprechen. Jagd mit Speeren mit Steinspitzen, ohne Keule, Pfeil und Bogen. Männer und Frauen jagten.</li>
+          <li>Muskulöser als wir, Gehirn etwa gleich groß. Gemeinsamer Vorfahr: Homo erectus.</li>
+          <li>Heutige Menschen tragen bis zu <b>4 %</b> Neandertaler-Erbe in sich.</li>
+          <li>Vor 40 000 Jahren ausgestorben. Warum, ist nicht endgültig geklärt.</li>
+          <li><b>Rekonstruktion:</b> Zeichnung oder Modell, das die Vergangenheit auf Grundlage von Funden möglichst wahrheitsgetreu nachstellt. Haare und Haut verraten die Knochen nicht, das bleibt Vermutung.</li>
+        </ul>
+      </div>
+    </details>
+    <details>
+      <summary>Leben in der Altsteinzeit</summary>
+      <div>
+        <ul>
+          <li><b>Klima:</b> Eiszeit, Kalt- und Warmzeiten wechselten. Grassteppe statt Wald. Erst am Ende der letzten Eiszeit (vor ca. 14 000 Jahren) wuchsen wieder mehr Bäume.</li>
+          <li><b>Wohnen:</b> kein fester Wohnsitz. Lagerplätze nahe an Flüssen und Seen, Zelte aus Ästen, Fellen und sogar Mammutknochen, manchmal Höhlen und Felsvorsprünge.</li>
+          <li><b>Kochgrube:</b> Mulde mit Tierhaut ausgelegt, Wasser hinein, heiße Steine aus dem Feuer dazu.</li>
+          <li><b>Nahrung:</b> Jagd auf Rentiere, Wildpferde, Bisons, Mammuts; dazu Fisch, Muscheln, Beeren, Nüsse, Pilze, Schnecken, Insekten, Vogeleier.</li>
+          <li><b>Gruppe:</b> 20 bis 30 Personen, Arbeit wurde aufgeteilt, man kümmerte sich um Kinder, Verletzte und Kranke (geheilte Knochenbrüche).</li>
+          <li><b>Kleidung:</b> aus Fell und Leder, genäht mit Nadeln aus Tierknochen. Vergleich: Kleidung der Inuit.</li>
+          <li><b>Kunst und Kult:</b> Höhlenmalereien (Frankreich, Spanien), Ritzbilder auf Schiefer (Rheinland), Figuren aus Mammutelfenbein (Schwäbische Alb), Flöten aus Schwanenknochen. Bestattungen mit Beigaben, Doppelgrab von Bonn-Oberkassel mit Hund und rotem Hämatit.</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<div id="main" class="wrap"></div>
+
+<footer class="muted"><p>Grundlage: deine Schulbuchseiten, die Infotexte des LVR-LandesMuseums Bonn und deine Hefteinträge. Wo Buch und Infotext leicht abweichen (Ende der Altsteinzeit: 9000 oder 10 000 v. Chr.), gilt beides als richtig.</p></footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function idx(n) { var a = []; for (var i = 0; i < n; i++) a.push(i); return a; }
+  function store(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* ohne Speicher weiter */ } }
+  function load(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+
+  /* ---------- Inhalte ---------- */
+  var WF = ["Stimmt", "Stimmt nicht"];
+  var ARTEN = ["Vormensch", "Frühmensch", "Urmensch", "Neandertaler", "Jetztzeitmensch"];
+  var TIERE = ["Mammut", "Wollnashorn", "Säbelzahnkatze", "Elch", "Höhlenbär", "Wildpferd", "Wildschwein", "Rentier", "Wolf und Hund"];
+  var ZEITEN = ["vor 300 000 bis 100 000 Jahren", "vor 40 000 Jahren", "vor 35 000 bis 25 000 Jahren", "vor 18 000 Jahren", "vor 11 000 Jahren"];
+
+  var Q_STEIN = [
+    { q: "Woher hat die Steinzeit ihren Namen?", o: ["Von den Steinfunden: Stein war ein wichtiges Material für Werkzeuge und Waffen", "Die Menschen wohnten in Häusern aus Stein", "Ein Forscher namens Stein hat sie entdeckt", "Es gab damals nur Steine und keine Pflanzen"], why: "Steinwerkzeuge blieben über Jahrtausende erhalten. Darum kennen wir sie so gut." },
+    { q: "Wann beginnt die Steinzeit?", o: ["Vor etwa 2,5 Millionen Jahren", "Vor etwa 40 000 Jahren", "Etwa 2000 v. Chr.", "Vor etwa 300 000 Jahren"], why: "Sie beginnt mit dem Auftreten der Gattung „Homo“ in Afrika." },
+    { q: "Was bedeutet das lateinische Wort „Homo“?", o: ["Mensch", "Stein", "Feuer", "Jäger"], why: "Alle Menschenarten gehören zur Gattung Homo." },
+    { q: "Warum findet man kaum Dinge aus Holz, Fell oder Pflanzenfasern?", o: ["Sie haben sich im Erdreich zersetzt", "Die Menschen kannten diese Materialien nicht", "Sie wurden alle verbrannt", "Forscher suchen nicht danach"], why: "Holz, Tierhaut und Sehnen verrotten. Stein bleibt." },
+    { q: "Wie heißen die ersten Steinwerkzeuge?", o: ["Geröllgeräte", "Faustkeile", "Nähnadeln", "Speerspitzen"], why: "Mit Geröllgeräten konnte man zum Beispiel Nüsse öffnen. Der Faustkeil kam später." },
+    { q: "Welche Form hat ein Faustkeil?", o: ["Tropfenähnlich", "Rund wie eine Kugel", "Lang und dünn wie eine Nadel", "Flach wie ein Teller"], why: "Mit den Kanten schabt man, mit der Spitze bohrt man, das dicke Ende dient als Hammer." },
+    { q: "Aus welchem Stein macht man einen Faustkeil im besten Fall?", o: ["Feuerstein", "Schiefer", "Sandstein", "Marmor"], why: "Frisch abgeschlagene Feuersteinklingen sind messerscharf." },
+    { q: "Wie konnten die Menschen Funken schlagen?", o: ["Mit Feuerstein und Markasit oder Pyrit", "Mit zwei Faustkeilen aus Quarzit", "Mit Feuerstein und Holz", "Mit Mammutknochen"], why: "Daher hat der Feuerstein auch seinen Namen." },
+    { q: "In welche zwei Abschnitte teilt man die Steinzeit?", o: ["Altsteinzeit und Jungsteinzeit", "Eiszeit und Warmzeit", "Bronzezeit und Eisenzeit", "Antike und Mittelalter"], why: "Die beiden Abschnitte unterscheiden sich vor allem in der Lebensweise." },
+    { q: "Womit beginnt die Jungsteinzeit?", o: ["Mit dem Beginn der Sesshaftigkeit", "Mit der Erfindung des Faustkeils", "Mit der Entdeckung des Feuers", "Mit dem Aussterben der Neandertaler"], why: "Etwa 10 000 v. Chr. (im Buch: 9000 v. Chr.) wurden einige unserer Vorfahren sesshaft." },
+    { q: "Was folgt auf die Jungsteinzeit?", o: ["Die Metallzeiten (Bronzezeit)", "Die Altsteinzeit", "Das Mittelalter", "Die Eiszeit"], why: "Der Übergang liegt etwa bei 2000 v. Chr. und ist fließend." },
+    { q: "Was bedeutet „Homo sapiens sapiens“?", o: ["Der wissende, weise Mensch", "Der aufrechte Mensch", "Der Mensch aus dem Neandertal", "Der geschickte Mensch"], why: "Alle Menschen, die heute leben, gehören zu dieser einen Art." }
+  ];
+  var Q_AUSBR = [
+    { q: "Warum nennt man Afrika die „Wiege der Menschheit“?", o: ["Dort entwickelten sich die ersten Menschenarten", "Dort wurden die meisten Faustkeile gefunden", "Dort leben heute die meisten Menschen", "Dort wurde der Neandertaler entdeckt"], why: "Vor über vier Millionen Jahren entstanden in Afrika die ersten Menschenarten." },
+    { q: "Lebte immer nur eine Menschenart auf der Erde?", o: ["Nein, mehrere Arten lebten nebeneinander und vermischten sich", "Ja, eine Art löste immer die nächste ab", "Ja, bis auf wenige Jahre Überschneidung", "Nein, aber sie trafen sich nie"], why: "Das glaubten Forscher lange, es hat sich aber als falsch erwiesen." },
+    { q: "Was fanden Forscher 2017 in Dschebel Irhoud (Marokko)?", o: ["Einen rund 300 000 Jahre alten Unterkiefer eines Jetztzeitmenschen", "Den ältesten Faustkeil der Welt", "Die erste Höhlenmalerei", "Das Skelett eines Neandertalers"], why: "Die Knochen sind 100 000 Jahre älter als alle bis dahin bekannten. Ein Fund kann das Wissen verändern." },
+    { q: "Was schaffte der Jetztzeitmensch als erste Menschenart?", o: ["Meerengen überwinden und die ganze Erde besiedeln", "Afrika verlassen", "Aufrecht gehen", "Werkzeuge herstellen"], why: "Er war nicht die erste Art, die Afrika verließ, aber die erste, die Meerengen überwand." },
+    { q: "Woher wissen wir, wie sich der Jetztzeitmensch ausgebreitet hat?", o: ["Aus Knochenfunden an vielen Orten", "Aus alten Landkarten", "Aus Höhlenmalereien mit Wegbeschreibung", "Aus schriftlichen Berichten"], why: "Die Karte im Buch entstand aufgrund von Knochenfunden." },
+    { q: "Über welche Stelle gelangten die Menschen von Asien nach Amerika?", o: ["Über die Beringstraße", "Über den Atlantischen Ozean", "Über Australien", "Über den Victoriasee"], why: "Das geschah vor etwa 18 000 Jahren." }
+  ];
+  var Q_ALLTAG = [
+    { q: "Warum zogen die Menschen der Altsteinzeit immer weiter?", o: ["Sie suchten Nahrung und folgten den Tierherden", "Sie hatten Angst vor Höhlen", "Ihre Häuser gingen kaputt", "Sie wollten neue Länder erobern"], why: "Sie hatten keinen festen Wohnsitz." },
+    { q: "Wo lagen die Lagerplätze meistens?", o: ["In der Nähe von Flüssen oder Seen", "Auf hohen Bergen", "Mitten im dichten Wald", "Direkt am Gletscher"], why: "Dort gab es Wasser, Fisch und Tiere, die zum Trinken kamen." },
+    { q: "Wie groß war eine Gruppe ungefähr?", o: ["20 bis 30 Personen", "2 bis 3 Personen", "Etwa 200 Personen", "Über 1000 Personen"], why: "Nur die Gruppe bot genug Schutz und Versorgung." },
+    { q: "Wie funktioniert eine Kochgrube?", o: ["Mulde mit Tierhaut auslegen, Wasser einfüllen, heiße Steine hineinlegen", "Topf aus Ton über das Feuer hängen", "Fleisch in der Erde vergraben und warten", "Wasser in einem Faustkeil erhitzen"], why: "Die Tierhaut verhindert, dass das Wasser im Boden versickert." },
+    { q: "Warum konnte es gefährlich sein, eine Höhle zu betreten?", o: ["Dort lebten auch Höhlenbären und Höhlenlöwen", "Höhlen stürzten immer ein", "In Höhlen gab es keine Luft", "Dort wohnten Neandertaler"], why: "Wilde Tiere nutzten Höhlen ebenfalls als Unterschlupf." },
+    { q: "Woraus bestanden die Zeltstangen?", o: ["Aus dicken Ästen und manchmal Mammutknochen", "Aus Bronze", "Aus Feuerstein", "Aus Schilf"], why: "Darüber kamen Tierfelle und Häute." },
+    { q: "Woher weiß man, dass die Menschen schon Kleidung genäht haben?", o: ["Man hat Nähnadeln aus Tierknochen gefunden", "Man hat gut erhaltene Jacken gefunden", "Es steht in alten Schriften", "Höhlenbilder zeigen Schneider"], why: "Die Kleidung selbst ist längst verrottet." },
+    { q: "Wessen Kleidung schaut man sich zum Vergleich an?", o: ["Die der Inuit in arktischen Gebieten", "Die der alten Römer", "Die der Ritter", "Die der Menschen in der Wüste"], why: "Die Inuit leben auch heute noch in Schnee und Eis." },
+    { q: "Was zeigt, dass sich die Gruppe um Verletzte kümmerte?", o: ["Knochenbrüche, die mit Schienen geheilt sind", "Funde von Tabletten", "Gemalte Krankenhäuser", "Besonders große Zelte"], why: "Wer sich etwas gebrochen hatte, wurde versorgt, bis er wieder gesund war." },
+    { q: "Wer ging in der Altsteinzeit auf die Jagd?", o: ["Männer und Frauen gemeinsam", "Nur die Männer", "Nur die Frauen", "Nur die Ältesten"], why: "Neuere Forschungen zeigen: Männer und Frauen waren etwa gleich groß und stark." },
+    { q: "Was änderte sich am Ende der letzten Eiszeit vor ca. 14 000 Jahren?", o: ["Es wuchsen mehr Bäume, die Grassteppe wich dem Wald", "Europa wurde komplett zu Eis", "Die Mammuts kamen nach Europa", "Die Menschen entdeckten das Feuer"], why: "Mit dem Wald kamen Elch und Wildschwein, die Rentiere verschwanden aus Mitteleuropa." },
+    { q: "Palo, der Altsteinzeitjunge, beschreibt seine Kleidung. Woraus ist sie?", o: ["Oberteil aus Rentierfell, Hose aus Leder", "Oberteil aus Wolle, Hose aus Leinen", "Alles aus Pflanzenfasern", "Oberteil aus Leder, Hose aus Baumrinde"], why: "Vom erlegten Tier nutzte man fast alles: Fleisch, Haut, Fell und Knochen." }
+  ];
+  var WF_NEAN = [
+    { t: "Die ersten Neandertaler-Knochen wurden 1856 in einem Steinbruch bei Düsseldorf gefunden.", a: 0 },
+    { t: "Die gefundenen Knochen waren rund 42 000 Jahre alt.", a: 0 },
+    { t: "Neandertaler waren deutlich größer als heutige Menschen.", a: 1, why: "Sie waren mit etwa 1,60 m kleiner, aber muskulöser." },
+    { t: "Neandertaler jagten mit Pfeil und Bogen.", a: 1, why: "Sie kannten weder Keulen noch Pfeil und Bogen. Sie jagten mit Speeren mit Steinspitzen." },
+    { t: "Neandertaler begruben ihre Toten.", a: 0 },
+    { t: "Das Gehirn des Neandertalers war viel kleiner als unseres.", a: 1, why: "Die Gehirne beider Menschenarten waren etwa gleich groß." },
+    { t: "Heutige Menschen tragen bis zu vier Prozent Neandertaler-Erbe in sich.", a: 0 },
+    { t: "Man weiß genau, warum der Neandertaler ausgestorben ist.", a: 1, why: "Das ist bis heute nicht endgültig geklärt." },
+    { t: "Bei den Neandertalern gingen nur die Männer auf die Jagd.", a: 1, why: "Sowohl Männer als auch Frauen gingen jagen." },
+    { t: "An den Knochen erkennt man, wie viel Körperbehaarung ein Neandertaler hatte.", a: 1, why: "Das verraten die Knochen nicht. Rekonstruktionen beruhen hier auf Vermutungen." },
+    { t: "Neandertaler und Jetztzeitmensch haben den Homo erectus als gemeinsamen Vorfahren.", a: 0 },
+    { t: "Spuren der Neandertaler fand man an über 1500 Orten von Portugal bis Russland.", a: 0 }
+  ];
+
+  var EXS = [
+    { id: "u1", type: "order", eyebrow: "Heft: Epoche", title: "Die vier Großepochen ordnen",
+      intro: "Bringe die Epochen mit den Pfeilen in die richtige Reihenfolge. Die älteste steht oben.",
+      items: [{ t: "Ur- und Frühgeschichte" }, { t: "Antike (Altertum)" }, { t: "Mittelalter" }, { t: "Neuzeit" }] },
+    { id: "u2", type: "mc", eyebrow: "Infotext I", title: "Steinzeit: Was weißt du schon?",
+      intro: "Tippe auf die richtige Antwort. Du siehst sofort, ob sie stimmt.", qs: Q_STEIN },
+    { id: "u3", type: "assign", eyebrow: "Buch: Seit wann gibt es Menschen?", title: "Welche Menschenart ist gemeint?",
+      intro: "Wähle zu jedem Hinweis die passende Menschenart.", cats: ARTEN, items: [
+        { t: "Wissenschaftlicher Name: Australopithecus", a: 0 },
+        { t: "Ging schon aufrecht, kannte aber kein Feuer. Größe 100 bis 150 cm.", a: 0 },
+        { t: "Wegen seines kleinen Gehirns ist umstritten, ob er überhaupt zu den Menschenarten zählt.", a: 0 },
+        { t: "Wissenschaftlicher Name: Homo habilis", a: 1 },
+        { t: "Lebte vor 2,1 bis 1,5 Millionen Jahren und konnte wahrscheinlich nur Grunzlaute und Schreie erzeugen.", a: 1 },
+        { t: "Wissenschaftlicher Name: Homo erectus", a: 2 },
+        { t: "Nutzte das Feuer und verbreitete sich von Afrika über Asien und Europa. Größe 160 bis 180 cm.", a: 2 },
+        { t: "Ist nach einem Tal bei Düsseldorf benannt.", a: 3 },
+        { t: "Etwa 160 cm groß, sehr muskulös, lebte vor 130 000 bis 40 000 Jahren.", a: 3 },
+        { t: "Wissenschaftlicher Name: Homo sapiens sapiens", a: 4 },
+        { t: "Entwickelte sich vor etwa 300 000 Jahren in mehreren Regionen Afrikas.", a: 4 },
+        { t: "Überwand als erste Art Meerengen und glaubte an übersinnliche Mächte.", a: 4 }
+      ] },
+    { id: "u4", type: "order", eyebrow: "Entwicklungsstufen", title: "Wer tauchte zuerst auf?",
+      intro: "Ordne die Menschenarten danach, wann sie zum ersten Mal lebten. Die älteste Art steht oben. Achtung, eine Stelle ist knifflig.",
+      items: [{ t: "Vormensch", s: "vor 4,5 Mio. Jahren" }, { t: "Frühmensch", s: "vor 2,1 Mio. Jahren" }, { t: "Urmensch", s: "vor 2 Mio. Jahren" }, { t: "Jetztzeitmensch", s: "vor 300 000 Jahren" }, { t: "Neandertaler", s: "vor 130 000 Jahren" }],
+      note: "Überraschung: Nach deinem Buch gibt es den Jetztzeitmenschen (seit 300 000 Jahren) schon länger als den Neandertaler (ab 130 000 Jahren). Beide lebten lange gleichzeitig." },
+    { id: "u5", type: "assign", eyebrow: "Karte M3 · Heft: Ausbreitung", title: "Der Jetztzeitmensch erobert die Erde",
+      intro: "Wann war der Jetztzeitmensch wo? Wähle die passende Zeitangabe aus der Karte.", cats: ZEITEN, keep: true, items: [
+        { t: "Ursprungsgebiet in Afrika", a: 0 },
+        { t: "Europa", a: 1 },
+        { t: "Australien", a: 1 },
+        { t: "Nordostasien", a: 2 },
+        { t: "Beringstraße (von Asien nach Amerika)", a: 3 },
+        { t: "Nordamerika", a: 4 }
+      ] },
+    { id: "u6", type: "mc", eyebrow: "Buch · Heft", title: "Herkunft und Ausbreitung", intro: "Sechs Fragen zur Wiege der Menschheit und zur Wanderung über die Kontinente.", qs: Q_AUSBR },
+    { id: "u7", type: "assign", eyebrow: "Heft: Wie waren die Neandertaler?", title: "Altes Bild oder heutiges Bild?",
+      intro: "Ordne zu: Stammt die Vorstellung aus dem 19. Jahrhundert oder ist sie unser heutiges Wissen?", cats: ["Früher", "Heute"], items: [
+        { t: "Ein „Affenmensch“", a: 0 },
+        { t: "Ein brutales, blutrünstiges Monster", a: 0 },
+        { t: "Dem Jetztzeitmenschen geistig unterlegen", a: 0 },
+        { t: "Stark behaart, gebückt, mit Keule in der Hand (Zeichnung von 1909)", a: 0 },
+        { t: "Dem Jetztzeitmenschen sehr ähnlich", a: 1 },
+        { t: "Sorgte für andere und begrub seine Toten", a: 1 },
+        { t: "Konnte denken und sprechen", a: 1 },
+        { t: "Gehirn etwa so groß wie unseres", a: 1 },
+        { t: "Hat sich immer wieder mit dem Jetztzeitmenschen vermischt", a: 1 },
+        { t: "In moderner Kleidung würde er kaum auffallen (Rekonstruktion von 2013)", a: 1 }
+      ] },
+    { id: "u8", type: "assign", eyebrow: "Buch: Wer waren die Neandertaler?", title: "Stimmt das?",
+      intro: "Entscheide bei jeder Aussage, ob sie stimmt.", cats: WF, items: WF_NEAN },
+    { id: "u9", type: "mc", eyebrow: "Infotexte II und III · Sachtext", title: "Alltag in der Altsteinzeit",
+      intro: "Wohnen, Ernährung, Kleidung und Zusammenleben.", qs: Q_ALLTAG },
+    { id: "u10", type: "assign", eyebrow: "Infotext IV", title: "Tiere der Eiszeit erkennen",
+      intro: "Welches Tier wird beschrieben?", cats: TIERE, items: [
+        { t: "Größtes Säugetier der Altsteinzeit, bis zu 6000 kg schwer, fraß täglich etwa 200 kg Gras und Blätter.", a: 0 },
+        { t: "Langes, zotteliges Fell und zwei Hörner auf dem Schädel, bis zu 3 Meter lang, sah vermutlich schlecht.", a: 1 },
+        { t: "Raubtier mit extrem langen Reißzähnen, lebte meist in Rudeln, natürlicher Feind der Menschen.", a: 2 },
+        { t: "Fühlt sich in lichten Wäldern wohl. Aus seinen großen Schaufeln machte man Werkzeuge.", a: 3 },
+        { t: "Hielt Winterschlaf in Höhlen, wurde aufgerichtet 3 Meter hoch und bis zu 1200 kg schwer.", a: 4 },
+        { t: "Lebte in Herden auf der offenen Steppe, klein und stämmig wie das Przewalski-Tier.", a: 5 },
+        { t: "Braucht den Wald und kam deshalb in der eiszeitlichen Grassteppe nicht vor.", a: 6 },
+        { t: "Lebte in großen Herden in der Grassteppe. Fleisch, Fell und Geweih wurden genutzt. Verschwand mit den Wäldern aus Mitteleuropa.", a: 7 },
+        { t: "Wurde gezähmt, schützte das Lager und half bei der Jagd.", a: 8 }
+      ] },
+    { id: "u11", type: "gap", eyebrow: "Infotext V", title: "Lückentext: Kunst und Kult",
+      intro: "Wähle für jede Lücke das passende Wort.",
+      text: "Schon in der Altsteinzeit schufen die Menschen Dinge, die wir heute [[Kunst]] nennen. Berühmt sind die [[Höhlenmalereien]] in Frankreich und Spanien. Meist zeigen sie [[Tiere]] wie Pferde und Mammuts. Schwarze Farbe gewann man aus [[Holzkohle]], andere Farben aus zerriebenen Steinen. Gemalt wurde mit der [[Fingerspitze]] oder einem einfachen Pinsel. Licht in der dunklen Höhle gab eine [[Fackel]]. Auf der Schwäbischen Alb fand man kleine Figuren aus [[Mammutelfenbein]]. Am Ende der letzten Eiszeit schnitzte man Flöten aus [[Schwanenknochen]]. Die Menschen [[bestatteten]] ihre Toten und legten ihnen [[Beigaben]] ins Grab. Im Doppelgrab von Bonn-Oberkassel lag auch das Skelett eines [[Hundes]]. Roter Farbstoff, der [[Hämatit]], auf den Knochen deutet auf ein rituelles Begräbnis hin.",
+      extra: ["Bronze", "Pferdes"] },
+    { id: "u12", type: "cards", eyebrow: "Fachbegriffe", title: "Karteikarten zum Umdrehen",
+      intro: "Erkläre den Begriff erst laut in eigenen Worten. Tippe dann auf die Karte und vergleiche.", cards: [
+        ["Epoche", "Ein bestimmter Zeitraum, in den man die Geschichte gliedert."],
+        ["Sattelzeit", "Der Übergang von einer Epoche in die nächste."],
+        ["Altsteinzeit", "Ältester und längster Abschnitt der Menschheitsgeschichte: über zwei Millionen Jahre bis etwa 10 000 / 9000 v. Chr."],
+        ["Wiege der Menschheit", "Afrika, weil sich dort die ersten Menschenarten entwickelten."],
+        ["Faustkeil", "Von allen Seiten bearbeitetes, tropfenförmiges Steingerät. Das Universalwerkzeug der Steinzeit."],
+        ["Geröllgeräte", "Die ersten, einfachen Steinwerkzeuge, etwa zum Öffnen von Nüssen."],
+        ["Rekonstruktion", "Zeichnung oder Modell, das die Vergangenheit auf Grundlage von Funden möglichst wahrheitsgetreu nachstellt."],
+        ["Gegenständliche Quelle", "Ein Überrest aus der Vergangenheit zum Anfassen: Knochen, Zähne, Steinwerkzeuge."],
+        ["Kochgrube", "Mulde im Zeltboden, mit Tierhaut ausgelegt. Heiße Steine bringen das Wasser darin zum Kochen."],
+        ["Sesshaftigkeit", "Die Menschen bleiben dauerhaft an einem Ort wohnen. Damit beginnt die Jungsteinzeit."],
+        ["Jetztzeitmensch", "Homo sapiens sapiens. Die einzige Menschenart, die es heute noch gibt."],
+        ["Beigaben", "Dinge, die man Toten mit ins Grab legte, vielleicht für die Reise in eine andere Welt."]
+      ] },
+    { id: "u13", type: "open", eyebrow: "Wie in der Klassenarbeit", title: "Schreibaufgaben mit Musterlösung",
+      intro: "Schreibe ganze Sätze. Decke danach die Musterlösung auf und hake ab, was du genannt hast.", tasks: [
+        { q: "Erkläre, warum sich das Bild vom Neandertaler seit dem 19. Jahrhundert verändert hat.",
+          pts: ["1856 gab es nur wenige Knochen und deshalb nur Vermutungen", "Früheres Bild: „Affenmensch“, brutales Monster, geistig unterlegen", "Seitdem viele neue Funde an über 1500 Orten (Knochen, Zähne, Werkzeuge)", "Moderne Technik und Genforschung liefern neues Wissen", "Heutiges Bild: uns sehr ähnlich (Sprache, Werkzeuge, Fürsorge, Bestattungen)"],
+          model: "Als 1856 die ersten Knochen gefunden wurden, gab es nur Vermutungen. Man beschrieb den Neandertaler als „Affenmenschen“ und brutales Monster, das uns geistig unterlegen war. Seitdem wurden an über 1500 Orten weitere Quellen gefunden, zum Beispiel Knochen, Zähne und Steinwerkzeuge. Mit ihnen und mit moderner Technik wie der Genforschung konnten Forscher Rückschlüsse auf sein Aussehen und seine Lebensweise ziehen. Heute wissen wir, dass er dem Jetztzeitmenschen sehr ähnlich war: Er konnte sprechen, benutzte Werkzeuge, sorgte für andere und begrub seine Toten. Jeder neue Fund kann unser Bild wieder verändern." },
+        { q: "Beurteile, inwieweit eine Rekonstruktion den Neandertaler genau darstellen kann.",
+          pts: ["Erklärt, was eine Rekonstruktion ist", "Was Funde zeigen: Größe, Körperbau, Schädelform", "Was Funde nicht zeigen: Haare, Haut, Kleidung", "Rekonstruktionen hängen vom Wissen ihrer Zeit ab (1909 und 2013)", "Eigenes Urteil: nur teilweise genau"],
+          model: "Eine Rekonstruktion ist eine Zeichnung oder ein Modell, das die Vergangenheit auf der Grundlage von Funden nachstellt. Aus den Knochen kann man Größe, Körperbau und Schädelform gut ablesen. Wie viele Haare der Neandertaler hatte oder welche Hautfarbe, verraten die Knochen aber nicht. Hier müssen die Forscher vermuten. Außerdem hängt eine Rekonstruktion vom Wissen ihrer Zeit ab: 1909 zeichnete man ihn wie einen Affen, 2013 wie einen Menschen im Anzug. Ich finde deshalb, dass eine Rekonstruktion den Neandertaler nur teilweise genau darstellen kann." },
+        { q: "Beschreibe, wie die Menschen in der Altsteinzeit lebten (Wohnen, Ernährung, Gruppe).",
+          pts: ["Kein fester Wohnsitz, sie folgten den Tierherden", "Lagerplätze an Flüssen und Seen, Zelte, Höhlen, Felsvorsprünge", "Jagen und Sammeln mit Beispielen", "Gruppe von 20 bis 30 Personen, Arbeit aufgeteilt", "Kleidung aus Fell und Leder, Werkzeuge aus Stein"],
+          model: "Die Menschen der Altsteinzeit hatten keinen festen Wohnsitz. Sie folgten den Tierherden und schlugen ihr Lager meist in der Nähe von Flüssen oder Seen auf. Zelte, Felsvorsprünge und Höhleneingänge schützten sie vor dem Wetter. Sie jagten Rentiere, Wildpferde und Mammuts und sammelten Beeren, Nüsse und Pilze. Sie lebten in Gruppen von 20 bis 30 Personen, teilten die Arbeit auf und kümmerten sich um Kinder, Verletzte und Kranke. Ihre Kleidung nähten sie aus Fell und Leder, ihre Werkzeuge stellten sie aus Stein her." },
+        { q: "Nenne Gründe, warum sich das Wissen über die Ursprünge der Menschheit immer wieder verändert.",
+          pts: ["Es werden immer wieder neue Funde gemacht", "Beispiel: Unterkiefer von Dschebel Irhoud (2017, rund 300 000 Jahre alt)", "Moderne wissenschaftliche Methoden (z. B. Genforschung)", "Neue Funde beantworten Fragen oder werfen neue auf"],
+          model: "Es werden immer wieder neue Funde gemacht, zum Beispiel ein Zahn, ein Fingerknochen oder Teile eines Schädels. 2017 fand man in Dschebel Irhoud in Marokko einen Unterkiefer, der rund 300 000 Jahre alt ist. Damit war klar, dass es den Jetztzeitmenschen 100 000 Jahre länger gibt als gedacht. Außerdem ermöglichen moderne Methoden wie die Genforschung, offene Fragen zu beantworten oder neue zu stellen." }
+      ] },
+    { id: "test", type: "test", eyebrow: "Zum Schluss", title: "Probetest",
+      intro: "15 gemischte Fragen aus allen Themen. Hier gibt es die Auflösung erst, wenn du abgibst. Jeder neue Test zieht andere Fragen." }
+  ];
+
+  /* ---------- Gerüst ---------- */
+  var main = document.getElementById("main"), nav = document.getElementById("nav");
+  var scored = EXS.filter(function (e) { return e.type !== "cards" && e.type !== "open"; });
+  var state = {};
+  EXS.forEach(function (e, i) {
+    var s = document.createElement("section");
+    s.className = "aufgabe stack"; s.id = e.id; s.setAttribute("aria-labelledby", e.id + "-h");
+    var label = e.type === "test" ? "Probetest" : "Übung " + (i + 1);
+    s.innerHTML = '<div class="head"><div class="eyebrow">' + label + " · " + esc(e.eyebrow) + '</div><span class="badge" id="' + e.id + '-b">offen</span></div>' +
+      '<h2 id="' + e.id + '-h">' + esc(e.title) + '</h2><p>' + esc(e.intro) + '</p><div class="body"></div><div class="row btns"></div><p class="fb" role="status"></p>';
+    main.appendChild(s);
+    var a = document.createElement("a"); a.href = "#" + e.id; a.id = e.id + "-n"; a.textContent = e.type === "test" ? "Test" : String(i + 1); a.title = e.title;
+    nav.appendChild(a);
+    e.el = s; e.body = s.querySelector(".body"); e.btns = s.querySelector(".btns"); e.fb = s.querySelector(".fb");
+    if (e.type === "cards" || e.type === "open") s.querySelector(".badge").hidden = true;
+  });
+  function btn(e, label, fn, ghost) {
+    var b = document.createElement("button"); b.type = "button"; b.className = "btn" + (ghost ? " ghost" : ""); b.textContent = label;
+    b.addEventListener("click", fn); e.btns.appendChild(b); return b;
+  }
+  function report(e, got, max) {
+    var full = got === max;
+    state[e.id] = full;
+    var b = document.getElementById(e.id + "-b"), n = document.getElementById(e.id + "-n");
+    b.textContent = got + " von " + max + (full ? " ✓" : ""); b.className = "badge " + (full ? "done" : "part");
+    n.className = full ? "done" : "part";
+    e.fb.className = "fb " + (full ? "ok" : "no");
+    var done = scored.filter(function (x) { return state[x.id]; }).length;
+    document.getElementById("prog").textContent = done + " von " + scored.length + " Übungen geschafft";
+    document.getElementById("track").style.width = (100 * done / scored.length) + "%";
+  }
+  document.getElementById("prog").textContent = "0 von " + scored.length + " Übungen geschafft";
+
+  /* ---------- Typ: Zuordnen ---------- */
+  function mkAssign(e) {
+    var chips = e.cats.length <= 2;
+    function build() {
+      e.fb.textContent = ""; e.fb.className = "fb";
+      var cats = idx(e.cats.length); if (!chips && !e.keep) cats.sort(function (a, b) { return e.cats[a].localeCompare(e.cats[b], "de"); });
+      e.body.innerHTML = shuffle(idx(e.items.length)).map(function (i) {
+        var it = e.items[i], ctl;
+        if (chips) ctl = '<div class="row">' + e.cats.map(function (c, k) { return '<button type="button" class="chip" aria-pressed="false" data-k="' + k + '">' + esc(c) + '</button>'; }).join("") + '</div>';
+        else ctl = '<select id="' + e.id + '-s' + i + '" aria-label="Antwort wählen"><option value="">bitte wählen</option>' + cats.map(function (k) { return '<option value="' + k + '">' + esc(e.cats[k]) + '</option>'; }).join("") + '</select>';
+        return '<div class="item" data-i="' + i + '"><span class="t">' + esc(it.t) + '</span>' + ctl + '<span class="why" hidden></span></div>';
+      }).join("");
+    }
+    function val(row) {
+      if (chips) { var p = row.querySelector('.chip[aria-pressed="true"]'); return p ? +p.dataset.k : -1; }
+      var v = row.querySelector("select").value; return v === "" ? -1 : +v;
+    }
+    e.body.addEventListener("click", function (ev) {
+      var b = ev.target.closest(".chip"); if (!b) return;
+      b.parentNode.querySelectorAll(".chip").forEach(function (c) { c.setAttribute("aria-pressed", String(c === b)); });
+    });
+    function check(solve) {
+      var ok = 0, open = 0, rows = e.body.querySelectorAll(".item");
+      rows.forEach(function (row) {
+        var it = e.items[+row.dataset.i], v = val(row), why = row.querySelector(".why");
+        row.classList.remove("ok", "no"); why.hidden = true;
+        if (v < 0 && !solve) { open++; return; }
+        if (v === it.a) { ok++; row.classList.add("ok"); }
+        else {
+          row.classList.add("no");
+          why.textContent = (solve ? "Richtig: " + e.cats[it.a] + ". " : "") + (it.why || ""); why.hidden = !why.textContent;
+        }
+      });
+      if (solve) { e.fb.className = "fb"; e.fb.textContent = "Lösungen stehen unter den roten Zeilen. Mit „Neu mischen“ kannst du es noch einmal versuchen."; return; }
+      report(e, ok, rows.length);
+      e.fb.textContent = ok === rows.length ? "Alles richtig!" : ok + " von " + rows.length + " richtig." + (open ? " " + open + " hast du noch nicht beantwortet." : " Ändere die roten Zeilen und prüfe noch einmal.");
+    }
+    btn(e, "Prüfen", function () { check(false); });
+    btn(e, "Lösung zeigen", function () { check(true); }, true);
+    btn(e, "Neu mischen", build, true);
+    build();
+  }
+
+  /* ---------- Typ: Quiz mit Sofort-Antwort ---------- */
+  function mkMc(e) {
+    var got, answered;
+    function build() {
+      got = 0; answered = 0; e.fb.textContent = ""; e.fb.className = "fb";
+      e.body.innerHTML = shuffle(idx(e.qs.length)).map(function (qi, n) {
+        var q = e.qs[qi];
+        return '<div class="q" data-q="' + qi + '"><div class="qt"><span class="n">' + (n + 1) + '.</span>' + esc(q.q) + '</div><div class="opts">' +
+          shuffle(idx(q.o.length)).map(function (oi) { return '<button type="button" class="opt" data-o="' + oi + '">' + esc(q.o[oi]) + '</button>'; }).join("") +
+          '</div><div class="why" hidden></div></div>';
+      }).join("");
+    }
+    e.body.addEventListener("click", function (ev) {
+      var b = ev.target.closest(".opt"); if (!b || b.disabled) return;
+      var box = b.closest(".q"), q = e.qs[+box.dataset.q], right = b.dataset.o === "0";
+      box.querySelectorAll(".opt").forEach(function (o) { o.disabled = true; if (o.dataset.o === "0") o.classList.add("ok"); });
+      if (!right) b.classList.add("no"); else got++;
+      answered++;
+      var why = box.querySelector(".why"); why.textContent = (right ? "Richtig. " : "Leider falsch. ") + q.why; why.hidden = false;
+      report(e, got, e.qs.length);
+      e.fb.textContent = answered < e.qs.length ? got + " richtig, noch " + (e.qs.length - answered) + " offen." : (got === e.qs.length ? "Alles richtig!" : got + " von " + e.qs.length + " richtig. Starte neu und hol dir die volle Punktzahl.");
+    });
+    btn(e, "Neu starten", build, true);
+    build();
+  }
+
+  /* ---------- Typ: Reihenfolge ---------- */
+  function mkOrder(e) {
+    var order;
+    function draw() {
+      e.body.innerHTML = order.map(function (i, p) {
+        return '<div class="ord" data-i="' + i + '"><span class="pos">' + (p + 1) + '.</span><span class="t">' + esc(e.items[i].t) + '<small hidden>' + esc(e.items[i].s || "") + '</small></span>' +
+          '<button type="button" data-d="-1" aria-label="' + esc(e.items[i].t) + ' nach oben"' + (p === 0 ? " disabled" : "") + '>↑</button>' +
+          '<button type="button" data-d="1" aria-label="' + esc(e.items[i].t) + ' nach unten"' + (p === order.length - 1 ? " disabled" : "") + '>↓</button></div>';
+      }).join("");
+    }
+    function build() {
+      do { order = shuffle(idx(e.items.length)); } while (order.every(function (v, k) { return v === k; }));
+      e.fb.textContent = ""; e.fb.className = "fb"; draw();
+    }
+    e.body.addEventListener("click", function (ev) {
+      var b = ev.target.closest("button"); if (!b) return;
+      var p = order.indexOf(+b.closest(".ord").dataset.i), t = p + (+b.dataset.d);
+      var x = order[p]; order[p] = order[t]; order[t] = x; draw();
+      var nb = e.body.children[t].querySelector('button[data-d="' + b.dataset.d + '"]');
+      if (nb.disabled) nb = e.body.children[t].querySelector("button:not(:disabled)");
+      nb.focus();
+    });
+    btn(e, "Prüfen", function () {
+      var ok = 0;
+      e.body.querySelectorAll(".ord").forEach(function (row, p) {
+        var r = +row.dataset.i === p; if (r) ok++; row.classList.add(r ? "ok" : "no");
+      });
+      report(e, ok, order.length);
+      if (ok === order.length) { e.body.querySelectorAll("small").forEach(function (s) { s.hidden = !s.textContent; }); e.fb.textContent = "Richtig geordnet! " + (e.note || ""); }
+      else e.fb.textContent = ok + " von " + order.length + " stehen am richtigen Platz. Verschiebe die roten Zeilen.";
+    });
+    btn(e, "Neu mischen", build, true);
+    build();
+  }
+
+  /* ---------- Typ: Lückentext ---------- */
+  function mkGap(e) {
+    var words = [];
+    e.text.replace(/\[\[(.+?)\]\]/g, function (_, w) { words.push(w); return ""; });
+    var bank = words.concat(e.extra || []).sort(function (a, b) { return a.localeCompare(b, "de"); });
+    function build() {
+      var n = 0; e.fb.textContent = ""; e.fb.className = "fb";
+      e.body.innerHTML = '<p class="gap">' + esc(e.text).replace(/\[\[(.+?)\]\]/g, function () {
+        var k = n++;
+        return '<select id="' + e.id + '-g' + k + '" data-k="' + k + '" aria-label="Lücke ' + (k + 1) + '"><option value="">…</option>' + bank.map(function (w) { return "<option>" + esc(w) + "</option>"; }).join("") + "</select>";
+      }) + "</p>";
+    }
+    btn(e, "Prüfen", function () {
+      var ok = 0;
+      e.body.querySelectorAll("select").forEach(function (s) {
+        s.classList.remove("ok", "no"); if (!s.value) return;
+        var r = s.value === words[+s.dataset.k]; if (r) ok++; s.classList.add(r ? "ok" : "no");
+      });
+      report(e, ok, words.length);
+      e.fb.textContent = ok === words.length ? "Alle Lücken richtig gefüllt!" : ok + " von " + words.length + " richtig. Ändere die roten und die leeren Lücken.";
+    });
+    btn(e, "Lösung zeigen", function () {
+      e.body.querySelectorAll("select").forEach(function (s) { s.value = words[+s.dataset.k]; s.classList.remove("no"); s.classList.add("ok"); });
+      e.fb.className = "fb"; e.fb.textContent = "So lautet der vollständige Text.";
+    }, true);
+    btn(e, "Leeren", build, true);
+    build();
+  }
+
+  /* ---------- Typ: Karteikarten ---------- */
+  function mkCards(e) {
+    e.body.className = "cards";
+    e.body.innerHTML = e.cards.map(function (c, i) {
+      return '<button type="button" class="card" aria-pressed="false" data-i="' + i + '"><b>' + esc(c[0]) + '</b><span hidden>' + esc(c[1]) + '</span><em>antippen</em></button>';
+    }).join("");
+    e.body.addEventListener("click", function (ev) {
+      var b = ev.target.closest(".card"); if (!b) return;
+      var on = b.getAttribute("aria-pressed") !== "true";
+      b.setAttribute("aria-pressed", String(on)); b.querySelector("span").hidden = !on; b.querySelector("em").textContent = on ? "zudecken" : "antippen";
+    });
+    btn(e, "Alle zudecken", function () {
+      e.body.querySelectorAll(".card").forEach(function (b) { b.setAttribute("aria-pressed", "false"); b.querySelector("span").hidden = true; b.querySelector("em").textContent = "antippen"; });
+    }, true);
+  }
+
+  /* ---------- Typ: Schreibaufgaben ---------- */
+  function mkOpen(e) {
+    e.body.innerHTML = e.tasks.map(function (t, i) {
+      var id = e.id + "-t" + i;
+      return '<div class="open"><h3><label for="' + id + '">' + (i + 1) + ". " + esc(t.q) + '</label></h3><textarea id="' + id + '" placeholder="Deine Antwort in ganzen Sätzen"></textarea>' +
+        '<div class="row"><button type="button" class="btn ghost" data-m="' + i + '" aria-expanded="false">Musterlösung zeigen</button></div>' +
+        '<div class="model" id="' + id + '-m" hidden><b>Habe ich das genannt?</b>' + t.pts.map(function (p, k) { return '<label><input type="checkbox" id="' + id + "-c" + k + '"><span>' + esc(p) + "</span></label>"; }).join("") +
+        "<b>Musterlösung</b><p>" + esc(t.model) + "</p></div></div>";
+    }).join("");
+    e.tasks.forEach(function (_, i) {
+      var ta = document.getElementById(e.id + "-t" + i), v = load("stz-" + i);
+      if (v) ta.value = v;
+      ta.addEventListener("input", function () { store("stz-" + i, ta.value); });
+    });
+    e.body.addEventListener("click", function (ev) {
+      var b = ev.target.closest("button[data-m]"); if (!b) return;
+      var m = document.getElementById(e.id + "-t" + b.dataset.m + "-m"); m.hidden = !m.hidden;
+      b.textContent = m.hidden ? "Musterlösung zeigen" : "Musterlösung verbergen"; b.setAttribute("aria-expanded", String(!m.hidden));
+    });
+  }
+
+  /* ---------- Probetest ---------- */
+  function mkTest(e) {
+    var pool = [];
+    [Q_STEIN, Q_AUSBR, Q_ALLTAG].forEach(function (qs) { qs.forEach(function (q) { pool.push(q); }); });
+    WF_NEAN.forEach(function (w) { pool.push({ q: "Stimmt das? " + w.t, o: w.a === 0 ? WF : [WF[1], WF[0]], fix: true, why: w.why || "Die Aussage stimmt." }); });
+    pool.push({ q: "Wie nennt man den Übergang von einer Epoche in die nächste?", o: ["Sattelzeit", "Eiszeit", "Neuzeit", "Wendezeit"], why: "So steht es in deinem Heft." });
+    pool.push({ q: "Welche Reihenfolge der Großepochen ist richtig?", o: ["Ur- und Frühgeschichte, Antike, Mittelalter, Neuzeit", "Antike, Ur- und Frühgeschichte, Mittelalter, Neuzeit", "Ur- und Frühgeschichte, Mittelalter, Antike, Neuzeit", "Mittelalter, Antike, Neuzeit, Ur- und Frühgeschichte"], why: "Die Antike heißt auch Altertum." });
+    pool.push({ q: "Welche Menschenart heißt wissenschaftlich „Homo erectus“?", o: ["Urmensch", "Vormensch", "Frühmensch", "Jetztzeitmensch"], why: "Der Urmensch nutzte bereits das Feuer." });
+    pool.push({ q: "Welches Tier fraß täglich etwa 200 Kilogramm Gras und Blätter?", o: ["Mammut", "Höhlenbär", "Rentier", "Wollnashorn"], why: "Ein Mammut wurde bis zu 6000 Kilogramm schwer." });
+    pool.push({ q: "Woraus waren die Flöten, die man vom Ende der letzten Eiszeit gefunden hat?", o: ["Aus Schwanenknochen", "Aus Mammutelfenbein", "Aus Holz", "Aus Feuerstein"], why: "Die Knochen sind innen hohl." });
+    pool.push({ q: "Was fand man im Doppelgrab von Bonn-Oberkassel neben den Menschen?", o: ["Das Skelett eines Hundes", "Einen Faustkeil aus Gold", "Eine Höhlenmalerei", "Ein Mammut"], why: "Auf den Knochen lag außerdem roter Hämatit-Farbstoff." });
+    pool.push({ q: "Was ist eine Rekonstruktion?", o: ["Ein Modell oder eine Zeichnung, die Vergangenes nach Funden nachstellt", "Ein echter Knochen aus der Steinzeit", "Ein Foto aus der Altsteinzeit", "Eine erfundene Geschichte"], why: "Sie soll so wahrheitsgetreu wie möglich sein, beruht aber teilweise auf Vermutungen." });
+    var N = 15, set, sent;
+    var res = document.createElement("div"); res.className = "result"; res.hidden = true; e.el.insertBefore(res, e.btns);
+    function build() {
+      sent = false; res.hidden = true; e.fb.textContent = ""; e.fb.className = "fb";
+      set = shuffle(idx(pool.length)).slice(0, N);
+      e.body.innerHTML = set.map(function (qi, n) {
+        var q = pool[qi], os = q.fix ? [q.o.indexOf("Stimmt"), q.o.indexOf("Stimmt nicht")] : shuffle(idx(q.o.length));
+        return '<div class="q" data-q="' + qi + '"><div class="qt"><span class="n">' + (n + 1) + '.</span>' + esc(q.q) + '</div><div class="opts">' +
+          os.map(function (oi) { return '<button type="button" class="opt" aria-pressed="false" data-o="' + oi + '">' + esc(q.o[oi]) + '</button>'; }).join("") +
+          '</div><div class="why" hidden></div></div>';
+      }).join("");
+    }
+    e.body.addEventListener("click", function (ev) {
+      var b = ev.target.closest(".opt"); if (!b || sent) return;
+      b.parentNode.querySelectorAll(".opt").forEach(function (o) { o.setAttribute("aria-pressed", String(o === b)); });
+    });
+    btn(e, "Test abgeben", function () {
+      if (sent) return;
+      var boxes = e.body.querySelectorAll(".q"), open = 0;
+      boxes.forEach(function (b) { if (!b.querySelector('.opt[aria-pressed="true"]')) open++; });
+      if (open) { e.fb.className = "fb no"; e.fb.textContent = "Du hast noch " + open + (open === 1 ? " Frage" : " Fragen") + " offen. Beantworte erst alle."; return; }
+      sent = true; var got = 0;
+      boxes.forEach(function (b) {
+        var q = pool[+b.dataset.q], sel = b.querySelector('.opt[aria-pressed="true"]'), right = sel.dataset.o === "0";
+        b.querySelectorAll(".opt").forEach(function (o) { o.disabled = true; if (o.dataset.o === "0") o.classList.add("ok"); });
+        if (right) got++; else sel.classList.add("no");
+        var why = b.querySelector(".why"); why.textContent = (right ? "Richtig. " : "Falsch. ") + q.why; why.hidden = false;
+      });
+      var pct = Math.round(100 * got / N), note = pct >= 92 ? 1 : pct >= 81 ? 2 : pct >= 67 ? 3 : pct >= 50 ? 4 : pct >= 30 ? 5 : 6;
+      res.innerHTML = '<span class="big">' + got + " / " + N + '</span><span><b>' + pct + ' %</b> · das wäre ungefähr eine <b>Note ' + note + '</b></span>';
+      res.hidden = false;
+      report(e, got, N);
+      e.fb.textContent = got === N ? "Volle Punktzahl. Du bist bereit für den Test!" : "Schau dir die roten Antworten an, lies im Spickzettel nach und starte einen neuen Test.";
+      res.scrollIntoView({ block: "center" });
+    });
+    btn(e, "Neuer Test", function () { build(); e.el.scrollIntoView(); }, true);
+    build();
+  }
+
+  var MK = { assign: mkAssign, mc: mkMc, order: mkOrder, gap: mkGap, cards: mkCards, open: mkOpen, test: mkTest };
+  EXS.forEach(function (e) { MK[e.type](e); });
+})();
+</script>
