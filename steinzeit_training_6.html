@@ -1,7 +1,7 @@
 <title>Steinzeit-Training 6</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
 /* Layout: Grabungsprotokoll auf Schiefer – eine Lesespalte, oben Fortschrittsleiste, jede Übung ein "Fundstück" mit Nummer; Farben aus den Pigmenten der Höhlenmalerei (Holzkohle, Ocker, Hämatit) */
 :root {
@@ -18,7 +18,7 @@
   --moos-soft: #dff1e5;
   --hl: #ffe9a3;
   --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --f-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
   --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 @media (prefers-color-scheme: dark) {
@@ -78,6 +78,9 @@ header.top { padding-top: 28px; }
 .scale-lab span:last-child { text-align: right; color: var(--haem); }
 
 /* Spickzettel */
+.kern { background: var(--ocker-soft); border: 1px solid var(--ocker); padding: 16px 18px; }
+.kern ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 8px; max-width: 68ch; }
+.kern li::marker { font-family: var(--f-mono); color: var(--ocker); font-weight: 600; }
 details { background: var(--card); border: 1px solid var(--line); }
 details + details { border-top: 0; }
 summary { cursor: pointer; padding: 12px 14px; font-family: var(--f-display); font-weight: 700; }
@@ -176,8 +179,22 @@ textarea { width: 100%; min-height: 130px; background: var(--card); border: 1.5p
 
 <section class="stack" aria-labelledby="spick-h">
   <div class="eyebrow">Zum Nachschlagen</div>
-  <h2 id="spick-h">Spickzettel</h2>
-  <p class="muted">Lies zuerst, was du nicht mehr sicher weißt. Beim Probetest bleibt der Spickzettel zu.</p>
+  <h2 id="spick-h">Das Wichtigste in 10 Sätzen</h2>
+  <div class="kern">
+    <ol>
+      <li><b>Epochen:</b> Ur- und Frühgeschichte → Antike (Altertum) → Mittelalter → Neuzeit. Der Übergang zwischen zwei Epochen heißt <mark>Sattelzeit</mark>.</li>
+      <li><b>Steinzeit:</b> beginnt vor etwa <mark>2,5 Millionen Jahren</mark> in Afrika. Der Name kommt vom Stein, aus dem Werkzeuge und Waffen gemacht wurden.</li>
+      <li><b>Altsteinzeit</b> (bis etwa 10 000 v. Chr.): Jäger und Sammler ohne festen Wohnsitz. <b>Jungsteinzeit:</b> Die Menschen werden sesshaft. Ab etwa 2000 v. Chr. folgt die Bronzezeit.</li>
+      <li><b>Faustkeil:</b> tropfenförmiges Universalwerkzeug, am besten aus <mark>Feuerstein</mark>.</li>
+      <li><b>Afrika</b> ist die <mark>„Wiege der Menschheit“</mark>. Stufen: Vormensch → Frühmensch → Urmensch (nutzt das Feuer) → Neandertaler und Jetztzeitmensch.</li>
+      <li>Mehrere Menschenarten lebten <b>gleichzeitig</b> und vermischten sich. Heute gibt es nur noch den <b>Jetztzeitmenschen</b> (Homo sapiens sapiens).</li>
+      <li>Der <b>Jetztzeitmensch</b> entstand vor etwa 300 000 Jahren in Afrika und besiedelte als Einziger die ganze Erde: Europa, Asien, Australien, über die Beringstraße nach Amerika.</li>
+      <li><b>Neandertaler:</b> 1856 bei Düsseldorf entdeckt. Früher hielt man ihn für einen „Affenmenschen“, heute weiß man: Er war uns sehr ähnlich. Vor 40 000 Jahren ausgestorben, der Grund ist ungeklärt.</li>
+      <li><b>Neue Funde</b> und moderne Technik verändern unser Wissen. Eine <mark>Rekonstruktion</mark> stellt die Vergangenheit nach Funden nach, beruht aber teilweise auf Vermutungen.</li>
+      <li><b>Leben in der Altsteinzeit:</b> Eiszeit, Gruppen von 20 bis 30 Personen, Zelte und Höhlen nahe am Wasser, Jagen und Sammeln, Kleidung aus Fell und Leder, Höhlenmalereien und Bestattungen.</li>
+    </ol>
+  </div>
+  <p class="muted">Mehr Einzelheiten zum Aufklappen:</p>
   <div>
     <details>
       <summary>Epochen und Steinzeit</summary>
